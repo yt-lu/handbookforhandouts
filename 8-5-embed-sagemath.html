@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8.5 Embed SageMath | Handbook for Handouts</title>
+  <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8.5 Embed SageMath | Handbook for Handouts" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This album is a collection of examples for undergraduate math classes." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8.5 Embed SageMath | Handbook for Handouts" />
+  
+  <meta name="twitter:description" content="This album is a collection of examples for undergraduate math classes." />
+  
+
+<meta name="author" content="Yuanting Lu" />
+
+
+<meta name="date" content="2020-06-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="8-4-embed-a-web-app.html"/>
+<link rel="next" href="8-6-animations.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Handbook for Handouts</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>I LaTex</b></span></li>
+<li class="chapter" data-level="1" data-path="1-latex-with-tikz-2d.html"><a href="1-latex-with-tikz-2d.html"><i class="fa fa-check"></i><b>1</b> LaTex with Tikz (2D)</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-1-plots.html"><a href="1-1-plots.html"><i class="fa fa-check"></i><b>1.1</b> Plots</a></li>
+<li class="chapter" data-level="1.2" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html"><i class="fa fa-check"></i><b>1.2</b> Shade an Area</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-latex-with-tikz-3d.html"><a href="2-latex-with-tikz-3d.html"><i class="fa fa-check"></i><b>2</b> LaTex with Tikz (3D)</a></li>
+<li class="chapter" data-level="3" data-path="3-latex-with-sagemath.html"><a href="3-latex-with-sagemath.html"><i class="fa fa-check"></i><b>3</b> LaTeX with SageMath</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-1-installation-on-mac-os.html"><a href="3-1-installation-on-mac-os.html"><i class="fa fa-check"></i><b>3.1</b> Installation on Mac OS</a></li>
+<li class="chapter" data-level="3.2" data-path="3-2-basic-examples.html"><a href="3-2-basic-examples.html"><i class="fa fa-check"></i><b>3.2</b> Basic Examples</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-2-basic-examples.html"><a href="3-2-basic-examples.html#inline-commands"><i class="fa fa-check"></i><b>3.2.1</b> Inline Commands</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-2-basic-examples.html"><a href="3-2-basic-examples.html#blocks"><i class="fa fa-check"></i><b>3.2.2</b> Blocks</a></li>
+<li class="chapter" data-level="3.2.3" data-path="3-2-basic-examples.html"><a href="3-2-basic-examples.html#graphics"><i class="fa fa-check"></i><b>3.2.3</b> Graphics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-jeopardy-game.html"><a href="4-jeopardy-game.html"><i class="fa fa-check"></i><b>4</b> Jeopardy Game</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-1-download-and-edit-template.html"><a href="4-1-download-and-edit-template.html"><i class="fa fa-check"></i><b>4.1</b> Download and Edit Template</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="4-1-download-and-edit-template.html"><a href="4-1-download-and-edit-template.html#design-the-homepage-in-the-macros"><i class="fa fa-check"></i><b>4.1.1</b> Design the Homepage (In the Macros)</a></li>
+<li class="chapter" data-level="4.1.2" data-path="4-1-download-and-edit-template.html"><a href="4-1-download-and-edit-template.html#edit-the-homepage-in-the-document"><i class="fa fa-check"></i><b>4.1.2</b> Edit the homepage (In the Document)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="4-1-download-and-edit-template.html"><a href="4-1-download-and-edit-template.html#design-the-questionanswer-pages-in-the-macros"><i class="fa fa-check"></i><b>4.1.3</b> Design the Question/Answer Pages (In the Macros)</a></li>
+<li class="chapter" data-level="4.1.4" data-path="4-1-download-and-edit-template.html"><a href="4-1-download-and-edit-template.html#edit-the-questionanswer-pages-in-the-document"><i class="fa fa-check"></i><b>4.1.4</b> Edit the Question/Answer Pages (In the Document)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="4-2-optionalexplanations-of-the-template-.html"><a href="4-2-optionalexplanations-of-the-template-.html"><i class="fa fa-check"></i><b>4.2</b> (Optional)Explanations of the Template.</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="4-2-optionalexplanations-of-the-template-.html"><a href="4-2-optionalexplanations-of-the-template-.html#load-packages"><i class="fa fa-check"></i><b>4.2.1</b> Load Packages</a></li>
+<li class="chapter" data-level="4.2.2" data-path="4-2-optionalexplanations-of-the-template-.html"><a href="4-2-optionalexplanations-of-the-template-.html#colorboxes."><i class="fa fa-check"></i><b>4.2.2</b> Colorboxes.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="4-2-optionalexplanations-of-the-template-.html"><a href="4-2-optionalexplanations-of-the-template-.html#new-commands"><i class="fa fa-check"></i><b>4.2.3</b> New Commands</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-latex-with-tikz-3d-1.html"><a href="5-latex-with-tikz-3d-1.html"><i class="fa fa-check"></i><b>5</b> LaTex with Tikz (3D)</a></li>
+<li class="part"><span><b>II R Markdown</b></span></li>
+<li class="chapter" data-level="6" data-path="6-intro-to-r-markdown.html"><a href="6-intro-to-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Intro to R Markdown</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-1-what-is-r-markdown.html"><a href="6-1-what-is-r-markdown.html"><i class="fa fa-check"></i><b>6.1</b> What is R Markdown?</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-r-markdown-installation.html"><a href="6-2-r-markdown-installation.html"><i class="fa fa-check"></i><b>6.2</b> R Markdown Installation</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-r-markdown-tutorials.html"><a href="6-3-r-markdown-tutorials.html"><i class="fa fa-check"></i><b>6.3</b> R Markdown Tutorials</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-r-markdown-pdf-handouts.html"><a href="7-r-markdown-pdf-handouts.html"><i class="fa fa-check"></i><b>7</b> R Markdown PDF Handouts</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-1-syntax-comparison-with-latex.html"><a href="7-1-syntax-comparison-with-latex.html"><i class="fa fa-check"></i><b>7.1</b> Syntax Comparison with LaTeX</a></li>
+<li class="chapter" data-level="7.2" data-path="7-2-loading-latex-packages-in-r-markdown.html"><a href="7-2-loading-latex-packages-in-r-markdown.html"><i class="fa fa-check"></i><b>7.2</b> Loading LaTeX Packages in R Markdown</a></li>
+<li class="chapter" data-level="7.3" data-path="7-3-the-desolve-package-for-differential-equations.html"><a href="7-3-the-desolve-package-for-differential-equations.html"><i class="fa fa-check"></i><b>7.3</b> The DeSolve Package for Differential Equations</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-r-markdown-html-handouts.html"><a href="8-r-markdown-html-handouts.html"><i class="fa fa-check"></i><b>8</b> R Markdown HTML Handouts</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-1-embed-a-static-file.html"><a href="8-1-embed-a-static-file.html"><i class="fa fa-check"></i><b>8.1</b> Embed a Static File</a></li>
+<li class="chapter" data-level="8.2" data-path="8-2-embed-a-video.html"><a href="8-2-embed-a-video.html"><i class="fa fa-check"></i><b>8.2</b> Embed a Video</a></li>
+<li class="chapter" data-level="8.3" data-path="8-3-embed-web-page.html"><a href="8-3-embed-web-page.html"><i class="fa fa-check"></i><b>8.3</b> Embed a Web Page</a></li>
+<li class="chapter" data-level="8.4" data-path="8-4-embed-a-web-app.html"><a href="8-4-embed-a-web-app.html"><i class="fa fa-check"></i><b>8.4</b> Embed a Web App</a></li>
+<li class="chapter" data-level="8.5" data-path="8-5-embed-sagemath.html"><a href="8-5-embed-sagemath.html"><i class="fa fa-check"></i><b>8.5</b> Embed SageMath</a></li>
+<li class="chapter" data-level="8.6" data-path="8-6-animations.html"><a href="8-6-animations.html"><i class="fa fa-check"></i><b>8.6</b> Animations</a></li>
+<li class="chapter" data-level="8.7" data-path="8-7-use-tabs.html"><a href="8-7-use-tabs.html"><i class="fa fa-check"></i><b>8.7</b> Use Tabs</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-latex-additional-examples.html"><a href="A-latex-additional-examples.html"><i class="fa fa-check"></i><b>A</b> LaTeX: Additional Examples</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-1-jeopardy.html"><a href="A-1-jeopardy.html"><i class="fa fa-check"></i><b>A.1</b> Jeopardy Template</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="B-r-markdown-additional-examples.html"><a href="B-r-markdown-additional-examples.html"><i class="fa fa-check"></i><b>B</b> R Markdown: Additional Examples</a><ul>
+<li class="chapter" data-level="B.1" data-path="B-1-embed-web-page-rescale.html"><a href="B-1-embed-web-page-rescale.html"><i class="fa fa-check"></i><b>B.1</b> Embed a Web Page: Rescale the Contents</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Handbook for Handouts</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="embed-sagemath" class="section level2">
+<h2><span class="header-section-number">8.5</span> Embed SageMath</h2>
+<p>R Markdown does not support SageMath. So, we actually embed SageMath in HTML,<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> which is supported by R Markdown. SageMath is an open source program with</p>
+<ul>
+<li>Powerful symbolic calculation.</li>
+<li>Simple syntax that draws pretty 3D interactive graphs.</li>
+<li>Interactive component for building widgets.</li>
+</ul>
+<p>Plus, there is a free server called <a href="https://sagecell.sagemath.org/" target="_blank"><strong>SageMathCells</strong></a> that can render all the calculations online with reasonable speed. Let’s see how to take the advantage of all these three aspects.</p>
+<ol style="list-style-type: decimal">
+<li>Create a blank sageHeader.html file, then paste the following HTML codes and save the file<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a><a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. The purposes of the codes are</li>
+</ol>
+<ul>
+<li>Send all interactive calcuation to the SageMathCells server.</li>
+<li>Defines two HTML classes:
+<ul>
+<li>The class <strong>sage_all</strong> has a Sage code editor, an evaluation button and the output panel.</li>
+<li>The class <strong>sage_simple</strong> only displays the result panel.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="op">&lt;!</span>DOCTYPE HTML<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="er">&lt;</span>html<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="st">  </span><span class="er">&lt;</span>head<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="st">    </span><span class="er">&lt;</span>meta charset=<span class="st">&quot;utf-8&quot;</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb30-5" data-line-number="5"><span class="st">    </span><span class="er">&lt;</span>meta name=<span class="st">&quot;viewport&quot;</span> content=<span class="st">&quot;width=device-width&quot;</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"><span class="st">    </span><span class="er">&lt;</span>script src=<span class="st">&quot;https://sagecell.sagemath.org/static/embedded_sagecell.js&quot;</span><span class="op">&gt;</span><span class="er">&lt;/</span>script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb30-7" data-line-number="7"><span class="st">    </span><span class="er">&lt;</span>script<span class="op">&gt;</span><span class="er">$</span>(<span class="cf">function</span> () {</a>
+<a class="sourceLine" id="cb30-8" data-line-number="8">    <span class="kw">sagecell.makeSagecell</span>({inputLocation<span class="op">:</span><span class="st"> &#39;div.sage_all&#39;</span>,</a>
+<a class="sourceLine" id="cb30-9" data-line-number="9">                                  linked<span class="op">:</span><span class="st"> &#39;false&#39;</span>,</a>
+<a class="sourceLine" id="cb30-10" data-line-number="10">                                autoeval<span class="op">:</span><span class="st"> &#39;false&#39;</span>,</a>
+<a class="sourceLine" id="cb30-11" data-line-number="11">                          evalButtonText<span class="op">:</span><span class="st"> &#39;Evaluate&#39;</span>});</a>
+<a class="sourceLine" id="cb30-12" data-line-number="12">    <span class="kw">sagecell.makeSagecell</span>({inputLocation<span class="op">:</span><span class="st">  &#39;div.sage_simple&#39;</span>,</a>
+<a class="sourceLine" id="cb30-13" data-line-number="13">                                      autoeval<span class="op">:</span><span class="st"> &#39;true&#39;</span>,</a>
+<a class="sourceLine" id="cb30-14" data-line-number="14">                                          hide<span class="op">:</span><span class="st"> </span>[<span class="st">&#39;editor&#39;</span>,<span class="st">&#39;evalButton&#39;</span>, <span class="st">&#39;permalink&#39;</span>]});</a>
+<a class="sourceLine" id="cb30-15" data-line-number="15">    });</a>
+<a class="sourceLine" id="cb30-16" data-line-number="16">    <span class="op">&lt;</span><span class="er">/</span>script<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb30-17" data-line-number="17"><span class="st">  </span><span class="er">&lt;/</span>head<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb30-18" data-line-number="18"><span class="er">&lt;/</span>html<span class="op">&gt;</span></a></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Create a R Markdown file and Source the sageHeader.html file in a R chunk using the <strong>htmltools</strong> package. Suppose the R Markdown file and the html file are in the same folder:
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    sagecell.makeSagecell({inputLocation: 'div.sage_all',
+                           linked: 'false',
+                           autoeval: 'false',
+                           evalButtonText: 'Evaluate'});
+    sagecell.makeSagecell({inputLocation:  'div.sage_simple',
+			   autoeval: 'true',
+			   hide: ['editor','evalButton', 'permalink']
+                           });
+    });
+    </script>
+  </head>
+</html></li>
+</ol>
+<pre><code>```{r eval=TRUE, echo=FALSE} 
+htmltools::includeHTML(&quot;sageHeader.html&quot;) 
+```</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>If we’d like the audience to type/modify the Sage codes, use the <strong>sage_all</strong> class. Insert the following code chunk in R Markdown to output a Sage editor and an evaluation buttonin. (There is a button in the far right of the editor, which makes the editor full screen for easy editing.)</li>
+</ol>
+<pre><code>```{block, type=&quot;sage_all&quot;} 
+&lt;script type=&quot;text/x-sage&quot;&gt;
+diff(sin(x)^2, x)
+&lt;/script&gt;
+```</code></pre>
+Then it shows the derivative of <span class="math inline">\(\sin^2(x)\)</span> from the code chunk we typed in. Next, we can modify the editor and evaluate the modified codes.
+<div class="sage_all">
+<script type="text/x-sage">
+diff(sin(x)^2, x)
+</script>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>If we only want to display a dynamic output (e.g., a 3D graph),, use the <strong>sage_simple</strong> class. The following HTML codes in the R Markdown document will only display a hypobolic paraboloid. (It may take a while for the 3D image to show up. Refresh the browser might help.)</li>
+</ol>
+<pre><code>```{block, type=&quot;sage_simple&quot;} 
+&lt;script type=&quot;text/x-sage&quot;&gt;
+# Declare variables
+var(&#39;u,v&#39;) 
+
+# Choose the jet colormap. 
+color_map = colormaps.jet 
+
+# c is the color function, whose range must be normalized (converted to between 0 and 1). 
+def c(u,v): return ((u^2-v^2)+1)/2 
+
+# 3d plot and settings
+surf = parametric_plot3d( [u, v, u^2-v^2], (u, -1, 1), (v, -1, 1), color = (c, color_map)) 
+show(surf, viewer=&#39;threejs&#39;, frame=False) 
+&lt;/script&gt;
+```</code></pre>
+
+<div class="sage_simple">
+<script type="text/x-sage">
+var('u,v'); color_map = colormaps.jet          
+def c(u,v): return ((u^2-v^2)+1)/2 
+surf = parametric_plot3d( [u, v, u^2-v^2], (u, -1, 1), (v, -1, 1), color = (c, color_map))
+show(surf, viewer='threejs', frame=False)
+</script>
+</div>
+
+<ol start="5" style="list-style-type: decimal">
+<li>Finally, don’t forget the wonderful interactive components of Sage.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> Below is an example of volume by revolution (cylindrical shells).
+<div class="sage_simple"><script type="text/x-sage">
+
+from sage.plot.plot3d.shapes import *; 
+var('x', 'y', 'z', 'u', 'v','w', 't', 's'); 
+pretty_print(html('<h2><font face="Comic Sans MS">Volume by Revolution: Cylindrical Shells</font></h2>'))
+
+def draw_washer(r, R, ax, h, c, o):
+        w = point3d((0,0,0),size=5,color='white') # Show the origin
+        if r < R:
+            w += parametric_plot3d([u*sin(v), ax + u*cos(v), 0], (u, r, R), (v, 0, 2 * pi), color = c, opacity = o) # BOTTOM
+            w += parametric_plot3d([u*sin(v), ax + u*cos(v), h], (u, r, R), (v, 0, 2 * pi), color = c, opacity = o) # TOP
+            w += parametric_plot3d([R * sin(v), ax + R * cos(v), h * t], (t, 0, 1), (v, 0, 2 * pi), color = c, opacity = o) # OUTSIDE
+            w += parametric_plot3d([r * sin(v), ax + r * cos(v), h * t], (t, 0, 1), (v, 0, 2 * pi), color = c, opacity = o) # INSIDE
+        return w
+@interact(layout = [['rotation']]) 
+def _(rotation = selector(['|','--'], label=r'$Axis\ of\ Rotation$', buttons=True)):
+    cc = ['#FB3535', '#FDA819', '#67B497','#FAE7A8', '#3B3028']
+    if rotation == '|':
+        @interact(layout = [['axisR'], ['y1', 'y2', 'xint', 'space'], ['showVolume','showShells', 'blankx1', 'blankx2'], ['n', 'xstar', 'blankx3', 'blankx4']])
+        def _(axisR = input_box(0, width=3, label=r'$Axis\ of\ rotation: x=$'),
+              y1 = input_box(x, width=20, label=r'$y_1=$'), 
+              y2 = input_box(sqrt(x), width=20, label=r'$y_2=$'),
+              xint = input_box((0, 1), width=10, label=r'$x:$'),
+              xstar = selector(['Arbitrary', 'Lower endpoint', 'Upper endpoint', 'Midpoint'], label=r'$x^*$'),
+              n = input_box(5, width=3, label=r'$n$'),
+              showVolume = (r'$Volume$', True),
+              showShells = (r'$Shells$', False)):
+            (a, b) = xint
+            dx = (b - a) / n
+            y1 = y1 + 0 * x # avoid error when the integrand is a constant.
+            y2 = y2 + 0 * x # avoid error when the integrand is a constant.
+            y1 = y1.function(x)
+            y2 = y2.function(x)
+            curves = parametric_plot3d([0, x, y1(x)], (x, a, b), radius=0.01, color='red')
+            curves += parametric_plot3d([0, x, y2(x)], (x, a, b), radius=0.01, color='blue')
+            bb = curves.bounding_box()
+            (xmin, xmax, ymin, ymax) = [bb[0][1], bb[1][1], bb[0][2], bb[1][2]]
+            p = line3d([(0, axisR, ymin - (ymax - ymin) / 2), (0, axisR, ymax + (ymax - ymin) / 2)], radius=0.001, color='black') # rotation axis
+            p += arrow3d((0, 0, min(0, ymin)), (0, 0, 1.1 * max(abs(ymin), abs(ymax))), radius=0.005, color='black') # y-axis
+            p += arrow3d((0, min(0, xmin), 0), (0, 1.1 * max(abs(xmin), abs(xmax)), 0), radius=0.005, color='black') # x-axis
+            if showVolume == True:
+                p += parametric_plot3d([abs(u - axisR) * cos(v), axisR + abs(u - axisR) * sin(v), y1(u)], (u, a, b), (v, 0, 2*pi), color='#ABB2B9', opacity=0.8) # surface 1
+                p += parametric_plot3d([abs(u - axisR) * cos(v), axisR + abs(u - axisR) * sin(v), y2(u)], (u, a, b), (v, 0, 2*pi), color='#ABB2B9', opacity=0.8) # surface 2
+                if y1(b) != y2(b):
+                    p += parametric_plot3d([abs(b - axisR) * cos(v), axisR + abs(b - axisR) * sin(v), min(y1(b), y2(b)) + t * (max(y1(b), y2(b)) - min(y1(b), y2(b)))], (t, 0, 1), (v, 0, 2*pi), color='#ABB2B9', opacity=0.8) # outside
+                if y1(a) != y2(a):
+                    p += parametric_plot3d([abs(a - axisR) * cos(v), axisR + abs(a - axisR) * sin(v), min(y1(a), y2(a)) + t * (max(y1(a), y2(a)) - min(y1(a), y2(a)))], (t, 0, 1), (v, 0, 2*pi), color='#ABB2B9', opacity=0.8) # inside
+            if showShells == True:
+                if xstar == 'Lower endpoint':
+                    xx = [a + dx * i for i in range(n)]   
+                elif xstar == 'Upper endpoint':
+                    xx = [a + dx * (i + 1) for i in range(n)] 
+                elif xstar == 'Midpoint':
+                    xx = [a + dx * (i + 1/2) for i in range(n)]
+                else:
+                    xx = [a + dx * (i + random()) for i in range(n)]
+                p += sum(draw_washer( abs(a - axisR) + i * dx, abs(a - axisR) + (i + 1) * dx, axisR, abs(y1(xx[i]) - y2(xx[i])), cc[mod(i, 5)], 0.8).translate(0, 0, min(y1(xx[i]), y2(xx[i]))) for i in range(n))
+                if n <= 5:
+                    p += sum(line3d([(0, xx[i], y1(xx[i])),(0, xx[i], y2(xx[i]))], radius=0.005, color='black') for i in range(n))
+            show(p + curves, frame = False, viewer = 'threejs', aspect_ratio = 1)
+    elif rotation == '--':
+        @interact(layout = [['axisR'], ['x1', 'x2', 'yint', 'space'], ['showVolume','showShells', 'blanky1', 'blanky2'], ['n', 'ystar', 'blanky3', 'blanky4']])
+        def _(axisR = input_box(0, width=3, label=r'$Axis\ of\ rotation: y=$'),
+              x1 = input_box(y, width=20, label=r'$x_1=$'), 
+              x2 = input_box(y^2, width=20, label=r'$x_2=$'),
+              yint = input_box((0, 2), width=10, label=r'$y:$'),
+              ystar = selector(['Arbitrary', 'Lower endpoint', 'Upper endpoint', 'Midpoint'], label=r'$y^*$'),
+              n = input_box(5, width=3, label=r'$n$'),
+              showVolume = (r'$Volume$', True),
+              showShells = (r'$Shells$', False)):
+            (a, b) = yint
+            dy = (b - a) / n
+            x1 = x1 + 0 * y # avoid error when the integrand is a constant.
+            x2 = x2 + 0 * y # avoid error when the integrand is a constant.
+            x1 = x1.function(y)
+            x2 = x2.function(y)
+            curves = parametric_plot3d([0, x1(y), y], (y, a, b), radius=0.01, color='red')
+            curves += parametric_plot3d([0, x2(y), y], (y, a, b), radius=0.01, color='blue')
+            bb = curves.bounding_box()
+            (xmin, xmax, ymin, ymax) = [bb[0][1], bb[1][1], bb[0][2], bb[1][2]]
+            p = line3d([(0, xmin - (xmax - xmin) / 2, axisR), (0, xmax + (xmax - xmin) / 2, axisR)], radius=0.001, color='black') # rotation axis
+            p += arrow3d((0, min(0, xmin), 0), (0, 1.1 * max(abs(xmin), abs(xmax)), 0), radius=0.005, color='black') # x-axis
+            p += arrow3d((0, 0, min(0, ymin)), (0, 0, 1.1 * max(abs(ymin), abs(ymax))), radius=0.005, color='black') # y-axis
+            if showVolume == True:
+                p += parametric_plot3d([abs(u - axisR) * cos(v), x1(u), axisR + abs(u - axisR) * sin(v)], (u, a, b), (v, 0, 2*pi), color='#ABB2B9', opacity=0.8) # surface 1
+                p += parametric_plot3d([abs(u - axisR) * cos(v), x2(u), axisR + abs(u - axisR) * sin(v)], (u, a, b), (v, 0, 2*pi), color='#ABB2B9', opacity=0.8) # surface 2
+                if x1(b) != x2(b):
+                    p += parametric_plot3d([abs(b - axisR) * cos(v), min(x1(b), x2(b)) + t * (max(x1(b), x2(b)) - min(x1(b), x2(b))), axisR + abs(b - axisR) * sin(v)], (t, 0, 1), (v, 0, 2*pi), color='#ABB2B9', opacity=0.8) # outside
+                if x1(a) != x2(a):
+                    p += parametric_plot3d([abs(a - axisR) * cos(v), min(x1(a), x2(a)) + t * (max(x1(a), x2(a)) - min(x1(a), x2(a))), axisR + abs(a - axisR) * sin(v)], (t, 0, 1), (v, 0, 2*pi), color='#ABB2B9', opacity=0.8) # inside
+            if showShells == True:
+                if ystar == 'Lower endpoint':
+                    yy = [a + dy * i for i in range(n)]   
+                elif ystar == 'Upper endpoint':
+                    yy = [a + dy * (i + 1) for i in range(n)] 
+                elif ystar == 'Midpoint':
+                    yy = [a + dy * (i + 1/2) for i in range(n)]
+                else:
+                    yy = [a + dy * (i + random()) for i in range(n)]
+                p += sum(draw_washer( abs(a - axisR) + i * dy, abs(a - axisR) + (i + 1) * dy, 0, abs(x1(yy[i]) - x2(yy[i])), cc[mod(i, 5)], 0.8).rotate((1, 0, 0), pi/2).translate(0, min(x1(yy[i]), x2(yy[i])), axisR) for i in range(n))
+                if n <= 5:
+                    p += sum(line3d([(0, x1(yy[i]), yy[i]),(0, x2(yy[i]), yy[i])], radius=0.005, color='black') for i in range(n))
+            show(p + curves, frame = False, viewer = 'threejs', aspect_ratio = 1)
+
+</script></div></li>
+</ol>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="9">
+<li id="fn9"><p><a href="https://golem.ph.utexas.edu/category/2017/12/sagemath_and_3d_models_in_webp.html" target="_blank">SageMath and 3D Models in Webpages, by Simon Willerton</a><a href="8-5-embed-sagemath.html#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p><a href="https://sagecell.sagemath.org/static/about.html?v=aae960fc94126c35e9d68d7f5d2040a7" target="_blank">Embedding Sage to HTML, by SageMath</a><a href="8-5-embed-sagemath.html#fnref10" class="footnote-back">↩</a></p></li>
+<li id="fn11"><p><a href="https://www.cbaer.eu/joomla/index.php/en/mathematics/practice" target="_blank">Dr. Christian Bar’s colletion, University of Potsdam, Germany</a><a href="8-5-embed-sagemath.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn12"><p><a href="http://sagewidgets.pbworks.com/w/page/67137878/FrontPage" target="_blank">SageMath Widgets, by Jeff Denny and Yuanting Lu</a><a href="8-5-embed-sagemath.html#fnref12" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="8-4-embed-a-web-app.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="8-6-animations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-rmdhtml.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

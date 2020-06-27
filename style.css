@@ -1,0 +1,25 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+pre.numberSource code>span> a:first-child::before {
+  left: -0.1em;
+}
+
+.framed {
+  background-color: #F5C430;
+  color: crimson;
+  font-style: oblique;
+  padding: 20px;
+}
