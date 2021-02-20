@@ -1,3 +1,5 @@
+
+
 p.caption {
   color: #777;
   margin-top: 10px;
@@ -13,7 +15,7 @@ pre code {
   white-space: inherit;
 }
 
-pre.numberSource code>span> a:first-child::before {
+pre.numberSource code > span > a:first-child::before {
   left: -0.1em;
 }
 
@@ -22,4 +24,10 @@ pre.numberSource code>span> a:first-child::before {
   color: crimson;
   font-style: oblique;
   padding: 20px;
+}
+
+.sage_all {
+    font-size: 11px;
+    line-height: 0.5pt;
+    margin: 0;
 }

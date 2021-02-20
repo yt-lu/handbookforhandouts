@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A LaTeX: Additional Examples | Handbook for Handouts</title>
+  <title>9.1 Plots (2D) | Handbook for Handouts</title>
   <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A LaTeX: Additional Examples | Handbook for Handouts" />
+  <meta property="og:title" content="9.1 Plots (2D) | Handbook for Handouts" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A LaTeX: Additional Examples | Handbook for Handouts" />
+  <meta name="twitter:title" content="9.1 Plots (2D) | Handbook for Handouts" />
   
   <meta name="twitter:description" content="This album is a collection of examples for undergraduate math classes." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="9-3-widgets.html"/>
-<link rel="next" href="A-1-JeopardyGameDownload.html"/>
+<link rel="prev" href="9-sagemath.html"/>
+<link rel="next" href="9-2-plots-3d.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -222,16 +222,141 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="latex-additional-examples" class="section level1">
-<h1><span class="header-section-number">A</span> LaTeX: Additional Examples</h1>
+<div id="plots-2d" class="section level2">
+<h2><span class="header-section-number">9.1</span> Plots (2D)</h2>
+<div id="basic-plots" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Basic Plots</h3>
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    sagecell.makeSagecell({inputLocation: 'div.sage_all',
+                           linked: 'false',
+                           autoeval: 'false',
+                           evalButtonText: 'Evaluate'});
+    sagecell.makeSagecell({inputLocation:  'div.sage_simple',
+			   autoeval: 'true',
+			   hide: ['editor','evalButton', 'permalink']
+                           });
+    });
+    </script>
+  </head>
+</html>
+<p>The <code>plot</code> and the <code>parametric_plot</code> functions are sufficient for basic plots.</p>
+<ul>
+<li>The default variable for the domain is <span class="math inline">\(x\)</span>. Other parameters need to be declared in advance. For example, <span class="math inline">\(t\)</span> is used in the <code>parametric_plot</code> function, so we do <code>var('t')</code> beforehand.</li>
+<li>Both functions come with a wide range of options, such as <code>color</code>, <code>thickness</code>, and <code>linestyle</code>. The complete list of options can be looked up by <code>?plot</code>.</li>
+<li>The graphic object can be put together in one variable (e.g., <code>fig</code>). Use <code>=</code> for initiating the first plot and <code>+=</code> for adding subsequent plots.</li>
+<li>The <code>show</code> function draws graphic object. Axes limits, axes ticks, and aspect ratio can be defined inside the <code>show</code> function.</li>
+</ul>
+<div class="sage_all">
+<script type="text/x-sage">
+fig = plot(log(x), (x, 0.1, 2), color = "black", thickness = 1, linestyle = ":")
+var('t')
+fig += parametric_plot([t, e^t], (t, -3, 0.5), color = "orange")
+show(fig, ymin = -2, ymax = 2, aspect_ratio = 1, ticks = [[-3, -2, .., 3], [-1, 0, 1, 2]])
+</script>
+</div>
+</div>
+<div id="popular-objects" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> Popular Objects</h3>
+<p>Popular geometric objects such as lines, segments, and circles have predefined graphic commands.</p>
+<ul>
+<li>line( [ ( x<sub>1</sub>, y<sub>1</sub> ), ( x<sub>2</sub>, y<sub>2</sub> ) ] )</li>
+<li>list_plot( [ ( x<sub>1</sub>, y<sub>1</sub> ), ( x<sub>2</sub>, y<sub>2</sub> ), ( x<sub>3</sub>, y<sub>3</sub> ) ], plotjoined = True)</li>
+<li>circle( ( x<sub>center</sub>, y<sub>center</sub> ), radius)
+<div class="sage_all">
+<script type="text/x-sage">
+fig = line([(1, 1), (2, 1)])
+fig += circle((1, 1), 1)
+show(fig, ticks = [[], []])
+</script>
+</div></li>
+</ul>
+</div>
+<div id="text" class="section level3">
+<h3><span class="header-section-number">9.1.3</span> Text</h3>
+<p>The <code>text</code> function adds text strings to the graph. Simply use <code>text( "string", (x, y))</code>.</p>
+<ul>
+<li>Math symbols in LaTeX are supported. For example, <code>text(r"$\sqrt{x}$", (1, 1))</code>. The letter r forces the string to be interpreted as a raw string.</li>
+<li>Rotation. The option <code>rotation = 45</code> will rotate the text string counterclockwise by 45<sup>°</sup>.</li>
+<li>Anchor. The anchor of the string is pinned by the options <code>horizontal_alignment = "left"/"right"</code> or <code>vertical_alignment = "top"/"bottom"</code>.</li>
+<li>Other common options such as color and fontsize are also supported.</li>
+</ul>
+<div class="sage_all">
+<script type="text/x-sage">
+fig = text(r"$y = 2+ \sqrt{x}$", (1, 1), fontsize = 14, color = "black", horizontal_alignment = 'left')
+fig += text(r"$y = 2 + \sqrt{x}$", (0.5, 1), rotation = 90, vertical_alignment = 'bottom')
+show(fig)
+</script>
+</div>
+</div>
+<div id="fill-a-region" class="section level3">
+<h3><span class="header-section-number">9.1.4</span> Fill a Region</h3>
+<p>There are a few ways to shade a region.</p>
+<ul>
+<li>Use <code>plot</code>. The option <code>fill = {0:[1]}</code> shades the region between curves. 0 is the first plot and [1] is the second plot.
+<div class="sage_all">
+<script type="text/x-sage">
+f = x^2; g = x;
+p = plot([f,g], (x, 0, 2), color = "black", fill = {0:[1]}, fillcolor = "orange", fillalpha = 1)
+show(p, xmin = -1, xmax = 2, ymin = -1, ymax = 4, aspect_ratio = 1, ticks = [[-2, -1, 0, 1], [1, 4]])
+</script>
+</div></li>
+<li>Use <code>plot</code>. The option <code>fill = "min"</code> shades the region below the curve all the way to its minimum. Similarly, the option <code>fill = "max"</code> shades the region above the curve up to its maximum.
+<div class="sage_all">
+<script type="text/x-sage">
+f = x + 2; g = - x;
+p = plot(f, -1, 0, color = "black", fill = "min", fillcolor = "orange", fillalpha = 1)
+p += plot(g, -1, 0, color = "black", fill = "max", fillcolor = "orange", fillalpha = 1)
+p += text(r"$y=-x$", (-1, 0.5), fontsize = 14, color = "black")
+p += text(r"$y=x + 1$", (-1, 1.5), fontsize = 14, color = "black")
+p += line([(1, 0), (-2, 0)], thickness = 3, linestyle = "-.", color = 'red')
+show(p, xmin = -2.5, xmax = 1.5, ymin = -1, ymax = 3, aspect_ratio = 1, ticks = [[-2, -1, 0, 1], []])
+</script>
+</div></li>
+<li>Use <code>polygon</code>.
+<div class="sage_all">
+<script type="text/x-sage">
+p = polygon([(0, 2), (-1, 1), (0, 0)], color = "orange")
+show(p, xmin = -2.5, xmax = 1.5, ymin = -1, ymax = 3, aspect_ratio = 1, ticks = [[-2, -1, 0, 1], []])
+</script>
+</div></li>
+<li>Use <code>parametric_plot</code>.
+<div class="sage_all">
+<script type="text/x-sage">
+var('t')
+p = parametric_plot([t^2 - 1, t], (t, -1, 1), 
+              fill = True, fillcolor = "orange", fillalpha = 1, color = "black")
+show(p, xmin = -1.5, xmax = 0.5, ymin = -1.5, ymax = 1.5, 
+              aspect_ratio = 1, ticks = [[-1, 0, 1], [-1, 1]])
+</script>
+</div></li>
+<li>Use line segments.
+<div class="sage_all">
+<script type="text/x-sage">
+f(x) = 1; g(x) = exp(x);
+p = sum(line([(i,f(i)), (i, g(i))], color = "orange") for i in [-1,-0.95,..,0])
+p += plot([f, g], (-2, 1), color = "black")
+p += text(r"$y=e^x$", (1, 2), fontsize = 16, color = "black", rotation = 60)
+p += text(r"$y=1$", (-1.5, 1.2), fontsize = 16, color = "black", horizontal_alignment = 'left')
+show(p, ymin = -1, ymax = 3, aspect_ratio = 1, ticks = [[-1, 0, 1], [-1, 2]])
+</script>
+</div></li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="9-3-widgets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="A-1-JeopardyGameDownload.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="9-sagemath.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="9-2-plots-3d.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -262,7 +387,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-appendixTeX.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-SageMath.Rmd",
 "text": "Edit"
 },
 "history": {
