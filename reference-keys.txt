@@ -1,8 +1,10 @@
 tab:unnamed-chunk-1
-tab:unnamed-chunk-10
+tab:unnamed-chunk-13
 latex-with-tikz-2d
 plots
-shade-an-area
+draw-and-node
+path
+tikzfillbetween
 latex-with-tikz-3d
 latex-with-sagemath
 installation-on-mac-os

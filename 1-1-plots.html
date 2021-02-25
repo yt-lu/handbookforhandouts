@@ -24,7 +24,7 @@
 <meta name="author" content="Yuanting Lu" />
 
 
-<meta name="date" content="2021-02-19" />
+<meta name="date" content="2021-02-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="1-latex-with-tikz-2d.html"/>
-<link rel="next" href="1-2-shade-an-area.html"/>
+<link rel="next" href="2-latex-with-tikz-3d.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -137,8 +137,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I LaTeX</b></span></li>
 <li class="chapter" data-level="1" data-path="1-latex-with-tikz-2d.html"><a href="1-latex-with-tikz-2d.html"><i class="fa fa-check"></i><b>1</b> LaTeX with Tikz (2D)</a><ul>
-<li class="chapter" data-level="1.1" data-path="1-1-plots.html"><a href="1-1-plots.html"><i class="fa fa-check"></i><b>1.1</b> Plots</a></li>
-<li class="chapter" data-level="1.2" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html"><i class="fa fa-check"></i><b>1.2</b> Shade an Area</a></li>
+<li class="chapter" data-level="1.1" data-path="1-1-plots.html"><a href="1-1-plots.html"><i class="fa fa-check"></i><b>1.1</b> Plots</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="1-1-plots.html"><a href="1-1-plots.html#draw-and-node"><i class="fa fa-check"></i><b>1.1.1</b> \draw and \node</a></li>
+<li class="chapter" data-level="1.1.2" data-path="1-1-plots.html"><a href="1-1-plots.html#tikzfillbetween"><i class="fa fa-check"></i><b>1.1.2</b> \tikzfillbetween</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-latex-with-tikz-3d.html"><a href="2-latex-with-tikz-3d.html"><i class="fa fa-check"></i><b>2</b> LaTex with Tikz (3D)</a></li>
 <li class="chapter" data-level="3" data-path="3-latex-with-sagemath.html"><a href="3-latex-with-sagemath.html"><i class="fa fa-check"></i><b>3</b> LaTeX with SageMath</a><ul>
@@ -183,16 +185,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.6" data-path="8-6-animations.html"><a href="8-6-animations.html"><i class="fa fa-check"></i><b>8.6</b> Animations</a></li>
 <li class="chapter" data-level="8.7" data-path="8-7-use-tabs.html"><a href="8-7-use-tabs.html"><i class="fa fa-check"></i><b>8.7</b> Use Tabs</a></li>
 </ul></li>
-<li class="part"><span><b>III SageMath</b></span></li>
-<li class="chapter" data-level="9" data-path="9-sagemath.html"><a href="9-sagemath.html"><i class="fa fa-check"></i><b>9</b> SageMath</a><ul>
-<li class="chapter" data-level="9.1" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html"><i class="fa fa-check"></i><b>9.1</b> Plots (2D)</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html#basic-plots"><i class="fa fa-check"></i><b>9.1.1</b> Basic Plots</a></li>
-<li class="chapter" data-level="9.1.2" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html#popular-objects"><i class="fa fa-check"></i><b>9.1.2</b> Popular Objects</a></li>
-<li class="chapter" data-level="9.1.3" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html#text"><i class="fa fa-check"></i><b>9.1.3</b> Text</a></li>
-<li class="chapter" data-level="9.1.4" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html#fill-a-region"><i class="fa fa-check"></i><b>9.1.4</b> Fill a Region</a></li>
+<li class="part"><span><b>III SageMath</b></span><ul>
+<li class="chapter" data-level="8.8" data-path="8-8-plots-2d.html"><a href="8-8-plots-2d.html"><i class="fa fa-check"></i><b>8.8</b> Plots (2D)</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="8-8-plots-2d.html"><a href="8-8-plots-2d.html#basic-plots"><i class="fa fa-check"></i><b>8.8.1</b> Basic Plots</a></li>
+<li class="chapter" data-level="8.8.2" data-path="8-8-plots-2d.html"><a href="8-8-plots-2d.html#popular-objects"><i class="fa fa-check"></i><b>8.8.2</b> Popular Objects</a></li>
+<li class="chapter" data-level="8.8.3" data-path="8-8-plots-2d.html"><a href="8-8-plots-2d.html#text"><i class="fa fa-check"></i><b>8.8.3</b> Text</a></li>
+<li class="chapter" data-level="8.8.4" data-path="8-8-plots-2d.html"><a href="8-8-plots-2d.html#fill-a-region"><i class="fa fa-check"></i><b>8.8.4</b> Fill a Region</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="9-2-plots-3d.html"><a href="9-2-plots-3d.html"><i class="fa fa-check"></i><b>9.2</b> Plots (3D)</a></li>
-<li class="chapter" data-level="9.3" data-path="9-3-widgets.html"><a href="9-3-widgets.html"><i class="fa fa-check"></i><b>9.3</b> Widgets</a></li>
+<li class="chapter" data-level="8.9" data-path="8-9-plots-3d.html"><a href="8-9-plots-3d.html"><i class="fa fa-check"></i><b>8.9</b> Plots (3D)</a></li>
+<li class="chapter" data-level="8.10" data-path="8-10-widgets.html"><a href="8-10-widgets.html"><i class="fa fa-check"></i><b>8.10</b> Widgets</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-latex-additional-examples.html"><a href="A-latex-additional-examples.html"><i class="fa fa-check"></i><b>A</b> LaTeX: Additional Examples</a><ul>
@@ -224,14 +225,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="plots" class="section level2">
 <h2><span class="header-section-number">1.1</span> Plots</h2>
+<div id="draw-and-node" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> \draw and \node</h3>
+<p>Required package(s): <code>\usepackage{tikz}</code>.</p>
+<ul>
+<li>The <code>\draw</code> function can handle parametric plot. The common options are
+<ul>
+<li><code>variable=</code>: the parameter.</li>
+<li><code>domain=</code>: the domain of the parameter.</li>
+<li><code>samples=</code>: the length of a eqidistance sequence that spans the domain.</li>
+<li><code>thick</code> or <code>ultra thick</code>: the thickness of a curve.</li>
+<li><code>color=</code>: the color of the curve.</li>
+<li><code>fill=</code>: the color to fill the region enclosed by the curve.</li>
+<li><code>-&gt;</code> or <code>-&gt;&gt;</code>: add an arrow or double arrow at the end of the curve.</li>
+</ul></li>
+<li>The <code>\node</code> function adds a label to the graph.
+<ul>
+<li><code>anchor=</code>: the place of the anchor relative to the label. Accepted key words are <code>east</code>, <code>west</code>, <code>north</code>, <code>south</code>, or any combination of the four.</li>
+</ul></li>
+<li><code>sin(\t r)</code>: <code>\t</code> is a parameter and <code>r</code> indicates <code>\t</code> is measured in radians.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="1-1-plots.html#cb1-1"></a>\definecolor{cool}{HTML}{<span class="fl">6E7696</span>} % Define a color named cool</span>
+<span id="cb1-2"><a href="1-1-plots.html#cb1-2"></a></span>
+<span id="cb1-3"><a href="1-1-plots.html#cb1-3"></a>\begin{figure}[htbp]</span>
+<span id="cb1-4"><a href="1-1-plots.html#cb1-4"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb1-5"><a href="1-1-plots.html#cb1-5"></a></span>
+<span id="cb1-6"><a href="1-1-plots.html#cb1-6"></a>% Draw and fill a circle</span>
+<span id="cb1-7"><a href="1-1-plots.html#cb1-7"></a>\draw [variable=\t, domain=<span class="dv">0</span><span class="op">:</span><span class="dv">2</span><span class="op">*</span>pi, samples=<span class="dv">200</span>, ultra thick, color =<span class="st"> </span>black<span class="op">!</span><span class="dv">70</span>, fill =<span class="st"> </span>cool] <span class="kw">plot</span>({<span class="kw">cos</span>(\t r)}, {<span class="kw">sin</span>(\t r)});</span>
+<span id="cb1-8"><a href="1-1-plots.html#cb1-8"></a></span>
+<span id="cb1-9"><a href="1-1-plots.html#cb1-9"></a>% Add arrows to the circle</span>
+<span id="cb1-10"><a href="1-1-plots.html#cb1-10"></a>\draw [variable=\t, domain=<span class="dv">0</span><span class="op">:</span>pi<span class="op">/</span><span class="dv">3</span>, samples=<span class="dv">200</span>, ultra thick, color =<span class="st"> </span>black<span class="op">!</span><span class="dv">70</span>, -&gt;&gt;] <span class="kw">plot</span>({<span class="kw">cos</span>(\t r)}, {<span class="kw">sin</span>(\t r)});</span>
+<span id="cb1-11"><a href="1-1-plots.html#cb1-11"></a></span>
+<span id="cb1-12"><a href="1-1-plots.html#cb1-12"></a>\draw [-&gt;] (<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">2</span>, <span class="dv">0</span>); % Add the x<span class="op">-</span>axis </span>
+<span id="cb1-13"><a href="1-1-plots.html#cb1-13"></a>\draw [-&gt;] (<span class="dv">0</span>, <span class="fl">-2.2</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">0</span>, <span class="fl">2.2</span>); % Add the y<span class="op">-</span>axis</span>
+<span id="cb1-14"><a href="1-1-plots.html#cb1-14"></a></span>
+<span id="cb1-15"><a href="1-1-plots.html#cb1-15"></a>\<span class="kw">draw</span> (<span class="dv">1</span>,4pt) <span class="op">--</span><span class="st"> </span>(<span class="dv">1</span>,0pt); % Draw tickmark</span>
+<span id="cb1-16"><a href="1-1-plots.html#cb1-16"></a>\node [anchor=north west] <span class="kw">at</span> (<span class="dv">1</span>, <span class="dv">0</span>) {<span class="op">$</span><span class="dv">1</span><span class="op">$</span>}; % Add tickmark label</span>
+<span id="cb1-17"><a href="1-1-plots.html#cb1-17"></a></span>
+<span id="cb1-18"><a href="1-1-plots.html#cb1-18"></a>\end{tikzpicture}</span>
+<span id="cb1-19"><a href="1-1-plots.html#cb1-19"></a>\end{figure}</span></code></pre></div>
+<p><img src="img/tikz-draw-node.png" style="width:50.0%" /></p>
+<p>The <code>\draw</code> command allows multiple parametric curves and points to be joined head to tail.</p>
+<p>In the next example, the curve starts at the point (1, 0), goes counterclockwise around a unit circle for 180 degrees, then moves clockwise along a smaller circle for another 180 degrees before finally returns to the point (1, 0). The enclosed region is filled by a user-defined color named “cool”.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="1-1-plots.html#cb2-1"></a>\definecolor{cool}{HTML}{<span class="fl">6E7696</span>} % Define a color named cool</span>
+<span id="cb2-2"><a href="1-1-plots.html#cb2-2"></a></span>
+<span id="cb2-3"><a href="1-1-plots.html#cb2-3"></a>\begin{figure}[htbp]</span>
+<span id="cb2-4"><a href="1-1-plots.html#cb2-4"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb2-5"><a href="1-1-plots.html#cb2-5"></a>\draw [fill=cool] (<span class="dv">1</span>,<span class="dv">0</span>) </span>
+<span id="cb2-6"><a href="1-1-plots.html#cb2-6"></a><span class="op">--</span><span class="st"> </span>plot[domain=<span class="dv">0</span><span class="op">:</span>pi, variable=\t] ({<span class="kw">cos</span>(\t r)}, {<span class="kw">sin</span>(\t r)})  </span>
+<span id="cb2-7"><a href="1-1-plots.html#cb2-7"></a><span class="op">--</span><span class="st"> </span>plot[domain=pi<span class="op">:</span><span class="dv">0</span>, variable=\t] ({<span class="fl">0.3</span><span class="op">*</span><span class="kw">cos</span>(\t r)}, {<span class="fl">0.3</span><span class="op">*</span><span class="kw">sin</span>(\t r)}) </span>
+<span id="cb2-8"><a href="1-1-plots.html#cb2-8"></a><span class="op">--</span><span class="st"> </span>cycle;</span>
+<span id="cb2-9"><a href="1-1-plots.html#cb2-9"></a>\end{tikzpicture}</span>
+<span id="cb2-10"><a href="1-1-plots.html#cb2-10"></a>\end{figure}</span></code></pre></div>
+<p><img src="img/tikz-draw-fill.png" style="width:50.0%" /></p>
 </div>
+<div id="tikzfillbetween" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> \tikzfillbetween</h3>
+<p>Required package(s): <code>\usepackage{tikz, pgfplots}</code>, <code>\usepgfplotslibrary{fillbetween}</code>.</p>
+<p>A convenient way to shade an area between two curves is to use the <code>\tikzfillbetween</code> command from the pgfplots library.</p>
+<ul>
+<li><code>name path=A</code>: Name the first curve as A.</li>
+<li><code>name path=B</code>: Name the second curve as B.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="1-1-plots.html#cb3-1"></a>\definecolor{cool}{HTML}{<span class="fl">6E7696</span>} % Define a color named cool</span>
+<span id="cb3-2"><a href="1-1-plots.html#cb3-2"></a></span>
+<span id="cb3-3"><a href="1-1-plots.html#cb3-3"></a>\begin{figure}[htbp]</span>
+<span id="cb3-4"><a href="1-1-plots.html#cb3-4"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb3-5"><a href="1-1-plots.html#cb3-5"></a></span>
+<span id="cb3-6"><a href="1-1-plots.html#cb3-6"></a>\draw [-&gt;] (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">3</span>, <span class="dv">0</span>);      % x<span class="op">-</span>axis</span>
+<span id="cb3-7"><a href="1-1-plots.html#cb3-7"></a>\draw [-&gt;] (<span class="dv">0</span>, <span class="fl">-0.5</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">0</span>, <span class="fl">4.5</span>);  % y<span class="op">-</span>axis </span>
+<span id="cb3-8"><a href="1-1-plots.html#cb3-8"></a></span>
+<span id="cb3-9"><a href="1-1-plots.html#cb3-9"></a>\draw [name path=A, variable=\t, domain=<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>, samples=<span class="dv">200</span>, thick] <span class="kw">plot</span>({\t}, {<span class="kw">sqrt</span>(\t)});</span>
+<span id="cb3-10"><a href="1-1-plots.html#cb3-10"></a>\draw [name path=B, variable=\t, domain=<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>, samples=<span class="dv">200</span>, thick] <span class="kw">plot</span>({\t}, {\t<span class="op">^</span><span class="dv">2</span>});</span>
+<span id="cb3-11"><a href="1-1-plots.html#cb3-11"></a>\tikzfillbetween[of=A and B]{cool}; % Fills the space between A and B.</span>
+<span id="cb3-12"><a href="1-1-plots.html#cb3-12"></a></span>
+<span id="cb3-13"><a href="1-1-plots.html#cb3-13"></a>\end{tikzpicture}</span>
+<span id="cb3-14"><a href="1-1-plots.html#cb3-14"></a>\end{figure}</span></code></pre></div>
+<p><img src="img/tikz-fillbetween.png" style="width:50.0%" /></p>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="1-latex-with-tikz-2d.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="1-2-shade-an-area.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2-latex-with-tikz-3d.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
