@@ -3,7 +3,6 @@ tab:unnamed-chunk-13
 latex-with-tikz-2d
 plots
 draw-and-node
-path
 tikzfillbetween
 latex-with-tikz-3d
 latex-with-sagemath
