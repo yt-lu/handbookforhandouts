@@ -1,9 +1,10 @@
 tab:unnamed-chunk-1
-tab:unnamed-chunk-13
+tab:unnamed-chunk-14
 latex-with-tikz-2d
-plots
+parametric-plots
 draw-and-node
-tikzfillbetween
+fill-by-tikzfillbetween
+fill-by-intersection-segments
 latex-with-tikz-3d
 latex-with-sagemath
 installation-on-mac-os

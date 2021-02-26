@@ -137,9 +137,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I LaTeX</b></span></li>
 <li class="chapter" data-level="1" data-path="1-latex-with-tikz-2d.html"><a href="1-latex-with-tikz-2d.html"><i class="fa fa-check"></i><b>1</b> LaTeX with Tikz (2D)</a><ul>
-<li class="chapter" data-level="1.1" data-path="1-1-plots.html"><a href="1-1-plots.html"><i class="fa fa-check"></i><b>1.1</b> Plots</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="1-1-plots.html"><a href="1-1-plots.html#draw-and-node"><i class="fa fa-check"></i><b>1.1.1</b> \draw and \node</a></li>
-<li class="chapter" data-level="1.1.2" data-path="1-1-plots.html"><a href="1-1-plots.html#tikzfillbetween"><i class="fa fa-check"></i><b>1.1.2</b> \tikzfillbetween</a></li>
+<li class="chapter" data-level="1.1" data-path="1-1-parametric-plots.html"><a href="1-1-parametric-plots.html"><i class="fa fa-check"></i><b>1.1</b> Parametric Plots</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="1-1-parametric-plots.html"><a href="1-1-parametric-plots.html#draw-and-node"><i class="fa fa-check"></i><b>1.1.1</b> \draw and \node</a></li>
+<li class="chapter" data-level="1.1.2" data-path="1-1-parametric-plots.html"><a href="1-1-parametric-plots.html#fill-by-tikzfillbetween"><i class="fa fa-check"></i><b>1.1.2</b> Fill by \tikzfillbetween</a></li>
+<li class="chapter" data-level="1.1.3" data-path="1-1-parametric-plots.html"><a href="1-1-parametric-plots.html#fill-by-intersection-segments"><i class="fa fa-check"></i><b>1.1.3</b> Fill by Intersection Segments</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-latex-with-tikz-3d.html"><a href="2-latex-with-tikz-3d.html"><i class="fa fa-check"></i><b>2</b> LaTex with Tikz (3D)</a></li>
@@ -229,180 +230,180 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>[Back to Section <a href="4-1-JeopardyGameEdit.html#JeopardyGameEdit">4.1</a> for suggested edits.]</p>
 <p>[Back to Section <a href="4-2-JeopardyGameRemark.html#JeopardyGameRemark">4.2</a> for full comments.]</p>
 <p>If you move the cursor to the top-right corner of the gray area (code chunk), there is a copy button. Please copy and paste it into a blank TeX file.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource r numberLines"><code class="sourceCode r"><span id="cb40-1"><a href="A-1-JeopardyGameDownload.html#cb40-1"></a>\documentclass{beamer}</span>
-<span id="cb40-2"><a href="A-1-JeopardyGameDownload.html#cb40-2"></a>\setbeamertemplate{navigation symbols}{}</span>
-<span id="cb40-3"><a href="A-1-JeopardyGameDownload.html#cb40-3"></a>\setbeamersize{text margin left=0cm, text margin right=0cm}</span>
-<span id="cb40-4"><a href="A-1-JeopardyGameDownload.html#cb40-4"></a>\usepackage{arrayjobx}</span>
-<span id="cb40-5"><a href="A-1-JeopardyGameDownload.html#cb40-5"></a>\usepackage{tcolorbox}</span>
-<span id="cb40-6"><a href="A-1-JeopardyGameDownload.html#cb40-6"></a>\usepackage{ocgx}</span>
-<span id="cb40-7"><a href="A-1-JeopardyGameDownload.html#cb40-7"></a></span>
-<span id="cb40-8"><a href="A-1-JeopardyGameDownload.html#cb40-8"></a>% Define the subject boxes, i.e., the first column  </span>
-<span id="cb40-9"><a href="A-1-JeopardyGameDownload.html#cb40-9"></a>\newtcolorbox{SubjectBox}{</span>
-<span id="cb40-10"><a href="A-1-JeopardyGameDownload.html#cb40-10"></a>    colback=gray<span class="op">!</span><span class="dv">85</span>,       % Background color is <span class="dv">85</span> percent gray.</span>
-<span id="cb40-11"><a href="A-1-JeopardyGameDownload.html#cb40-11"></a>    colframe=white,        % The color of the box frame.</span>
-<span id="cb40-12"><a href="A-1-JeopardyGameDownload.html#cb40-12"></a>    nobeforeafter,         % Allow boxes align horizontally on the same row</span>
-<span id="cb40-13"><a href="A-1-JeopardyGameDownload.html#cb40-13"></a>    arc=0pt,               % Round the corners of the box. Zero means squared corners.</span>
-<span id="cb40-14"><a href="A-1-JeopardyGameDownload.html#cb40-14"></a>    boxrule=.4pt,          % The thickness of the box frame.</span>
-<span id="cb40-15"><a href="A-1-JeopardyGameDownload.html#cb40-15"></a>    halign=center,         % Center text horizontally.</span>
-<span id="cb40-16"><a href="A-1-JeopardyGameDownload.html#cb40-16"></a>    valign=center,         % Center text vertically.</span>
-<span id="cb40-17"><a href="A-1-JeopardyGameDownload.html#cb40-17"></a>    width=<span class="fl">0.4</span>\textwidth,   % Box width is <span class="dv">40</span> percent of the text width.</span>
-<span id="cb40-18"><a href="A-1-JeopardyGameDownload.html#cb40-18"></a>    height=<span class="fl">0.12</span>\textheight % Box height is <span class="dv">12</span> percent of the text height, i.e., <span class="dv">8</span> rows</span>
-<span id="cb40-19"><a href="A-1-JeopardyGameDownload.html#cb40-19"></a>}</span>
-<span id="cb40-20"><a href="A-1-JeopardyGameDownload.html#cb40-20"></a></span>
-<span id="cb40-21"><a href="A-1-JeopardyGameDownload.html#cb40-21"></a>% Define the prize boxes, i.e., rest of the columns</span>
-<span id="cb40-22"><a href="A-1-JeopardyGameDownload.html#cb40-22"></a>\newtcolorbox{PrizeBox}{</span>
-<span id="cb40-23"><a href="A-1-JeopardyGameDownload.html#cb40-23"></a>    colupper=white,        % Text <span class="kw">color.</span> (In a colorbox, by default, there are upper and lower parts.)</span>
-<span id="cb40-24"><a href="A-1-JeopardyGameDownload.html#cb40-24"></a>    colback=orange, </span>
-<span id="cb40-25"><a href="A-1-JeopardyGameDownload.html#cb40-25"></a>    colframe=white,</span>
-<span id="cb40-26"><a href="A-1-JeopardyGameDownload.html#cb40-26"></a>    nobeforeafter, </span>
-<span id="cb40-27"><a href="A-1-JeopardyGameDownload.html#cb40-27"></a>    arc=0pt, </span>
-<span id="cb40-28"><a href="A-1-JeopardyGameDownload.html#cb40-28"></a>    boxrule=.4pt,</span>
-<span id="cb40-29"><a href="A-1-JeopardyGameDownload.html#cb40-29"></a>    halign=center, </span>
-<span id="cb40-30"><a href="A-1-JeopardyGameDownload.html#cb40-30"></a>    valign=center,</span>
-<span id="cb40-31"><a href="A-1-JeopardyGameDownload.html#cb40-31"></a>    width=.<span class="dv">2</span>\textwidth,     % <span class="dv">3</span> prize boxes plus <span class="dv">1</span> subject box occupy a full line.</span>
-<span id="cb40-32"><a href="A-1-JeopardyGameDownload.html#cb40-32"></a>    height=<span class="fl">0.12</span>\textheight  % <span class="dv">8</span> rows.</span>
-<span id="cb40-33"><a href="A-1-JeopardyGameDownload.html#cb40-33"></a>}</span>
-<span id="cb40-34"><a href="A-1-JeopardyGameDownload.html#cb40-34"></a></span>
-<span id="cb40-35"><a href="A-1-JeopardyGameDownload.html#cb40-35"></a>% Define the colorbox shared by the header and footer</span>
-<span id="cb40-36"><a href="A-1-JeopardyGameDownload.html#cb40-36"></a>\newtcolorbox{QuestionHeadFoot}{</span>
-<span id="cb40-37"><a href="A-1-JeopardyGameDownload.html#cb40-37"></a>    sidebyside,             % By default, divide a colorbox into left and right region       </span>
-<span id="cb40-38"><a href="A-1-JeopardyGameDownload.html#cb40-38"></a>    colback=orange,</span>
-<span id="cb40-39"><a href="A-1-JeopardyGameDownload.html#cb40-39"></a>    before=\vskip<span class="fl">-.2</span>ex,     % Remove the top padding</span>
-<span id="cb40-40"><a href="A-1-JeopardyGameDownload.html#cb40-40"></a>    after=0ex,              % Set bottom padding to <span class="dv">0</span></span>
-<span id="cb40-41"><a href="A-1-JeopardyGameDownload.html#cb40-41"></a>    arc=0pt,</span>
-<span id="cb40-42"><a href="A-1-JeopardyGameDownload.html#cb40-42"></a>    boxrule=.4pt,</span>
-<span id="cb40-43"><a href="A-1-JeopardyGameDownload.html#cb40-43"></a>    colframe=white,</span>
-<span id="cb40-44"><a href="A-1-JeopardyGameDownload.html#cb40-44"></a>    center upper,           % Left region text <span class="kw">centerred.</span> (Because of sidebyside, upper means left.)       </span>
-<span id="cb40-45"><a href="A-1-JeopardyGameDownload.html#cb40-45"></a>    center lower,           % Right region text <span class="kw">centerred.</span> (Because of sidebyside, lower means right)  </span>
-<span id="cb40-46"><a href="A-1-JeopardyGameDownload.html#cb40-46"></a>    colupper=white,          </span>
-<span id="cb40-47"><a href="A-1-JeopardyGameDownload.html#cb40-47"></a>    collower=white,          </span>
-<span id="cb40-48"><a href="A-1-JeopardyGameDownload.html#cb40-48"></a>    valign=center,</span>
-<span id="cb40-49"><a href="A-1-JeopardyGameDownload.html#cb40-49"></a>    fontupper=\LARGE\bfseries,</span>
-<span id="cb40-50"><a href="A-1-JeopardyGameDownload.html#cb40-50"></a>    fontlower=\LARGE\bfseries,</span>
-<span id="cb40-51"><a href="A-1-JeopardyGameDownload.html#cb40-51"></a>    width=\textwidth,</span>
-<span id="cb40-52"><a href="A-1-JeopardyGameDownload.html#cb40-52"></a>    height=.<span class="dv">15</span>\paperheight</span>
-<span id="cb40-53"><a href="A-1-JeopardyGameDownload.html#cb40-53"></a>}</span>
-<span id="cb40-54"><a href="A-1-JeopardyGameDownload.html#cb40-54"></a></span>
-<span id="cb40-55"><a href="A-1-JeopardyGameDownload.html#cb40-55"></a>% Define the colorbox used by the question<span class="op">/</span>answer content</span>
-<span id="cb40-56"><a href="A-1-JeopardyGameDownload.html#cb40-56"></a>\newtcolorbox{TextArea}{</span>
-<span id="cb40-57"><a href="A-1-JeopardyGameDownload.html#cb40-57"></a>    before=,</span>
-<span id="cb40-58"><a href="A-1-JeopardyGameDownload.html#cb40-58"></a>    after=\vskip<span class="fl">-.01</span>ex,</span>
-<span id="cb40-59"><a href="A-1-JeopardyGameDownload.html#cb40-59"></a>    height=<span class="fl">0.69</span>\paperheight,</span>
-<span id="cb40-60"><a href="A-1-JeopardyGameDownload.html#cb40-60"></a>    boxrule=0pt,</span>
-<span id="cb40-61"><a href="A-1-JeopardyGameDownload.html#cb40-61"></a>    halign=center,</span>
-<span id="cb40-62"><a href="A-1-JeopardyGameDownload.html#cb40-62"></a>    valign=center</span>
-<span id="cb40-63"><a href="A-1-JeopardyGameDownload.html#cb40-63"></a>}</span>
-<span id="cb40-64"><a href="A-1-JeopardyGameDownload.html#cb40-64"></a></span>
-<span id="cb40-65"><a href="A-1-JeopardyGameDownload.html#cb40-65"></a>\newarray\scores                  % Create a new array \scores</span>
-<span id="cb40-66"><a href="A-1-JeopardyGameDownload.html#cb40-66"></a>\readarray{scores}{<span class="dv">100</span><span class="op">&amp;</span><span class="dv">200</span><span class="op">&amp;</span><span class="dv">400</span>}   % Load the prize values to \scores</span>
-<span id="cb40-67"><a href="A-1-JeopardyGameDownload.html#cb40-67"></a></span>
-<span id="cb40-68"><a href="A-1-JeopardyGameDownload.html#cb40-68"></a>% Shortcut to create one row at a time on the homepage</span>
-<span id="cb40-69"><a href="A-1-JeopardyGameDownload.html#cb40-69"></a>\newcommand{\newrow}[<span class="dv">2</span>]{</span>
-<span id="cb40-70"><a href="A-1-JeopardyGameDownload.html#cb40-70"></a>    \begin{SubjectBox}</span>
-<span id="cb40-71"><a href="A-1-JeopardyGameDownload.html#cb40-71"></a>        <span class="co">#1</span></span>
-<span id="cb40-72"><a href="A-1-JeopardyGameDownload.html#cb40-72"></a>    \end{SubjectBox}% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side.</span>
-<span id="cb40-73"><a href="A-1-JeopardyGameDownload.html#cb40-73"></a>    \foreach \i <span class="cf">in</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}{% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side.</span>
-<span id="cb40-74"><a href="A-1-JeopardyGameDownload.html#cb40-74"></a>        \begin{PrizeBox}</span>
-<span id="cb40-75"><a href="A-1-JeopardyGameDownload.html#cb40-75"></a>            \begin{ocg}{s<span class="co">#2-\i}{s#2-\i}{1} %{PDF label}{internal reference label}{visibility}</span></span>
-<span id="cb40-76"><a href="A-1-JeopardyGameDownload.html#cb40-76"></a>            \hyperlink{s<span class="co">#2-\i}{\scores(\i)}</span></span>
-<span id="cb40-77"><a href="A-1-JeopardyGameDownload.html#cb40-77"></a>            \end{ocg}</span>
-<span id="cb40-78"><a href="A-1-JeopardyGameDownload.html#cb40-78"></a>        \end{PrizeBox}% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side. </span>
-<span id="cb40-79"><a href="A-1-JeopardyGameDownload.html#cb40-79"></a>        }</span>
-<span id="cb40-80"><a href="A-1-JeopardyGameDownload.html#cb40-80"></a>}</span>
-<span id="cb40-81"><a href="A-1-JeopardyGameDownload.html#cb40-81"></a></span>
-<span id="cb40-82"><a href="A-1-JeopardyGameDownload.html#cb40-82"></a>% Shortcut to create header of a question page</span>
-<span id="cb40-83"><a href="A-1-JeopardyGameDownload.html#cb40-83"></a>\newcommand{\header}[<span class="dv">2</span>]{</span>
-<span id="cb40-84"><a href="A-1-JeopardyGameDownload.html#cb40-84"></a>    \begin{QuestionHeadFoot}</span>
-<span id="cb40-85"><a href="A-1-JeopardyGameDownload.html#cb40-85"></a>         <span class="co">#1 \tcblower #2</span></span>
-<span id="cb40-86"><a href="A-1-JeopardyGameDownload.html#cb40-86"></a>    \end{QuestionHeadFoot}</span>
-<span id="cb40-87"><a href="A-1-JeopardyGameDownload.html#cb40-87"></a>}</span>
-<span id="cb40-88"><a href="A-1-JeopardyGameDownload.html#cb40-88"></a></span>
-<span id="cb40-89"><a href="A-1-JeopardyGameDownload.html#cb40-89"></a>% Shortcut to create the footer of a question page</span>
-<span id="cb40-90"><a href="A-1-JeopardyGameDownload.html#cb40-90"></a>\newcommand{\footer}[<span class="dv">1</span>]{</span>
-<span id="cb40-91"><a href="A-1-JeopardyGameDownload.html#cb40-91"></a>    \begin{QuestionHeadFoot}</span>
-<span id="cb40-92"><a href="A-1-JeopardyGameDownload.html#cb40-92"></a>        \hyperlink{question<span class="co">#1}{Question} \\ \hyperlink{answer#1}{Answer} \tcblower</span></span>
-<span id="cb40-93"><a href="A-1-JeopardyGameDownload.html#cb40-93"></a>        \hideocg{<span class="co">#1}{Done!} \\  \hyperlink{home}{Home}</span></span>
-<span id="cb40-94"><a href="A-1-JeopardyGameDownload.html#cb40-94"></a>    \end{QuestionHeadFoot}</span>
-<span id="cb40-95"><a href="A-1-JeopardyGameDownload.html#cb40-95"></a>}</span>
-<span id="cb40-96"><a href="A-1-JeopardyGameDownload.html#cb40-96"></a></span>
-<span id="cb40-97"><a href="A-1-JeopardyGameDownload.html#cb40-97"></a>% Create a  question page</span>
-<span id="cb40-98"><a href="A-1-JeopardyGameDownload.html#cb40-98"></a>\newcommand{\content}[<span class="dv">4</span>]{</span>
-<span id="cb40-99"><a href="A-1-JeopardyGameDownload.html#cb40-99"></a>\begin{frame}</span>
-<span id="cb40-100"><a href="A-1-JeopardyGameDownload.html#cb40-100"></a>    \hypertarget<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{question<span class="co">#1}{} % Make an anchor. Land here when the Question button is clicked.</span></span>
-<span id="cb40-101"><a href="A-1-JeopardyGameDownload.html#cb40-101"></a>    \hypertarget<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{answer<span class="co">#1}{}   % Make an anchor. Land here when the Answer button is clicked.</span></span>
-<span id="cb40-102"><a href="A-1-JeopardyGameDownload.html#cb40-102"></a>    \hypertarget{<span class="co">#1}{}            % Make an anchor. Land here when the prize is clicked on the homepage.</span></span>
-<span id="cb40-103"><a href="A-1-JeopardyGameDownload.html#cb40-103"></a>    \header{<span class="co">#2}{#3}               % Make header.</span></span>
-<span id="cb40-104"><a href="A-1-JeopardyGameDownload.html#cb40-104"></a>    <span class="co">#4                            % Add question on part &lt;1&gt; and answer on part &lt;2&gt;.</span></span>
-<span id="cb40-105"><a href="A-1-JeopardyGameDownload.html#cb40-105"></a>    \footer{<span class="co">#1}                   % Make footer.</span></span>
-<span id="cb40-106"><a href="A-1-JeopardyGameDownload.html#cb40-106"></a>\end{frame}</span>
-<span id="cb40-107"><a href="A-1-JeopardyGameDownload.html#cb40-107"></a>}</span>
-<span id="cb40-108"><a href="A-1-JeopardyGameDownload.html#cb40-108"></a></span>
-<span id="cb40-109"><a href="A-1-JeopardyGameDownload.html#cb40-109"></a>\begin{document}</span>
-<span id="cb40-110"><a href="A-1-JeopardyGameDownload.html#cb40-110"></a>\begin{frame}</span>
-<span id="cb40-111"><a href="A-1-JeopardyGameDownload.html#cb40-111"></a>\hypertarget{home}{} % set up the anchor <span class="cf">for</span> the Home button</span>
-<span id="cb40-112"><a href="A-1-JeopardyGameDownload.html#cb40-112"></a>\vspace<span class="op">*</span>{.23cm}</span>
-<span id="cb40-113"><a href="A-1-JeopardyGameDownload.html#cb40-113"></a>    \newrow{u<span class="op">-</span>substitution}{<span class="dv">1</span>}</span>
-<span id="cb40-114"><a href="A-1-JeopardyGameDownload.html#cb40-114"></a>    \newrow{Trig Substitution}{<span class="dv">2</span>}</span>
-<span id="cb40-115"><a href="A-1-JeopardyGameDownload.html#cb40-115"></a>    \newrow{Integration by Parts}{<span class="dv">3</span>}</span>
-<span id="cb40-116"><a href="A-1-JeopardyGameDownload.html#cb40-116"></a>    \newrow{Improper Integrals}{<span class="dv">4</span>}</span>
-<span id="cb40-117"><a href="A-1-JeopardyGameDownload.html#cb40-117"></a>    \newrow{Volume}{<span class="dv">5</span>}</span>
-<span id="cb40-118"><a href="A-1-JeopardyGameDownload.html#cb40-118"></a>    \newrow{Geometric Series}{<span class="dv">6</span>}</span>
-<span id="cb40-119"><a href="A-1-JeopardyGameDownload.html#cb40-119"></a>    \newrow{Limit of Sequences}{<span class="dv">7</span>}</span>
-<span id="cb40-120"><a href="A-1-JeopardyGameDownload.html#cb40-120"></a>    \newrow{Convergence of Series}{<span class="dv">8</span>}</span>
-<span id="cb40-121"><a href="A-1-JeopardyGameDownload.html#cb40-121"></a>\end{frame}</span>
-<span id="cb40-122"><a href="A-1-JeopardyGameDownload.html#cb40-122"></a></span>
-<span id="cb40-123"><a href="A-1-JeopardyGameDownload.html#cb40-123"></a>\content                           </span>
-<span id="cb40-124"><a href="A-1-JeopardyGameDownload.html#cb40-124"></a>    {s1<span class="dv">-1</span>}                         % Question internal ID. Subject <span class="dv">1</span>, question <span class="fl">1.</span></span>
-<span id="cb40-125"><a href="A-1-JeopardyGameDownload.html#cb40-125"></a>    {u<span class="op">-</span>Substitution}               % Subject title</span>
-<span id="cb40-126"><a href="A-1-JeopardyGameDownload.html#cb40-126"></a>    {<span class="dv">100</span>}{                         % Prize of the question</span>
-<span id="cb40-127"><a href="A-1-JeopardyGameDownload.html#cb40-127"></a>        \begin{TextArea}           </span>
-<span id="cb40-128"><a href="A-1-JeopardyGameDownload.html#cb40-128"></a>        \only<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{                  % Adding the question</span>
-<span id="cb40-129"><a href="A-1-JeopardyGameDownload.html#cb40-129"></a>          In the integral <span class="op">$</span>\int \frac{(\ln x)<span class="op">^</span><span class="dv">2</span>}{x}\, dx<span class="op">$</span><span class="st"> </span>which term should be replaced as <span class="op">$</span>u<span class="op">$</span>?</span>
-<span id="cb40-130"><a href="A-1-JeopardyGameDownload.html#cb40-130"></a>            \begin{enumerate}[A<span class="er">)</span>.]</span>
-<span id="cb40-131"><a href="A-1-JeopardyGameDownload.html#cb40-131"></a>            \item <span class="op">$</span>\ln x<span class="op">$</span></span>
-<span id="cb40-132"><a href="A-1-JeopardyGameDownload.html#cb40-132"></a><span class="st">            </span>\item <span class="op">$</span><span class="dv">1</span><span class="op">/</span>x<span class="op">$</span></span>
-<span id="cb40-133"><a href="A-1-JeopardyGameDownload.html#cb40-133"></a><span class="st">            </span>\end{enumerate}</span>
-<span id="cb40-134"><a href="A-1-JeopardyGameDownload.html#cb40-134"></a>        }</span>
-<span id="cb40-135"><a href="A-1-JeopardyGameDownload.html#cb40-135"></a>        \only<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{                  % Adding the answer</span>
-<span id="cb40-136"><a href="A-1-JeopardyGameDownload.html#cb40-136"></a>             <span class="op">$</span>\ln x<span class="op">$</span></span>
-<span id="cb40-137"><a href="A-1-JeopardyGameDownload.html#cb40-137"></a><span class="st">        </span>}</span>
-<span id="cb40-138"><a href="A-1-JeopardyGameDownload.html#cb40-138"></a>        \end{TextArea}</span>
-<span id="cb40-139"><a href="A-1-JeopardyGameDownload.html#cb40-139"></a>    }</span>
-<span id="cb40-140"><a href="A-1-JeopardyGameDownload.html#cb40-140"></a></span>
-<span id="cb40-141"><a href="A-1-JeopardyGameDownload.html#cb40-141"></a>\content                           </span>
-<span id="cb40-142"><a href="A-1-JeopardyGameDownload.html#cb40-142"></a>    {s1<span class="dv">-2</span>}                         % Question internal ID. Subject <span class="dv">1</span>, question <span class="fl">2.</span></span>
-<span id="cb40-143"><a href="A-1-JeopardyGameDownload.html#cb40-143"></a>    {u<span class="op">-</span>Substitution}               % Subject title</span>
-<span id="cb40-144"><a href="A-1-JeopardyGameDownload.html#cb40-144"></a>    {<span class="dv">200</span>}{                         % Prize of the question</span>
-<span id="cb40-145"><a href="A-1-JeopardyGameDownload.html#cb40-145"></a>        \begin{TextArea}           </span>
-<span id="cb40-146"><a href="A-1-JeopardyGameDownload.html#cb40-146"></a>        \only<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{                  % Adding the question</span>
-<span id="cb40-147"><a href="A-1-JeopardyGameDownload.html#cb40-147"></a>        In the integral <span class="op">$</span>\int \sin x\sqrt{<span class="dv">1</span><span class="op">+</span>\cos x}\, dx<span class="op">$</span>, which substitution does NOT work?</span>
-<span id="cb40-148"><a href="A-1-JeopardyGameDownload.html#cb40-148"></a>            \begin{enumerate}[A<span class="er">)</span>.]</span>
-<span id="cb40-149"><a href="A-1-JeopardyGameDownload.html#cb40-149"></a>            \item <span class="op">$</span>u=\sin x<span class="op">$</span></span>
-<span id="cb40-150"><a href="A-1-JeopardyGameDownload.html#cb40-150"></a><span class="st">            </span>\item <span class="op">$</span>u=\cos x<span class="op">$</span></span>
-<span id="cb40-151"><a href="A-1-JeopardyGameDownload.html#cb40-151"></a><span class="st">            </span>\item <span class="op">$</span>u=<span class="dv">1</span><span class="op">+</span>\cos x<span class="op">$</span></span>
-<span id="cb40-152"><a href="A-1-JeopardyGameDownload.html#cb40-152"></a><span class="st">            </span>\end{enumerate}</span>
-<span id="cb40-153"><a href="A-1-JeopardyGameDownload.html#cb40-153"></a>        }</span>
-<span id="cb40-154"><a href="A-1-JeopardyGameDownload.html#cb40-154"></a>        \only<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{                  % Adding the answer</span>
-<span id="cb40-155"><a href="A-1-JeopardyGameDownload.html#cb40-155"></a>            <span class="op">$</span>\sin x<span class="op">$</span></span>
-<span id="cb40-156"><a href="A-1-JeopardyGameDownload.html#cb40-156"></a><span class="st">        </span>}</span>
-<span id="cb40-157"><a href="A-1-JeopardyGameDownload.html#cb40-157"></a>        \end{TextArea}</span>
-<span id="cb40-158"><a href="A-1-JeopardyGameDownload.html#cb40-158"></a>    }</span>
-<span id="cb40-159"><a href="A-1-JeopardyGameDownload.html#cb40-159"></a></span>
-<span id="cb40-160"><a href="A-1-JeopardyGameDownload.html#cb40-160"></a>\content                           </span>
-<span id="cb40-161"><a href="A-1-JeopardyGameDownload.html#cb40-161"></a>    {s1<span class="dv">-3</span>}                         % Question internal ID. Subject <span class="dv">1</span>, question <span class="fl">3.</span></span>
-<span id="cb40-162"><a href="A-1-JeopardyGameDownload.html#cb40-162"></a>    {u<span class="op">-</span>Substitution}               % Subject title</span>
-<span id="cb40-163"><a href="A-1-JeopardyGameDownload.html#cb40-163"></a>    {<span class="dv">400</span>}{                         % Prize of the question</span>
-<span id="cb40-164"><a href="A-1-JeopardyGameDownload.html#cb40-164"></a>        \begin{TextArea}           </span>
-<span id="cb40-165"><a href="A-1-JeopardyGameDownload.html#cb40-165"></a>        \only<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{                  % Adding the question</span>
-<span id="cb40-166"><a href="A-1-JeopardyGameDownload.html#cb40-166"></a>            In the integral <span class="op">$</span>\int \frac{x}{<span class="dv">1</span><span class="op">+</span>x<span class="op">^</span><span class="dv">4</span>}\, dx<span class="op">$</span>, what should be replaced as <span class="op">$</span>u<span class="op">$</span>?</span>
-<span id="cb40-167"><a href="A-1-JeopardyGameDownload.html#cb40-167"></a>        }</span>
-<span id="cb40-168"><a href="A-1-JeopardyGameDownload.html#cb40-168"></a>        \only<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{                  % Adding the answer</span>
-<span id="cb40-169"><a href="A-1-JeopardyGameDownload.html#cb40-169"></a>            <span class="op">$</span>u =<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span><span class="op">$</span></span>
-<span id="cb40-170"><a href="A-1-JeopardyGameDownload.html#cb40-170"></a><span class="st">        </span>}</span>
-<span id="cb40-171"><a href="A-1-JeopardyGameDownload.html#cb40-171"></a>        \end{TextArea}</span>
-<span id="cb40-172"><a href="A-1-JeopardyGameDownload.html#cb40-172"></a>    }</span>
-<span id="cb40-173"><a href="A-1-JeopardyGameDownload.html#cb40-173"></a></span>
-<span id="cb40-174"><a href="A-1-JeopardyGameDownload.html#cb40-174"></a>\end{document}</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r numberLines"><code class="sourceCode r"><span id="cb41-1"><a href="A-1-JeopardyGameDownload.html#cb41-1"></a>\documentclass{beamer}</span>
+<span id="cb41-2"><a href="A-1-JeopardyGameDownload.html#cb41-2"></a>\setbeamertemplate{navigation symbols}{}</span>
+<span id="cb41-3"><a href="A-1-JeopardyGameDownload.html#cb41-3"></a>\setbeamersize{text margin left=0cm, text margin right=0cm}</span>
+<span id="cb41-4"><a href="A-1-JeopardyGameDownload.html#cb41-4"></a>\usepackage{arrayjobx}</span>
+<span id="cb41-5"><a href="A-1-JeopardyGameDownload.html#cb41-5"></a>\usepackage{tcolorbox}</span>
+<span id="cb41-6"><a href="A-1-JeopardyGameDownload.html#cb41-6"></a>\usepackage{ocgx}</span>
+<span id="cb41-7"><a href="A-1-JeopardyGameDownload.html#cb41-7"></a></span>
+<span id="cb41-8"><a href="A-1-JeopardyGameDownload.html#cb41-8"></a>% Define the subject boxes, i.e., the first column  </span>
+<span id="cb41-9"><a href="A-1-JeopardyGameDownload.html#cb41-9"></a>\newtcolorbox{SubjectBox}{</span>
+<span id="cb41-10"><a href="A-1-JeopardyGameDownload.html#cb41-10"></a>    colback=gray<span class="op">!</span><span class="dv">85</span>,       % Background color is <span class="dv">85</span> percent gray.</span>
+<span id="cb41-11"><a href="A-1-JeopardyGameDownload.html#cb41-11"></a>    colframe=white,        % The color of the box frame.</span>
+<span id="cb41-12"><a href="A-1-JeopardyGameDownload.html#cb41-12"></a>    nobeforeafter,         % Allow boxes align horizontally on the same row</span>
+<span id="cb41-13"><a href="A-1-JeopardyGameDownload.html#cb41-13"></a>    arc=0pt,               % Round the corners of the box. Zero means squared corners.</span>
+<span id="cb41-14"><a href="A-1-JeopardyGameDownload.html#cb41-14"></a>    boxrule=.4pt,          % The thickness of the box frame.</span>
+<span id="cb41-15"><a href="A-1-JeopardyGameDownload.html#cb41-15"></a>    halign=center,         % Center text horizontally.</span>
+<span id="cb41-16"><a href="A-1-JeopardyGameDownload.html#cb41-16"></a>    valign=center,         % Center text vertically.</span>
+<span id="cb41-17"><a href="A-1-JeopardyGameDownload.html#cb41-17"></a>    width=<span class="fl">0.4</span>\textwidth,   % Box width is <span class="dv">40</span> percent of the text width.</span>
+<span id="cb41-18"><a href="A-1-JeopardyGameDownload.html#cb41-18"></a>    height=<span class="fl">0.12</span>\textheight % Box height is <span class="dv">12</span> percent of the text height, i.e., <span class="dv">8</span> rows</span>
+<span id="cb41-19"><a href="A-1-JeopardyGameDownload.html#cb41-19"></a>}</span>
+<span id="cb41-20"><a href="A-1-JeopardyGameDownload.html#cb41-20"></a></span>
+<span id="cb41-21"><a href="A-1-JeopardyGameDownload.html#cb41-21"></a>% Define the prize boxes, i.e., rest of the columns</span>
+<span id="cb41-22"><a href="A-1-JeopardyGameDownload.html#cb41-22"></a>\newtcolorbox{PrizeBox}{</span>
+<span id="cb41-23"><a href="A-1-JeopardyGameDownload.html#cb41-23"></a>    colupper=white,        % Text <span class="kw">color.</span> (In a colorbox, by default, there are upper and lower parts.)</span>
+<span id="cb41-24"><a href="A-1-JeopardyGameDownload.html#cb41-24"></a>    colback=orange, </span>
+<span id="cb41-25"><a href="A-1-JeopardyGameDownload.html#cb41-25"></a>    colframe=white,</span>
+<span id="cb41-26"><a href="A-1-JeopardyGameDownload.html#cb41-26"></a>    nobeforeafter, </span>
+<span id="cb41-27"><a href="A-1-JeopardyGameDownload.html#cb41-27"></a>    arc=0pt, </span>
+<span id="cb41-28"><a href="A-1-JeopardyGameDownload.html#cb41-28"></a>    boxrule=.4pt,</span>
+<span id="cb41-29"><a href="A-1-JeopardyGameDownload.html#cb41-29"></a>    halign=center, </span>
+<span id="cb41-30"><a href="A-1-JeopardyGameDownload.html#cb41-30"></a>    valign=center,</span>
+<span id="cb41-31"><a href="A-1-JeopardyGameDownload.html#cb41-31"></a>    width=.<span class="dv">2</span>\textwidth,     % <span class="dv">3</span> prize boxes plus <span class="dv">1</span> subject box occupy a full line.</span>
+<span id="cb41-32"><a href="A-1-JeopardyGameDownload.html#cb41-32"></a>    height=<span class="fl">0.12</span>\textheight  % <span class="dv">8</span> rows.</span>
+<span id="cb41-33"><a href="A-1-JeopardyGameDownload.html#cb41-33"></a>}</span>
+<span id="cb41-34"><a href="A-1-JeopardyGameDownload.html#cb41-34"></a></span>
+<span id="cb41-35"><a href="A-1-JeopardyGameDownload.html#cb41-35"></a>% Define the colorbox shared by the header and footer</span>
+<span id="cb41-36"><a href="A-1-JeopardyGameDownload.html#cb41-36"></a>\newtcolorbox{QuestionHeadFoot}{</span>
+<span id="cb41-37"><a href="A-1-JeopardyGameDownload.html#cb41-37"></a>    sidebyside,             % By default, divide a colorbox into left and right region       </span>
+<span id="cb41-38"><a href="A-1-JeopardyGameDownload.html#cb41-38"></a>    colback=orange,</span>
+<span id="cb41-39"><a href="A-1-JeopardyGameDownload.html#cb41-39"></a>    before=\vskip<span class="fl">-.2</span>ex,     % Remove the top padding</span>
+<span id="cb41-40"><a href="A-1-JeopardyGameDownload.html#cb41-40"></a>    after=0ex,              % Set bottom padding to <span class="dv">0</span></span>
+<span id="cb41-41"><a href="A-1-JeopardyGameDownload.html#cb41-41"></a>    arc=0pt,</span>
+<span id="cb41-42"><a href="A-1-JeopardyGameDownload.html#cb41-42"></a>    boxrule=.4pt,</span>
+<span id="cb41-43"><a href="A-1-JeopardyGameDownload.html#cb41-43"></a>    colframe=white,</span>
+<span id="cb41-44"><a href="A-1-JeopardyGameDownload.html#cb41-44"></a>    center upper,           % Left region text <span class="kw">centerred.</span> (Because of sidebyside, upper means left.)       </span>
+<span id="cb41-45"><a href="A-1-JeopardyGameDownload.html#cb41-45"></a>    center lower,           % Right region text <span class="kw">centerred.</span> (Because of sidebyside, lower means right)  </span>
+<span id="cb41-46"><a href="A-1-JeopardyGameDownload.html#cb41-46"></a>    colupper=white,          </span>
+<span id="cb41-47"><a href="A-1-JeopardyGameDownload.html#cb41-47"></a>    collower=white,          </span>
+<span id="cb41-48"><a href="A-1-JeopardyGameDownload.html#cb41-48"></a>    valign=center,</span>
+<span id="cb41-49"><a href="A-1-JeopardyGameDownload.html#cb41-49"></a>    fontupper=\LARGE\bfseries,</span>
+<span id="cb41-50"><a href="A-1-JeopardyGameDownload.html#cb41-50"></a>    fontlower=\LARGE\bfseries,</span>
+<span id="cb41-51"><a href="A-1-JeopardyGameDownload.html#cb41-51"></a>    width=\textwidth,</span>
+<span id="cb41-52"><a href="A-1-JeopardyGameDownload.html#cb41-52"></a>    height=.<span class="dv">15</span>\paperheight</span>
+<span id="cb41-53"><a href="A-1-JeopardyGameDownload.html#cb41-53"></a>}</span>
+<span id="cb41-54"><a href="A-1-JeopardyGameDownload.html#cb41-54"></a></span>
+<span id="cb41-55"><a href="A-1-JeopardyGameDownload.html#cb41-55"></a>% Define the colorbox used by the question<span class="op">/</span>answer content</span>
+<span id="cb41-56"><a href="A-1-JeopardyGameDownload.html#cb41-56"></a>\newtcolorbox{TextArea}{</span>
+<span id="cb41-57"><a href="A-1-JeopardyGameDownload.html#cb41-57"></a>    before=,</span>
+<span id="cb41-58"><a href="A-1-JeopardyGameDownload.html#cb41-58"></a>    after=\vskip<span class="fl">-.01</span>ex,</span>
+<span id="cb41-59"><a href="A-1-JeopardyGameDownload.html#cb41-59"></a>    height=<span class="fl">0.69</span>\paperheight,</span>
+<span id="cb41-60"><a href="A-1-JeopardyGameDownload.html#cb41-60"></a>    boxrule=0pt,</span>
+<span id="cb41-61"><a href="A-1-JeopardyGameDownload.html#cb41-61"></a>    halign=center,</span>
+<span id="cb41-62"><a href="A-1-JeopardyGameDownload.html#cb41-62"></a>    valign=center</span>
+<span id="cb41-63"><a href="A-1-JeopardyGameDownload.html#cb41-63"></a>}</span>
+<span id="cb41-64"><a href="A-1-JeopardyGameDownload.html#cb41-64"></a></span>
+<span id="cb41-65"><a href="A-1-JeopardyGameDownload.html#cb41-65"></a>\newarray\scores                  % Create a new array \scores</span>
+<span id="cb41-66"><a href="A-1-JeopardyGameDownload.html#cb41-66"></a>\readarray{scores}{<span class="dv">100</span><span class="op">&amp;</span><span class="dv">200</span><span class="op">&amp;</span><span class="dv">400</span>}   % Load the prize values to \scores</span>
+<span id="cb41-67"><a href="A-1-JeopardyGameDownload.html#cb41-67"></a></span>
+<span id="cb41-68"><a href="A-1-JeopardyGameDownload.html#cb41-68"></a>% Shortcut to create one row at a time on the homepage</span>
+<span id="cb41-69"><a href="A-1-JeopardyGameDownload.html#cb41-69"></a>\newcommand{\newrow}[<span class="dv">2</span>]{</span>
+<span id="cb41-70"><a href="A-1-JeopardyGameDownload.html#cb41-70"></a>    \begin{SubjectBox}</span>
+<span id="cb41-71"><a href="A-1-JeopardyGameDownload.html#cb41-71"></a>        <span class="co">#1</span></span>
+<span id="cb41-72"><a href="A-1-JeopardyGameDownload.html#cb41-72"></a>    \end{SubjectBox}% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side.</span>
+<span id="cb41-73"><a href="A-1-JeopardyGameDownload.html#cb41-73"></a>    \foreach \i <span class="cf">in</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}{% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side.</span>
+<span id="cb41-74"><a href="A-1-JeopardyGameDownload.html#cb41-74"></a>        \begin{PrizeBox}</span>
+<span id="cb41-75"><a href="A-1-JeopardyGameDownload.html#cb41-75"></a>            \begin{ocg}{s<span class="co">#2-\i}{s#2-\i}{1} %{PDF label}{internal reference label}{visibility}</span></span>
+<span id="cb41-76"><a href="A-1-JeopardyGameDownload.html#cb41-76"></a>            \hyperlink{s<span class="co">#2-\i}{\scores(\i)}</span></span>
+<span id="cb41-77"><a href="A-1-JeopardyGameDownload.html#cb41-77"></a>            \end{ocg}</span>
+<span id="cb41-78"><a href="A-1-JeopardyGameDownload.html#cb41-78"></a>        \end{PrizeBox}% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side. </span>
+<span id="cb41-79"><a href="A-1-JeopardyGameDownload.html#cb41-79"></a>        }</span>
+<span id="cb41-80"><a href="A-1-JeopardyGameDownload.html#cb41-80"></a>}</span>
+<span id="cb41-81"><a href="A-1-JeopardyGameDownload.html#cb41-81"></a></span>
+<span id="cb41-82"><a href="A-1-JeopardyGameDownload.html#cb41-82"></a>% Shortcut to create header of a question page</span>
+<span id="cb41-83"><a href="A-1-JeopardyGameDownload.html#cb41-83"></a>\newcommand{\header}[<span class="dv">2</span>]{</span>
+<span id="cb41-84"><a href="A-1-JeopardyGameDownload.html#cb41-84"></a>    \begin{QuestionHeadFoot}</span>
+<span id="cb41-85"><a href="A-1-JeopardyGameDownload.html#cb41-85"></a>         <span class="co">#1 \tcblower #2</span></span>
+<span id="cb41-86"><a href="A-1-JeopardyGameDownload.html#cb41-86"></a>    \end{QuestionHeadFoot}</span>
+<span id="cb41-87"><a href="A-1-JeopardyGameDownload.html#cb41-87"></a>}</span>
+<span id="cb41-88"><a href="A-1-JeopardyGameDownload.html#cb41-88"></a></span>
+<span id="cb41-89"><a href="A-1-JeopardyGameDownload.html#cb41-89"></a>% Shortcut to create the footer of a question page</span>
+<span id="cb41-90"><a href="A-1-JeopardyGameDownload.html#cb41-90"></a>\newcommand{\footer}[<span class="dv">1</span>]{</span>
+<span id="cb41-91"><a href="A-1-JeopardyGameDownload.html#cb41-91"></a>    \begin{QuestionHeadFoot}</span>
+<span id="cb41-92"><a href="A-1-JeopardyGameDownload.html#cb41-92"></a>        \hyperlink{question<span class="co">#1}{Question} \\ \hyperlink{answer#1}{Answer} \tcblower</span></span>
+<span id="cb41-93"><a href="A-1-JeopardyGameDownload.html#cb41-93"></a>        \hideocg{<span class="co">#1}{Done!} \\  \hyperlink{home}{Home}</span></span>
+<span id="cb41-94"><a href="A-1-JeopardyGameDownload.html#cb41-94"></a>    \end{QuestionHeadFoot}</span>
+<span id="cb41-95"><a href="A-1-JeopardyGameDownload.html#cb41-95"></a>}</span>
+<span id="cb41-96"><a href="A-1-JeopardyGameDownload.html#cb41-96"></a></span>
+<span id="cb41-97"><a href="A-1-JeopardyGameDownload.html#cb41-97"></a>% Create a  question page</span>
+<span id="cb41-98"><a href="A-1-JeopardyGameDownload.html#cb41-98"></a>\newcommand{\content}[<span class="dv">4</span>]{</span>
+<span id="cb41-99"><a href="A-1-JeopardyGameDownload.html#cb41-99"></a>\begin{frame}</span>
+<span id="cb41-100"><a href="A-1-JeopardyGameDownload.html#cb41-100"></a>    \hypertarget<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{question<span class="co">#1}{} % Make an anchor. Land here when the Question button is clicked.</span></span>
+<span id="cb41-101"><a href="A-1-JeopardyGameDownload.html#cb41-101"></a>    \hypertarget<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{answer<span class="co">#1}{}   % Make an anchor. Land here when the Answer button is clicked.</span></span>
+<span id="cb41-102"><a href="A-1-JeopardyGameDownload.html#cb41-102"></a>    \hypertarget{<span class="co">#1}{}            % Make an anchor. Land here when the prize is clicked on the homepage.</span></span>
+<span id="cb41-103"><a href="A-1-JeopardyGameDownload.html#cb41-103"></a>    \header{<span class="co">#2}{#3}               % Make header.</span></span>
+<span id="cb41-104"><a href="A-1-JeopardyGameDownload.html#cb41-104"></a>    <span class="co">#4                            % Add question on part &lt;1&gt; and answer on part &lt;2&gt;.</span></span>
+<span id="cb41-105"><a href="A-1-JeopardyGameDownload.html#cb41-105"></a>    \footer{<span class="co">#1}                   % Make footer.</span></span>
+<span id="cb41-106"><a href="A-1-JeopardyGameDownload.html#cb41-106"></a>\end{frame}</span>
+<span id="cb41-107"><a href="A-1-JeopardyGameDownload.html#cb41-107"></a>}</span>
+<span id="cb41-108"><a href="A-1-JeopardyGameDownload.html#cb41-108"></a></span>
+<span id="cb41-109"><a href="A-1-JeopardyGameDownload.html#cb41-109"></a>\begin{document}</span>
+<span id="cb41-110"><a href="A-1-JeopardyGameDownload.html#cb41-110"></a>\begin{frame}</span>
+<span id="cb41-111"><a href="A-1-JeopardyGameDownload.html#cb41-111"></a>\hypertarget{home}{} % set up the anchor <span class="cf">for</span> the Home button</span>
+<span id="cb41-112"><a href="A-1-JeopardyGameDownload.html#cb41-112"></a>\vspace<span class="op">*</span>{.23cm}</span>
+<span id="cb41-113"><a href="A-1-JeopardyGameDownload.html#cb41-113"></a>    \newrow{u<span class="op">-</span>substitution}{<span class="dv">1</span>}</span>
+<span id="cb41-114"><a href="A-1-JeopardyGameDownload.html#cb41-114"></a>    \newrow{Trig Substitution}{<span class="dv">2</span>}</span>
+<span id="cb41-115"><a href="A-1-JeopardyGameDownload.html#cb41-115"></a>    \newrow{Integration by Parts}{<span class="dv">3</span>}</span>
+<span id="cb41-116"><a href="A-1-JeopardyGameDownload.html#cb41-116"></a>    \newrow{Improper Integrals}{<span class="dv">4</span>}</span>
+<span id="cb41-117"><a href="A-1-JeopardyGameDownload.html#cb41-117"></a>    \newrow{Volume}{<span class="dv">5</span>}</span>
+<span id="cb41-118"><a href="A-1-JeopardyGameDownload.html#cb41-118"></a>    \newrow{Geometric Series}{<span class="dv">6</span>}</span>
+<span id="cb41-119"><a href="A-1-JeopardyGameDownload.html#cb41-119"></a>    \newrow{Limit of Sequences}{<span class="dv">7</span>}</span>
+<span id="cb41-120"><a href="A-1-JeopardyGameDownload.html#cb41-120"></a>    \newrow{Convergence of Series}{<span class="dv">8</span>}</span>
+<span id="cb41-121"><a href="A-1-JeopardyGameDownload.html#cb41-121"></a>\end{frame}</span>
+<span id="cb41-122"><a href="A-1-JeopardyGameDownload.html#cb41-122"></a></span>
+<span id="cb41-123"><a href="A-1-JeopardyGameDownload.html#cb41-123"></a>\content                           </span>
+<span id="cb41-124"><a href="A-1-JeopardyGameDownload.html#cb41-124"></a>    {s1<span class="dv">-1</span>}                         % Question internal ID. Subject <span class="dv">1</span>, question <span class="fl">1.</span></span>
+<span id="cb41-125"><a href="A-1-JeopardyGameDownload.html#cb41-125"></a>    {u<span class="op">-</span>Substitution}               % Subject title</span>
+<span id="cb41-126"><a href="A-1-JeopardyGameDownload.html#cb41-126"></a>    {<span class="dv">100</span>}{                         % Prize of the question</span>
+<span id="cb41-127"><a href="A-1-JeopardyGameDownload.html#cb41-127"></a>        \begin{TextArea}           </span>
+<span id="cb41-128"><a href="A-1-JeopardyGameDownload.html#cb41-128"></a>        \only<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{                  % Adding the question</span>
+<span id="cb41-129"><a href="A-1-JeopardyGameDownload.html#cb41-129"></a>          In the integral <span class="op">$</span>\int \frac{(\ln x)<span class="op">^</span><span class="dv">2</span>}{x}\, dx<span class="op">$</span><span class="st"> </span>which term should be replaced as <span class="op">$</span>u<span class="op">$</span>?</span>
+<span id="cb41-130"><a href="A-1-JeopardyGameDownload.html#cb41-130"></a>            \begin{enumerate}[A<span class="er">)</span>.]</span>
+<span id="cb41-131"><a href="A-1-JeopardyGameDownload.html#cb41-131"></a>            \item <span class="op">$</span>\ln x<span class="op">$</span></span>
+<span id="cb41-132"><a href="A-1-JeopardyGameDownload.html#cb41-132"></a><span class="st">            </span>\item <span class="op">$</span><span class="dv">1</span><span class="op">/</span>x<span class="op">$</span></span>
+<span id="cb41-133"><a href="A-1-JeopardyGameDownload.html#cb41-133"></a><span class="st">            </span>\end{enumerate}</span>
+<span id="cb41-134"><a href="A-1-JeopardyGameDownload.html#cb41-134"></a>        }</span>
+<span id="cb41-135"><a href="A-1-JeopardyGameDownload.html#cb41-135"></a>        \only<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{                  % Adding the answer</span>
+<span id="cb41-136"><a href="A-1-JeopardyGameDownload.html#cb41-136"></a>             <span class="op">$</span>\ln x<span class="op">$</span></span>
+<span id="cb41-137"><a href="A-1-JeopardyGameDownload.html#cb41-137"></a><span class="st">        </span>}</span>
+<span id="cb41-138"><a href="A-1-JeopardyGameDownload.html#cb41-138"></a>        \end{TextArea}</span>
+<span id="cb41-139"><a href="A-1-JeopardyGameDownload.html#cb41-139"></a>    }</span>
+<span id="cb41-140"><a href="A-1-JeopardyGameDownload.html#cb41-140"></a></span>
+<span id="cb41-141"><a href="A-1-JeopardyGameDownload.html#cb41-141"></a>\content                           </span>
+<span id="cb41-142"><a href="A-1-JeopardyGameDownload.html#cb41-142"></a>    {s1<span class="dv">-2</span>}                         % Question internal ID. Subject <span class="dv">1</span>, question <span class="fl">2.</span></span>
+<span id="cb41-143"><a href="A-1-JeopardyGameDownload.html#cb41-143"></a>    {u<span class="op">-</span>Substitution}               % Subject title</span>
+<span id="cb41-144"><a href="A-1-JeopardyGameDownload.html#cb41-144"></a>    {<span class="dv">200</span>}{                         % Prize of the question</span>
+<span id="cb41-145"><a href="A-1-JeopardyGameDownload.html#cb41-145"></a>        \begin{TextArea}           </span>
+<span id="cb41-146"><a href="A-1-JeopardyGameDownload.html#cb41-146"></a>        \only<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{                  % Adding the question</span>
+<span id="cb41-147"><a href="A-1-JeopardyGameDownload.html#cb41-147"></a>        In the integral <span class="op">$</span>\int \sin x\sqrt{<span class="dv">1</span><span class="op">+</span>\cos x}\, dx<span class="op">$</span>, which substitution does NOT work?</span>
+<span id="cb41-148"><a href="A-1-JeopardyGameDownload.html#cb41-148"></a>            \begin{enumerate}[A<span class="er">)</span>.]</span>
+<span id="cb41-149"><a href="A-1-JeopardyGameDownload.html#cb41-149"></a>            \item <span class="op">$</span>u=\sin x<span class="op">$</span></span>
+<span id="cb41-150"><a href="A-1-JeopardyGameDownload.html#cb41-150"></a><span class="st">            </span>\item <span class="op">$</span>u=\cos x<span class="op">$</span></span>
+<span id="cb41-151"><a href="A-1-JeopardyGameDownload.html#cb41-151"></a><span class="st">            </span>\item <span class="op">$</span>u=<span class="dv">1</span><span class="op">+</span>\cos x<span class="op">$</span></span>
+<span id="cb41-152"><a href="A-1-JeopardyGameDownload.html#cb41-152"></a><span class="st">            </span>\end{enumerate}</span>
+<span id="cb41-153"><a href="A-1-JeopardyGameDownload.html#cb41-153"></a>        }</span>
+<span id="cb41-154"><a href="A-1-JeopardyGameDownload.html#cb41-154"></a>        \only<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{                  % Adding the answer</span>
+<span id="cb41-155"><a href="A-1-JeopardyGameDownload.html#cb41-155"></a>            <span class="op">$</span>\sin x<span class="op">$</span></span>
+<span id="cb41-156"><a href="A-1-JeopardyGameDownload.html#cb41-156"></a><span class="st">        </span>}</span>
+<span id="cb41-157"><a href="A-1-JeopardyGameDownload.html#cb41-157"></a>        \end{TextArea}</span>
+<span id="cb41-158"><a href="A-1-JeopardyGameDownload.html#cb41-158"></a>    }</span>
+<span id="cb41-159"><a href="A-1-JeopardyGameDownload.html#cb41-159"></a></span>
+<span id="cb41-160"><a href="A-1-JeopardyGameDownload.html#cb41-160"></a>\content                           </span>
+<span id="cb41-161"><a href="A-1-JeopardyGameDownload.html#cb41-161"></a>    {s1<span class="dv">-3</span>}                         % Question internal ID. Subject <span class="dv">1</span>, question <span class="fl">3.</span></span>
+<span id="cb41-162"><a href="A-1-JeopardyGameDownload.html#cb41-162"></a>    {u<span class="op">-</span>Substitution}               % Subject title</span>
+<span id="cb41-163"><a href="A-1-JeopardyGameDownload.html#cb41-163"></a>    {<span class="dv">400</span>}{                         % Prize of the question</span>
+<span id="cb41-164"><a href="A-1-JeopardyGameDownload.html#cb41-164"></a>        \begin{TextArea}           </span>
+<span id="cb41-165"><a href="A-1-JeopardyGameDownload.html#cb41-165"></a>        \only<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{                  % Adding the question</span>
+<span id="cb41-166"><a href="A-1-JeopardyGameDownload.html#cb41-166"></a>            In the integral <span class="op">$</span>\int \frac{x}{<span class="dv">1</span><span class="op">+</span>x<span class="op">^</span><span class="dv">4</span>}\, dx<span class="op">$</span>, what should be replaced as <span class="op">$</span>u<span class="op">$</span>?</span>
+<span id="cb41-167"><a href="A-1-JeopardyGameDownload.html#cb41-167"></a>        }</span>
+<span id="cb41-168"><a href="A-1-JeopardyGameDownload.html#cb41-168"></a>        \only<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{                  % Adding the answer</span>
+<span id="cb41-169"><a href="A-1-JeopardyGameDownload.html#cb41-169"></a>            <span class="op">$</span>u =<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span><span class="op">$</span></span>
+<span id="cb41-170"><a href="A-1-JeopardyGameDownload.html#cb41-170"></a><span class="st">        </span>}</span>
+<span id="cb41-171"><a href="A-1-JeopardyGameDownload.html#cb41-171"></a>        \end{TextArea}</span>
+<span id="cb41-172"><a href="A-1-JeopardyGameDownload.html#cb41-172"></a>    }</span>
+<span id="cb41-173"><a href="A-1-JeopardyGameDownload.html#cb41-173"></a></span>
+<span id="cb41-174"><a href="A-1-JeopardyGameDownload.html#cb41-174"></a>\end{document}</span></code></pre></div>
 
 </div>
 <!-- </div> -->

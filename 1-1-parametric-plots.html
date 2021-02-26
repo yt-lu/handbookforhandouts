@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.2 Embed a Video | Handbook for Handouts</title>
+  <title>1.1 Parametric Plots | Handbook for Handouts</title>
   <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.2 Embed a Video | Handbook for Handouts" />
+  <meta property="og:title" content="1.1 Parametric Plots | Handbook for Handouts" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.2 Embed a Video | Handbook for Handouts" />
+  <meta name="twitter:title" content="1.1 Parametric Plots | Handbook for Handouts" />
   
   <meta name="twitter:description" content="This album is a collection of examples for undergraduate math classes." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="8-1-embed-a-static-file.html"/>
-<link rel="next" href="8-3-embed-web-page.html"/>
+<link rel="prev" href="1-latex-with-tikz-2d.html"/>
+<link rel="next" href="2-latex-with-tikz-3d.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -225,94 +225,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="embed-a-video" class="section level2">
-<h2><span class="header-section-number">8.2</span> Embed a Video</h2>
-<p>We can also use the iframe tool discussed in the previous section to insert videos. YouTube videos are used as examples. Check the link formats with the platform if another platform is chosen.</p>
-<ol style="list-style-type: decimal">
-<li>Create an HTML container (e.g., define a new class named video_container) to wrap the iframe and configue an HTML iframe.</li>
-</ol>
-<pre><code>&lt;style type=&quot;text/css&quot;&gt;
-.video_container {
-  position: relative;
-  padding-bottom: 56.25%; 
-}
+<div id="parametric-plots" class="section level2">
+<h2><span class="header-section-number">1.1</span> Parametric Plots</h2>
+<div id="draw-and-node" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> \draw and \node</h3>
+<p>Required package(s): <code>\usepackage{tikz}</code>.</p>
+<ul>
+<li>The <code>\draw</code> function can handle parametric plot. The common options (inside the brackets) are
+<ul>
+<li><code>variable=</code>: the parameter.</li>
+<li><code>domain=</code>: the domain of the parameter.</li>
+<li><code>samples=</code>: the length of a eqidistance sequence that spans the domain.</li>
+<li><code>color=</code>: the color of the curve.</li>
+<li><code>fill=</code>: the color to fill the region enclosed by the curve.</li>
+<li>Arrow at the end of the curve: <code>-&gt;</code>, <code>-&gt;&gt;</code>, <code>|&lt;-&gt;|</code></li>
+<li>Line style: <code>densely dotted</code>, <code>loosely dashed</code>.</li>
+<li>Line thickness: <code>thick</code>, <code>very thick</code>, or <code>ultra thick</code>.</li>
+</ul></li>
+<li>The <code>\node</code> function adds a label to the graph.
+<ul>
+<li><code>anchor=</code>: the place of the anchor relative to the label. Accepted key words are <code>east</code>, <code>west</code>, <code>north</code>, <code>south</code>, or combinations such as <code>north west</code>.</li>
+</ul></li>
+<li><code>sin(\t r)</code>: <code>\t</code> is a parameter and <code>r</code> indicates <code>\t</code> is measured in radians.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="1-1-parametric-plots.html#cb3-1"></a>\definecolor{cool}{HTML}{<span class="fl">6E7696</span>} % Define a color named cool</span>
+<span id="cb3-2"><a href="1-1-parametric-plots.html#cb3-2"></a></span>
+<span id="cb3-3"><a href="1-1-parametric-plots.html#cb3-3"></a>\begin{figure}[htbp]</span>
+<span id="cb3-4"><a href="1-1-parametric-plots.html#cb3-4"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb3-5"><a href="1-1-parametric-plots.html#cb3-5"></a></span>
+<span id="cb3-6"><a href="1-1-parametric-plots.html#cb3-6"></a>% Draw and fill a circle</span>
+<span id="cb3-7"><a href="1-1-parametric-plots.html#cb3-7"></a>\draw [variable=\t, domain=<span class="dv">0</span><span class="op">:</span><span class="dv">2</span><span class="op">*</span>pi, samples=<span class="dv">200</span>, ultra thick, color =<span class="st"> </span>black<span class="op">!</span><span class="dv">70</span>, fill =<span class="st"> </span>cool] <span class="kw">plot</span>({<span class="kw">cos</span>(\t r)}, {<span class="kw">sin</span>(\t r)});</span>
+<span id="cb3-8"><a href="1-1-parametric-plots.html#cb3-8"></a></span>
+<span id="cb3-9"><a href="1-1-parametric-plots.html#cb3-9"></a>% Add arrows to the circle</span>
+<span id="cb3-10"><a href="1-1-parametric-plots.html#cb3-10"></a>\draw [variable=\t, domain=<span class="dv">0</span><span class="op">:</span>pi<span class="op">/</span><span class="dv">3</span>, samples=<span class="dv">200</span>, ultra thick, color =<span class="st"> </span>black<span class="op">!</span><span class="dv">70</span>, -&gt;&gt;] <span class="kw">plot</span>({<span class="kw">cos</span>(\t r)}, {<span class="kw">sin</span>(\t r)});</span>
+<span id="cb3-11"><a href="1-1-parametric-plots.html#cb3-11"></a></span>
+<span id="cb3-12"><a href="1-1-parametric-plots.html#cb3-12"></a>\draw [-&gt;] (<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">2</span>, <span class="dv">0</span>); % Add the x<span class="op">-</span>axis </span>
+<span id="cb3-13"><a href="1-1-parametric-plots.html#cb3-13"></a>\draw [-&gt;] (<span class="dv">0</span>, <span class="fl">-2.2</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">0</span>, <span class="fl">2.2</span>); % Add the y<span class="op">-</span>axis</span>
+<span id="cb3-14"><a href="1-1-parametric-plots.html#cb3-14"></a></span>
+<span id="cb3-15"><a href="1-1-parametric-plots.html#cb3-15"></a>\<span class="kw">draw</span> (<span class="dv">1</span>,4pt) <span class="op">--</span><span class="st"> </span>(<span class="dv">1</span>,0pt); % Draw tickmark</span>
+<span id="cb3-16"><a href="1-1-parametric-plots.html#cb3-16"></a>\node [anchor=north west] <span class="kw">at</span> (<span class="dv">1</span>, <span class="dv">0</span>) {<span class="op">$</span><span class="dv">1</span><span class="op">$</span>}; % Add tickmark label</span>
+<span id="cb3-17"><a href="1-1-parametric-plots.html#cb3-17"></a></span>
+<span id="cb3-18"><a href="1-1-parametric-plots.html#cb3-18"></a>\end{tikzpicture}</span>
+<span id="cb3-19"><a href="1-1-parametric-plots.html#cb3-19"></a>\end{figure}</span></code></pre></div>
+<p><img src="img/tikz-draw-node.png" style="width:50.0%" /></p>
+<p>The <code>\draw</code> command allows multiple parametric curves and points to be joined head to tail.</p>
+<p>In the next example, the curve starts at the point (1, 0), goes counterclockwise around a unit circle for 180 degrees, then moves clockwise along a smaller circle for another 180 degrees before finally returns to the point (1, 0). The enclosed region is filled by a user-defined color named “cool”.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="1-1-parametric-plots.html#cb4-1"></a>\definecolor{cool}{HTML}{<span class="fl">6E7696</span>} % Define a color named cool</span>
+<span id="cb4-2"><a href="1-1-parametric-plots.html#cb4-2"></a></span>
+<span id="cb4-3"><a href="1-1-parametric-plots.html#cb4-3"></a>\begin{figure}[htbp]</span>
+<span id="cb4-4"><a href="1-1-parametric-plots.html#cb4-4"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb4-5"><a href="1-1-parametric-plots.html#cb4-5"></a>\draw [fill=cool] (<span class="dv">1</span>,<span class="dv">0</span>) </span>
+<span id="cb4-6"><a href="1-1-parametric-plots.html#cb4-6"></a><span class="op">--</span><span class="st"> </span>plot[domain=<span class="dv">0</span><span class="op">:</span>pi, variable=\t] ({<span class="kw">cos</span>(\t r)}, {<span class="kw">sin</span>(\t r)})  </span>
+<span id="cb4-7"><a href="1-1-parametric-plots.html#cb4-7"></a><span class="op">--</span><span class="st"> </span>plot[domain=pi<span class="op">:</span><span class="dv">0</span>, variable=\t] ({<span class="fl">0.3</span><span class="op">*</span><span class="kw">cos</span>(\t r)}, {<span class="fl">0.3</span><span class="op">*</span><span class="kw">sin</span>(\t r)}) </span>
+<span id="cb4-8"><a href="1-1-parametric-plots.html#cb4-8"></a><span class="op">--</span><span class="st"> </span>cycle;</span>
+<span id="cb4-9"><a href="1-1-parametric-plots.html#cb4-9"></a>\end{tikzpicture}</span>
+<span id="cb4-10"><a href="1-1-parametric-plots.html#cb4-10"></a>\end{figure}</span></code></pre></div>
+<p><img src="img/tikz-draw-fill.png" style="width:50.0%" /></p>
+</div>
+<div id="fill-by-tikzfillbetween" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Fill by \tikzfillbetween</h3>
+<p>Required package(s): <code>\usepackage{tikz, pgfplots}</code>, <code>\usepgfplotslibrary{fillbetween}</code>.</p>
+<p>Besides the <code>fill=</code> option in the <code>\draw</code> command, another convenient way to shade an area between two curves is to use the <code>\tikzfillbetween</code> command from the pgfplots library.</p>
+<ul>
+<li><code>name path=A</code>: Name the first curve as A.</li>
+<li><code>name path=B</code>: Name the second curve as B.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="1-1-parametric-plots.html#cb5-1"></a>\definecolor{cool}{HTML}{<span class="fl">6E7696</span>} % Define a color named cool</span>
+<span id="cb5-2"><a href="1-1-parametric-plots.html#cb5-2"></a></span>
+<span id="cb5-3"><a href="1-1-parametric-plots.html#cb5-3"></a>\begin{figure}[htbp]</span>
+<span id="cb5-4"><a href="1-1-parametric-plots.html#cb5-4"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb5-5"><a href="1-1-parametric-plots.html#cb5-5"></a></span>
+<span id="cb5-6"><a href="1-1-parametric-plots.html#cb5-6"></a>\draw [-&gt;] (<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">3</span>, <span class="dv">0</span>);      % x<span class="op">-</span>axis</span>
+<span id="cb5-7"><a href="1-1-parametric-plots.html#cb5-7"></a>\draw [-&gt;] (<span class="dv">0</span>, <span class="fl">-0.5</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">0</span>, <span class="fl">4.5</span>);  % y<span class="op">-</span>axis </span>
+<span id="cb5-8"><a href="1-1-parametric-plots.html#cb5-8"></a></span>
+<span id="cb5-9"><a href="1-1-parametric-plots.html#cb5-9"></a>\draw [name path=A, variable=\t, domain=<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>, samples=<span class="dv">200</span>, thick] <span class="kw">plot</span>({\t}, {<span class="kw">sqrt</span>(\t)});</span>
+<span id="cb5-10"><a href="1-1-parametric-plots.html#cb5-10"></a>\draw [name path=B, variable=\t, domain=<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>, samples=<span class="dv">200</span>, thick] <span class="kw">plot</span>({\t}, {\t<span class="op">^</span><span class="dv">2</span>});</span>
+<span id="cb5-11"><a href="1-1-parametric-plots.html#cb5-11"></a>\tikzfillbetween[of=A and B]{cool}; % Fills the space between A and B.</span>
+<span id="cb5-12"><a href="1-1-parametric-plots.html#cb5-12"></a></span>
+<span id="cb5-13"><a href="1-1-parametric-plots.html#cb5-13"></a>\end{tikzpicture}</span>
+<span id="cb5-14"><a href="1-1-parametric-plots.html#cb5-14"></a>\end{figure}</span></code></pre></div>
+<p><img src="img/tikz-fillbetween.png" style="width:50.0%" /></p>
+</div>
+<div id="fill-by-intersection-segments" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Fill by Intersection Segments</h3>
+<p>Required package(s): <code>\usepackage{tikz, pgfplots}</code>, <code>\usepgfplotslibrary{fillbetween}</code>, <code>\usetikzlibrary{patterns}</code>.</p>
+<p>When two curves intersect, they can create multiple intersection segments. For example, the left panel below shows all the intersection segments when a circle meets a triangle.</p>
+<p>The segment index depends on the flow of the parametric curves. For example, A1 and A2 are the segments on curve A right after the first and the second intersections, respectively. B0 is the segment on curve B right before the first intersection. We can always repeatedly use the draw command, for example, <code>\draw [red, very thick, intersection segments={of=A and B, sequence={A1}}];</code> to discern a segment, by repeated changing the name of segment inside <code>sequence={ }</code>.</p>
+<p>Once we have identified all the segments, we can use them to shade a specific region accordingly. The following codes produce the right panel below.</p>
+<ul>
+<li><code>name path=A</code> assigns curve A. <code>samples=362</code> draw a better circle.</li>
+<li><code>name path=B</code> assigns curve B.</li>
+<li>In the <code>\fill</code> command, the option <code>sequence=</code> outlines the shaded region.</li>
+<li><code>red!50</code> means 50% red.</li>
+<li><code>[inverse]</code> means the segment goes against the flow of the parametric curve.</li>
+<li><code>pattern=</code> specifies the angle of the shaded lines, which requires the <code>patterns</code> library from tikz.
+`</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="1-1-parametric-plots.html#cb6-1"></a>\begin{tikzpicture}[scale=<span class="dv">2</span>]</span>
+<span id="cb6-2"><a href="1-1-parametric-plots.html#cb6-2"></a></span>
+<span id="cb6-3"><a href="1-1-parametric-plots.html#cb6-3"></a>\draw [name path=A, domain=<span class="dv">0</span><span class="op">:</span><span class="dv">2</span><span class="op">*</span>pi, variable=\t, samples=<span class="dv">362</span>] <span class="kw">plot</span>({<span class="kw">cos</span>(\t r)}, {<span class="kw">sin</span>(\t r)});</span>
+<span id="cb6-4"><a href="1-1-parametric-plots.html#cb6-4"></a>\draw [name path=B] (<span class="dv">1</span>, <span class="dv">-1</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">1</span>, <span class="dv">1</span>) <span class="op">--</span><span class="st"> </span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-1</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>);</span>
+<span id="cb6-5"><a href="1-1-parametric-plots.html#cb6-5"></a></span>
+<span id="cb6-6"><a href="1-1-parametric-plots.html#cb6-6"></a>\fill [yellow, intersection segments={of=A and B, sequence={A1<span class="op">--</span>B2<span class="op">--</span>A3<span class="op">--</span>A4}}];</span>
+<span id="cb6-7"><a href="1-1-parametric-plots.html#cb6-7"></a>\fill [red<span class="op">!</span><span class="dv">50</span>, intersection segments={of=A and B, sequence={A1<span class="op">--</span>B1[reverse]}}];</span>
+<span id="cb6-8"><a href="1-1-parametric-plots.html#cb6-8"></a>\fill [green<span class="op">!</span><span class="dv">50</span>, intersection segments={of=A and B, sequence={B3<span class="op">--</span>A3[reverse]}}];</span>
+<span id="cb6-9"><a href="1-1-parametric-plots.html#cb6-9"></a>\fill [blue<span class="op">!</span><span class="dv">50</span>, intersection segments={of=A and B, sequence={A4[reverse]<span class="op">--</span>B4}}];</span>
+<span id="cb6-10"><a href="1-1-parametric-plots.html#cb6-10"></a>\fill [black<span class="op">!</span><span class="dv">50</span>, intersection segments={of=A and B, sequence={A2<span class="op">--</span>B2[reverse]}}, pattern=<span class="st"> </span>north east lines];</span>
+<span id="cb6-11"><a href="1-1-parametric-plots.html#cb6-11"></a></span>
+<span id="cb6-12"><a href="1-1-parametric-plots.html#cb6-12"></a>\end{tikzpicture}</span></code></pre></div>
+<p><img src="img/tikz-inter-sgmt-1.png" style="width:50.0%" /><img src="img/tikz-inter-sgmt-2.png" style="width:50.0%" /></p>
 
-iframe{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;    /* Full width of the video container */
-  height: 100%;   /* Full height of the video container */
-}
-&lt;/style&gt;</code></pre>
-<style type="text/css">
-.video_container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-}
-
-iframe{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;    /*Full width of the video container*/
-  height: 100%;   /*Full height of the video container*/
-}
-</style>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Find the video ID of the YouTube video, which is the part after <em>v=</em> in the URL of the vedio. For example, if the URL is <code>https://www.youtube.com/watch?v=2kbM96Jr4nk</code>, the ID is <em>2kbM96Jr4nk</em>.</p></li>
-<li><p>Load the video in the iframe. Paste the ID of the video right after <code>https://www.youtube.com/embed/</code> in the <em>src</em> part.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> The Option <code>frameborder="0"</code> hides the border of the video frame.</p></li>
-</ol>
-<pre><code>&lt;div class=&quot;video_container&quot;&gt;
-&lt;iframe frameborder=&quot;0&quot; 
-  src=&quot;https://www.youtube.com/embed/2kbM96Jr4nk&quot;&gt;
-&lt;/iframe&gt;&lt;/div&gt;</code></pre>
-Here is one of my favorite of all times.
-<div class="video_container">
-<iframe frameborder="0" src="https://www.youtube.com/embed/2kbM96Jr4nk">
-</iframe>
 </div>
-<ol start="4" style="list-style-type: decimal">
-<li>(Optional) Set the <em>video_container</em> padding-bottom attribute to be the reciprocal of the aspect ratio of the video.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> For example,</li>
-</ol>
-<table>
-<thead>
-<tr class="header">
-<th>Aspect Ratio of Video</th>
-<th>Padding-Bottom</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1:1</td>
-<td>100%</td>
-</tr>
-<tr class="even">
-<td>16:9</td>
-<td>56.25%</td>
-</tr>
-<tr class="odd">
-<td>4:3</td>
-<td>75%</td>
-</tr>
-</tbody>
-</table>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="7">
-<li id="fn7"><p><a href="https://www.w3schools.com/html/html_youtube.asp" target="_blank"><em>HTML YouTube Videos</em>, w3schools</a><a href="8-2-embed-a-video.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p><a href="https://faq.dailymotion.com/hc/en-us/articles/360022841393-How-to-preserve-the-player-aspect-ratio-on-a-responsive-page" target="_blank"><em>How to Preserve the Player Aspect Ratio on a Responsive Page, Daily Motion</em></a><a href="8-2-embed-a-video.html#fnref8" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="8-1-embed-a-static-file.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="8-3-embed-web-page.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1-latex-with-tikz-2d.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-latex-with-tikz-3d.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -343,7 +375,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-rmdhtml.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-tikz2d.Rmd",
 "text": "Edit"
 },
 "history": {
