@@ -24,7 +24,7 @@
 <meta name="author" content="Yuanting Lu" />
 
 
-<meta name="date" content="2021-02-25" />
+<meta name="date" content="2021-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -137,10 +137,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I LaTeX</b></span></li>
 <li class="chapter" data-level="1" data-path="1-latex-with-tikz-2d.html"><a href="1-latex-with-tikz-2d.html"><i class="fa fa-check"></i><b>1</b> LaTeX with Tikz (2D)</a><ul>
-<li class="chapter" data-level="1.1" data-path="1-1-parametric-plots.html"><a href="1-1-parametric-plots.html"><i class="fa fa-check"></i><b>1.1</b> Parametric Plots</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="1-1-parametric-plots.html"><a href="1-1-parametric-plots.html#draw-and-node"><i class="fa fa-check"></i><b>1.1.1</b> \draw and \node</a></li>
-<li class="chapter" data-level="1.1.2" data-path="1-1-parametric-plots.html"><a href="1-1-parametric-plots.html#fill-by-tikzfillbetween"><i class="fa fa-check"></i><b>1.1.2</b> Fill by \tikzfillbetween</a></li>
-<li class="chapter" data-level="1.1.3" data-path="1-1-parametric-plots.html"><a href="1-1-parametric-plots.html#fill-by-intersection-segments"><i class="fa fa-check"></i><b>1.1.3</b> Fill by Intersection Segments</a></li>
+<li class="chapter" data-level="1.1" data-path="1-1-parametric-plots-draw-and-node.html"><a href="1-1-parametric-plots-draw-and-node.html"><i class="fa fa-check"></i><b>1.1</b> Parametric Plots (\draw and \node)</a></li>
+<li class="chapter" data-level="1.2" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html"><i class="fa fa-check"></i><b>1.2</b> Shade an Area</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html#the-fill-option-in-draw"><i class="fa fa-check"></i><b>1.2.1</b> The “fill” option in \draw</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html#fill-by-tikzfillbetween"><i class="fa fa-check"></i><b>1.2.2</b> Fill by \tikzfillbetween</a></li>
+<li class="chapter" data-level="1.2.3" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html#fill-by-intersection-segments"><i class="fa fa-check"></i><b>1.2.3</b> Fill by Intersection Segments</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1-3-simple-shapes.html"><a href="1-3-simple-shapes.html"><i class="fa fa-check"></i><b>1.3</b> Simple Shapes</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1-3-simple-shapes.html"><a href="1-3-simple-shapes.html#circle"><i class="fa fa-check"></i><b>1.3.1</b> Circle</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-3-simple-shapes.html"><a href="1-3-simple-shapes.html#rectangle"><i class="fa fa-check"></i><b>1.3.2</b> Rectangle</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-latex-with-tikz-3d.html"><a href="2-latex-with-tikz-3d.html"><i class="fa fa-check"></i><b>2</b> LaTex with Tikz (3D)</a></li>
@@ -239,23 +244,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" style="list-style-type: decimal">
 <li>Add a set of sequential plots into the R chunk through a for-loop.</li>
 </ol>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="8-6-animations.html#cb39-1"></a><span class="co"># Define the function f(x)=sin(x)/x</span></span>
-<span id="cb39-2"><a href="8-6-animations.html#cb39-2"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
-<span id="cb39-3"><a href="8-6-animations.html#cb39-3"></a>  <span class="kw">return</span>(<span class="kw">sin</span>(x) <span class="op">/</span><span class="st"> </span>x)</span>
-<span id="cb39-4"><a href="8-6-animations.html#cb39-4"></a>}</span>
-<span id="cb39-5"><a href="8-6-animations.html#cb39-5"></a></span>
-<span id="cb39-6"><a href="8-6-animations.html#cb39-6"></a><span class="co"># Animation created from a for-loop</span></span>
-<span id="cb39-7"><a href="8-6-animations.html#cb39-7"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>) {</span>
-<span id="cb39-8"><a href="8-6-animations.html#cb39-8"></a>  <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="kw">f</span>(<span class="dv">1</span><span class="op">:</span>n), </span>
-<span id="cb39-9"><a href="8-6-animations.html#cb39-9"></a>       <span class="dt">pch=</span><span class="dv">16</span>,            <span class="co"># Use a filled dot for each point</span></span>
-<span id="cb39-10"><a href="8-6-animations.html#cb39-10"></a>       <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">21</span>),    <span class="co"># The range of the x-axis</span></span>
-<span id="cb39-11"><a href="8-6-animations.html#cb39-11"></a>       <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>),   <span class="co"># The range of the y-axis</span></span>
-<span id="cb39-12"><a href="8-6-animations.html#cb39-12"></a>       <span class="dt">main =</span> <span class="st">&#39;Sequence&#39;</span>, <span class="co"># Title</span></span>
-<span id="cb39-13"><a href="8-6-animations.html#cb39-13"></a>       <span class="dt">xlab =</span> <span class="st">&#39;x&#39;</span>,        <span class="co"># x label</span></span>
-<span id="cb39-14"><a href="8-6-animations.html#cb39-14"></a>       <span class="dt">ylab =</span> <span class="st">&#39;sin(x)/x&#39;</span>  <span class="co"># y label</span></span>
-<span id="cb39-15"><a href="8-6-animations.html#cb39-15"></a>  )</span>
-<span id="cb39-16"><a href="8-6-animations.html#cb39-16"></a>}</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-24-.gif" width="672" /></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="8-6-animations.html#cb40-1"></a><span class="co"># Define the function f(x)=sin(x)/x</span></span>
+<span id="cb40-2"><a href="8-6-animations.html#cb40-2"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb40-3"><a href="8-6-animations.html#cb40-3"></a>  <span class="kw">return</span>(<span class="kw">sin</span>(x) <span class="op">/</span><span class="st"> </span>x)</span>
+<span id="cb40-4"><a href="8-6-animations.html#cb40-4"></a>}</span>
+<span id="cb40-5"><a href="8-6-animations.html#cb40-5"></a></span>
+<span id="cb40-6"><a href="8-6-animations.html#cb40-6"></a><span class="co"># Animation created from a for-loop</span></span>
+<span id="cb40-7"><a href="8-6-animations.html#cb40-7"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>) {</span>
+<span id="cb40-8"><a href="8-6-animations.html#cb40-8"></a>  <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="kw">f</span>(<span class="dv">1</span><span class="op">:</span>n), </span>
+<span id="cb40-9"><a href="8-6-animations.html#cb40-9"></a>       <span class="dt">pch=</span><span class="dv">16</span>,            <span class="co"># Use a filled dot for each point</span></span>
+<span id="cb40-10"><a href="8-6-animations.html#cb40-10"></a>       <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">21</span>),    <span class="co"># The range of the x-axis</span></span>
+<span id="cb40-11"><a href="8-6-animations.html#cb40-11"></a>       <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>),   <span class="co"># The range of the y-axis</span></span>
+<span id="cb40-12"><a href="8-6-animations.html#cb40-12"></a>       <span class="dt">main =</span> <span class="st">&#39;Sequence&#39;</span>, <span class="co"># Title</span></span>
+<span id="cb40-13"><a href="8-6-animations.html#cb40-13"></a>       <span class="dt">xlab =</span> <span class="st">&#39;x&#39;</span>,        <span class="co"># x label</span></span>
+<span id="cb40-14"><a href="8-6-animations.html#cb40-14"></a>       <span class="dt">ylab =</span> <span class="st">&#39;sin(x)/x&#39;</span>  <span class="co"># y label</span></span>
+<span id="cb40-15"><a href="8-6-animations.html#cb40-15"></a>  )</span>
+<span id="cb40-16"><a href="8-6-animations.html#cb40-16"></a>}</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-25-.gif" width="672" /></p>
 </div>
             </section>
 

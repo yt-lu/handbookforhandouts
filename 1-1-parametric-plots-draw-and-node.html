@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.2 Basic Examples | Handbook for Handouts</title>
+  <title>1.1 Parametric Plots (\draw and \node) | Handbook for Handouts</title>
   <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.2 Basic Examples | Handbook for Handouts" />
+  <meta property="og:title" content="1.1 Parametric Plots (\draw and \node) | Handbook for Handouts" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.2 Basic Examples | Handbook for Handouts" />
+  <meta name="twitter:title" content="1.1 Parametric Plots (\draw and \node) | Handbook for Handouts" />
   
   <meta name="twitter:description" content="This album is a collection of examples for undergraduate math classes." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="3-1-installation-on-mac-os.html"/>
-<link rel="next" href="4-jeopardy-game.html"/>
+<link rel="prev" href="1-latex-with-tikz-2d.html"/>
+<link rel="next" href="1-2-shade-an-area.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -230,62 +230,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="basic-examples" class="section level2">
-<h2><span class="header-section-number">3.2</span> Basic Examples</h2>
-<div id="inline-commands" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Inline Commands</h3>
-<p>For <strong>inline</strong> sage commands, use <code>\sage{}</code>. For example, <code>$\sage{diff(x^3, x, 2)}$</code> prints <span class="math inline">\(6x\)</span>, the second derivative of <span class="math inline">\(x^3\)</span>.</p>
-</div>
-<div id="blocks" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Blocks</h3>
+<div id="parametric-plots-draw-and-node" class="section level2">
+<h2><span class="header-section-number">1.1</span> Parametric Plots (\draw and \node)</h2>
+<p>Required package(s): <code>\usepackage{tikz}</code>.</p>
 <ul>
-<li>To <strong>execute and print</strong> a block of sage commands, use the <code>sageblock</code> environment. For example,</li>
-</ul>
-<pre><code>\begin{sageblock}
-    f(x) = exp(x) * sin(2*x)
-\end{sageblock}</code></pre>
+<li>The <code>\draw</code> function can handle parametric plot. The common options (inside the brackets) are
 <ul>
-<li>To <strong>execute and hide</strong> a block of sage commands, use the <code>sagesilent</code> environment. For example,</li>
-</ul>
-<pre><code>\begin{sagesilent}
-    f(x) = exp(x) * sin(2*x)
-\end{sagesilent}</code></pre>
+<li><code>variable=</code>: the parameter. By default, the parameter is <code>\x</code>.</li>
+<li><code>domain=</code>: the domain of the parameter.</li>
+<li><code>samples=</code>: the length of a eqidistance sequence that spans the domain.</li>
+<li><code>color=</code>: the color of the curve. Default is black.</li>
+<li><code>fill=</code>: the color of the enclosed area.</li>
+<li>Arrow at the end of the curve: <code>-&gt;</code>, <code>-&gt;&gt;</code>, <code>|&lt;-&gt;|</code></li>
+<li>Line style: <code>dotted</code>, <code>densely dotted</code>, <code>loosely dotted</code>, <code>dashed</code>, etc. Default is solid.</li>
+<li>Line thickness: <code>thick</code>, <code>very thick</code>, <code>ultra thick</code>, <code>thin</code>, etc.</li>
+</ul></li>
+<li>The <code>\node</code> function adds a label to the graph.
 <ul>
-<li>To <strong>print only</strong> psuedo-codes, use the <code>sageverbatim</code> environment. For example,</li>
+<li><code>anchor=</code>: the place of the anchor relative to the label. Accepted key words are <code>east</code>, <code>west</code>, <code>north</code>, <code>south</code>, or combinations such as <code>north west</code>.</li>
+<li><code>scale=</code>: the size of the text/symbol.</li>
+</ul></li>
+<li>Other notable mentions for the example below.
+<ul>
+<li><code>sin(\t r)</code>: <code>\t</code> is a parameter and <code>r</code> indicates <code>\t</code> is measured in radians.</li>
+<li><code>\path</code> behaves exactly as <code>\draw</code> except it hides the curve.</li>
+<li>Coordinates can be given by cartesian (x, y) or polar form (<span>θ</span>:r). For example, (0, 1) is equivalent to (90:1) in polar coordinates.</li>
+<li><code>(90:1) circle (1pt)</code> is a circle centered at (90:1) with a radius 1 pt.</li>
+</ul></li>
 </ul>
-<pre><code>\begin{sageverbatim}
-    f(x) = exp(x) * sin(2*x)
-\end{sageverbatim}</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="1-1-parametric-plots-draw-and-node.html#cb3-1"></a>\begin{figure}[htbp]</span>
+<span id="cb3-2"><a href="1-1-parametric-plots-draw-and-node.html#cb3-2"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb3-3"><a href="1-1-parametric-plots-draw-and-node.html#cb3-3"></a></span>
+<span id="cb3-4"><a href="1-1-parametric-plots-draw-and-node.html#cb3-4"></a>% Draw and fill a circle</span>
+<span id="cb3-5"><a href="1-1-parametric-plots-draw-and-node.html#cb3-5"></a>\draw [variable=\t, domain=<span class="dv">0</span><span class="op">:</span><span class="dv">2</span><span class="op">*</span>pi, samples=<span class="dv">200</span>, thin, color=black] <span class="kw">plot</span>({<span class="kw">cos</span>(\t r)}, {<span class="kw">sin</span>(\t r)});</span>
+<span id="cb3-6"><a href="1-1-parametric-plots-draw-and-node.html#cb3-6"></a></span>
+<span id="cb3-7"><a href="1-1-parametric-plots-draw-and-node.html#cb3-7"></a>\draw [-&gt;] (<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">2</span>, <span class="dv">0</span>); % Add the x<span class="op">-</span>axis </span>
+<span id="cb3-8"><a href="1-1-parametric-plots-draw-and-node.html#cb3-8"></a>\draw [-&gt;] (<span class="dv">0</span>, <span class="fl">-2.2</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">0</span>, <span class="fl">2.2</span>); % Add the y<span class="op">-</span>axis</span>
+<span id="cb3-9"><a href="1-1-parametric-plots-draw-and-node.html#cb3-9"></a></span>
+<span id="cb3-10"><a href="1-1-parametric-plots-draw-and-node.html#cb3-10"></a>\node [anchor=north west, scale=<span class="fl">0.5</span>] <span class="kw">at</span> (<span class="dv">1</span>, <span class="dv">0</span>) {<span class="op">$</span><span class="dv">1</span><span class="op">$</span>}; % Add tickmark label</span>
+<span id="cb3-11"><a href="1-1-parametric-plots-draw-and-node.html#cb3-11"></a></span>
+<span id="cb3-12"><a href="1-1-parametric-plots-draw-and-node.html#cb3-12"></a>\draw [fill=white] (<span class="dv">90</span><span class="op">:</span><span class="dv">1</span>) <span class="kw">circle</span> (1pt);  <span class="op">&amp;</span><span class="st"> </span>A empty circle at theta=<span class="dv">90</span> and r=<span class="dv">1</span>, with radius <span class="dv">1</span> pt.</span>
+<span id="cb3-13"><a href="1-1-parametric-plots-draw-and-node.html#cb3-13"></a>\path [fill=black] (<span class="dv">30</span><span class="op">:</span><span class="dv">1</span>) <span class="kw">circle</span> (1pt);  <span class="op">&amp;</span><span class="st"> </span>A filled circle at theta=<span class="dv">30</span> and r=<span class="dv">1</span>, with radius <span class="dv">1</span> pt.</span>
+<span id="cb3-14"><a href="1-1-parametric-plots-draw-and-node.html#cb3-14"></a>\path [fill=black] (<span class="dv">0</span><span class="op">:</span>{<span class="kw">sqrt</span>(<span class="dv">3</span>)}) <span class="kw">circle</span> (1pt);  </span>
+<span id="cb3-15"><a href="1-1-parametric-plots-draw-and-node.html#cb3-15"></a>\draw [dashed, domain=<span class="op">-</span><span class="fl">0.5</span><span class="op">:</span><span class="dv">2</span>, very thin] <span class="kw">plot</span>(\x, {<span class="dv">1</span><span class="op">-</span>\x<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">3</span>)});</span>
+<span id="cb3-16"><a href="1-1-parametric-plots-draw-and-node.html#cb3-16"></a></span>
+<span id="cb3-17"><a href="1-1-parametric-plots-draw-and-node.html#cb3-17"></a>\end{tikzpicture}</span>
+<span id="cb3-18"><a href="1-1-parametric-plots-draw-and-node.html#cb3-18"></a>\end{figure}</span></code></pre></div>
+<p><img src="img/tikz-draw-node.png" style="width:50.0%" /></p>
+<p>The <code>\draw</code> command allows multiple parametric curves and points to be joined head to tail.</p>
+<p>In the next example, the curve starts at the point (1, 0), goes counterclockwise around a unit circle for 180 degrees, then moves clockwise along a smaller circle for another 180 degrees before finally returns to the point (1, 0).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="1-1-parametric-plots-draw-and-node.html#cb4-1"></a>\begin{figure}[htbp]</span>
+<span id="cb4-2"><a href="1-1-parametric-plots-draw-and-node.html#cb4-2"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb4-3"><a href="1-1-parametric-plots-draw-and-node.html#cb4-3"></a>\<span class="kw">draw</span> (<span class="dv">1</span>,<span class="dv">0</span>) </span>
+<span id="cb4-4"><a href="1-1-parametric-plots-draw-and-node.html#cb4-4"></a><span class="op">--</span><span class="st"> </span>plot[domain=<span class="dv">0</span><span class="op">:</span>pi] ({<span class="kw">cos</span>(\x r)}, {<span class="kw">sin</span>(\x r)})  </span>
+<span id="cb4-5"><a href="1-1-parametric-plots-draw-and-node.html#cb4-5"></a><span class="op">--</span><span class="st"> </span>plot[domain=pi<span class="op">:</span><span class="dv">0</span>] ({<span class="fl">0.3</span><span class="op">*</span><span class="kw">cos</span>(\x r)}, {<span class="fl">0.3</span><span class="op">*</span><span class="kw">sin</span>(\x r)}) </span>
+<span id="cb4-6"><a href="1-1-parametric-plots-draw-and-node.html#cb4-6"></a><span class="op">--</span><span class="st"> </span>cycle;</span>
+<span id="cb4-7"><a href="1-1-parametric-plots-draw-and-node.html#cb4-7"></a>\end{tikzpicture}</span>
+<span id="cb4-8"><a href="1-1-parametric-plots-draw-and-node.html#cb4-8"></a>\end{figure}</span></code></pre></div>
+<p><img src="img/tikz-draw-semicircle.png" style="width:50.0%" /></p>
 </div>
-<div id="graphics" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Graphics</h3>
-<p>To add graphs, use <code>\sageplot[options]{2D or 3D plot commands}</code>. (Although the example shown here is a 2D graph, 3D graphs work in the same way. Here are the SageMath guides for <a href="https://doc.sagemath.org/html/en/reference/plotting/index.html" target="_blank">2D graphics</a> and <a href="https://doc.sagemath.org/html/en/reference/plot3d/index.html" target="_blank">3D graphics</a>.)</p>
-<pre><code>\begin{figure}[h]
-\sageplot[width=0.5\textwidth]{plot(x^3, (x, -1, 1))}
-\end{figure}</code></pre>
-<p>For more delicated plots, use a <code>sagesilent</code> block to draw the graph, then call the graph in <code>\sageplot</code>. For example,</p>
-<pre><code>\begin{sagesilent}
-a = plot(x^3, (x, -1, 1), axes_labels=[&#39;$x$&#39;, &#39;$y$&#39;], aspect_ratio=1);
-a += text(&#39;$y=x^3$&#39;, (0.7, 0.5), rotation=58, fontsize=&#39;20&#39;, fontweight=&#39;bold&#39;, color=&#39;red&#39;)
-\end{sagesilent}
-
-\begin{figure}[h]
-\sageplot[width=0.5\textwidth]{a}
-\end{figure}</code></pre>
-<center>
-<img src="img/sage2dplot.png" style="width:50.0%" />
-</center>
-
-</div>
-</div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="3-1-installation-on-mac-os.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4-jeopardy-game.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1-latex-with-tikz-2d.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="1-2-shade-an-area.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -316,7 +326,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-sagetex.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-tikz2d.Rmd",
 "text": "Edit"
 },
 "history": {

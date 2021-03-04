@@ -1,10 +1,14 @@
 tab:unnamed-chunk-1
-tab:unnamed-chunk-14
+tab:unnamed-chunk-15
 latex-with-tikz-2d
-parametric-plots
-draw-and-node
+parametric-plots-draw-and-node
+shade-an-area
+the-fill-option-in-draw
 fill-by-tikzfillbetween
 fill-by-intersection-segments
+simple-shapes
+circle
+rectangle
 latex-with-tikz-3d
 latex-with-sagemath
 installation-on-mac-os
