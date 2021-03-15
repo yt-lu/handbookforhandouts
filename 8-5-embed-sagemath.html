@@ -24,7 +24,7 @@
 <meta name="author" content="Yuanting Lu" />
 
 
-<meta name="date" content="2021-03-04" />
+<meta name="date" content="2021-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -137,16 +137,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I LaTeX</b></span></li>
 <li class="chapter" data-level="1" data-path="1-latex-with-tikz-2d.html"><a href="1-latex-with-tikz-2d.html"><i class="fa fa-check"></i><b>1</b> LaTeX with Tikz (2D)</a><ul>
-<li class="chapter" data-level="1.1" data-path="1-1-parametric-plots-draw-and-node.html"><a href="1-1-parametric-plots-draw-and-node.html"><i class="fa fa-check"></i><b>1.1</b> Parametric Plots (\draw and \node)</a></li>
-<li class="chapter" data-level="1.2" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html"><i class="fa fa-check"></i><b>1.2</b> Shade an Area</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html#the-fill-option-in-draw"><i class="fa fa-check"></i><b>1.2.1</b> The “fill” option in \draw</a></li>
-<li class="chapter" data-level="1.2.2" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html#fill-by-tikzfillbetween"><i class="fa fa-check"></i><b>1.2.2</b> Fill by \tikzfillbetween</a></li>
-<li class="chapter" data-level="1.2.3" data-path="1-2-shade-an-area.html"><a href="1-2-shade-an-area.html#fill-by-intersection-segments"><i class="fa fa-check"></i><b>1.2.3</b> Fill by Intersection Segments</a></li>
+<li class="chapter" data-level="1.1" data-path="1-1-syntax.html"><a href="1-1-syntax.html"><i class="fa fa-check"></i><b>1.1</b> Syntax</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="1-1-syntax.html"><a href="1-1-syntax.html#the-environment"><i class="fa fa-check"></i><b>1.1.1</b> The environment</a></li>
+<li class="chapter" data-level="1.1.2" data-path="1-1-syntax.html"><a href="1-1-syntax.html#functions-and-constants"><i class="fa fa-check"></i><b>1.1.2</b> Functions and constants</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="1-3-simple-shapes.html"><a href="1-3-simple-shapes.html"><i class="fa fa-check"></i><b>1.3</b> Simple Shapes</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="1-3-simple-shapes.html"><a href="1-3-simple-shapes.html#circle"><i class="fa fa-check"></i><b>1.3.1</b> Circle</a></li>
-<li class="chapter" data-level="1.3.2" data-path="1-3-simple-shapes.html"><a href="1-3-simple-shapes.html#rectangle"><i class="fa fa-check"></i><b>1.3.2</b> Rectangle</a></li>
+<li class="chapter" data-level="1.2" data-path="1-2-parametric-plots-draw-and-node.html"><a href="1-2-parametric-plots-draw-and-node.html"><i class="fa fa-check"></i><b>1.2</b> Parametric Plots (\draw and \node)</a></li>
+<li class="chapter" data-level="1.3" data-path="1-3-shade-an-area.html"><a href="1-3-shade-an-area.html"><i class="fa fa-check"></i><b>1.3</b> Shade an Area</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1-3-shade-an-area.html"><a href="1-3-shade-an-area.html#the-fill-option-in-draw"><i class="fa fa-check"></i><b>1.3.1</b> The “fill” option in \draw</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-3-shade-an-area.html"><a href="1-3-shade-an-area.html#fill-by-tikzfillbetween"><i class="fa fa-check"></i><b>1.3.2</b> Fill by \tikzfillbetween</a></li>
+<li class="chapter" data-level="1.3.3" data-path="1-3-shade-an-area.html"><a href="1-3-shade-an-area.html#fill-by-intersection-segments"><i class="fa fa-check"></i><b>1.3.3</b> Fill by Intersection Segments</a></li>
 </ul></li>
+<li class="chapter" data-level="1.4" data-path="1-4-curves-on-a-grid.html"><a href="1-4-curves-on-a-grid.html"><i class="fa fa-check"></i><b>1.4</b> Curves on a Grid</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-latex-with-tikz-3d.html"><a href="2-latex-with-tikz-3d.html"><i class="fa fa-check"></i><b>2</b> LaTex with Tikz (3D)</a></li>
 <li class="chapter" data-level="3" data-path="3-latex-with-sagemath.html"><a href="3-latex-with-sagemath.html"><i class="fa fa-check"></i><b>3</b> LaTeX with SageMath</a><ul>
@@ -250,24 +251,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The class <strong>sage_simple</strong> only displays the result panel.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="8-5-embed-sagemath.html#cb35-1"></a><span class="op">&lt;!</span>DOCTYPE HTML<span class="op">&gt;</span></span>
-<span id="cb35-2"><a href="8-5-embed-sagemath.html#cb35-2"></a><span class="er">&lt;</span>html<span class="op">&gt;</span></span>
-<span id="cb35-3"><a href="8-5-embed-sagemath.html#cb35-3"></a><span class="st">  </span><span class="er">&lt;</span>head<span class="op">&gt;</span></span>
-<span id="cb35-4"><a href="8-5-embed-sagemath.html#cb35-4"></a><span class="st">    </span><span class="er">&lt;</span>meta charset=<span class="st">&quot;utf-8&quot;</span><span class="op">&gt;</span></span>
-<span id="cb35-5"><a href="8-5-embed-sagemath.html#cb35-5"></a><span class="st">    </span><span class="er">&lt;</span>meta name=<span class="st">&quot;viewport&quot;</span> content=<span class="st">&quot;width=device-width&quot;</span><span class="op">&gt;</span></span>
-<span id="cb35-6"><a href="8-5-embed-sagemath.html#cb35-6"></a><span class="st">    </span><span class="er">&lt;</span>script src=<span class="st">&quot;https://sagecell.sagemath.org/static/embedded_sagecell.js&quot;</span><span class="op">&gt;</span><span class="er">&lt;/</span>script<span class="op">&gt;</span></span>
-<span id="cb35-7"><a href="8-5-embed-sagemath.html#cb35-7"></a><span class="st">    </span><span class="er">&lt;</span>script<span class="op">&gt;</span><span class="er">$</span>(<span class="cf">function</span> () {</span>
-<span id="cb35-8"><a href="8-5-embed-sagemath.html#cb35-8"></a>    <span class="kw">sagecell.makeSagecell</span>({inputLocation<span class="op">:</span><span class="st"> &#39;div.sage_all&#39;</span>,</span>
-<span id="cb35-9"><a href="8-5-embed-sagemath.html#cb35-9"></a>                                  linked<span class="op">:</span><span class="st"> &#39;false&#39;</span>,</span>
-<span id="cb35-10"><a href="8-5-embed-sagemath.html#cb35-10"></a>                                autoeval<span class="op">:</span><span class="st"> &#39;false&#39;</span>,</span>
-<span id="cb35-11"><a href="8-5-embed-sagemath.html#cb35-11"></a>                          evalButtonText<span class="op">:</span><span class="st"> &#39;Evaluate&#39;</span>});</span>
-<span id="cb35-12"><a href="8-5-embed-sagemath.html#cb35-12"></a>    <span class="kw">sagecell.makeSagecell</span>({inputLocation<span class="op">:</span><span class="st">  &#39;div.sage_simple&#39;</span>,</span>
-<span id="cb35-13"><a href="8-5-embed-sagemath.html#cb35-13"></a>                                      autoeval<span class="op">:</span><span class="st"> &#39;true&#39;</span>,</span>
-<span id="cb35-14"><a href="8-5-embed-sagemath.html#cb35-14"></a>                                          hide<span class="op">:</span><span class="st"> </span>[<span class="st">&#39;editor&#39;</span>,<span class="st">&#39;evalButton&#39;</span>, <span class="st">&#39;permalink&#39;</span>]});</span>
-<span id="cb35-15"><a href="8-5-embed-sagemath.html#cb35-15"></a>    });</span>
-<span id="cb35-16"><a href="8-5-embed-sagemath.html#cb35-16"></a>    <span class="op">&lt;</span><span class="er">/</span>script<span class="op">&gt;</span></span>
-<span id="cb35-17"><a href="8-5-embed-sagemath.html#cb35-17"></a><span class="st">  </span><span class="er">&lt;/</span>head<span class="op">&gt;</span></span>
-<span id="cb35-18"><a href="8-5-embed-sagemath.html#cb35-18"></a><span class="er">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="8-5-embed-sagemath.html#cb37-1"></a><span class="op">&lt;!</span>DOCTYPE HTML<span class="op">&gt;</span></span>
+<span id="cb37-2"><a href="8-5-embed-sagemath.html#cb37-2"></a><span class="er">&lt;</span>html<span class="op">&gt;</span></span>
+<span id="cb37-3"><a href="8-5-embed-sagemath.html#cb37-3"></a><span class="st">  </span><span class="er">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb37-4"><a href="8-5-embed-sagemath.html#cb37-4"></a><span class="st">    </span><span class="er">&lt;</span>meta charset=<span class="st">&quot;utf-8&quot;</span><span class="op">&gt;</span></span>
+<span id="cb37-5"><a href="8-5-embed-sagemath.html#cb37-5"></a><span class="st">    </span><span class="er">&lt;</span>meta name=<span class="st">&quot;viewport&quot;</span> content=<span class="st">&quot;width=device-width&quot;</span><span class="op">&gt;</span></span>
+<span id="cb37-6"><a href="8-5-embed-sagemath.html#cb37-6"></a><span class="st">    </span><span class="er">&lt;</span>script src=<span class="st">&quot;https://sagecell.sagemath.org/static/embedded_sagecell.js&quot;</span><span class="op">&gt;</span><span class="er">&lt;/</span>script<span class="op">&gt;</span></span>
+<span id="cb37-7"><a href="8-5-embed-sagemath.html#cb37-7"></a><span class="st">    </span><span class="er">&lt;</span>script<span class="op">&gt;</span><span class="er">$</span>(<span class="cf">function</span> () {</span>
+<span id="cb37-8"><a href="8-5-embed-sagemath.html#cb37-8"></a>    <span class="kw">sagecell.makeSagecell</span>({inputLocation<span class="op">:</span><span class="st"> &#39;div.sage_all&#39;</span>,</span>
+<span id="cb37-9"><a href="8-5-embed-sagemath.html#cb37-9"></a>                                  linked<span class="op">:</span><span class="st"> &#39;false&#39;</span>,</span>
+<span id="cb37-10"><a href="8-5-embed-sagemath.html#cb37-10"></a>                                autoeval<span class="op">:</span><span class="st"> &#39;false&#39;</span>,</span>
+<span id="cb37-11"><a href="8-5-embed-sagemath.html#cb37-11"></a>                          evalButtonText<span class="op">:</span><span class="st"> &#39;Evaluate&#39;</span>});</span>
+<span id="cb37-12"><a href="8-5-embed-sagemath.html#cb37-12"></a>    <span class="kw">sagecell.makeSagecell</span>({inputLocation<span class="op">:</span><span class="st">  &#39;div.sage_simple&#39;</span>,</span>
+<span id="cb37-13"><a href="8-5-embed-sagemath.html#cb37-13"></a>                                      autoeval<span class="op">:</span><span class="st"> &#39;true&#39;</span>,</span>
+<span id="cb37-14"><a href="8-5-embed-sagemath.html#cb37-14"></a>                                          hide<span class="op">:</span><span class="st"> </span>[<span class="st">&#39;editor&#39;</span>,<span class="st">&#39;evalButton&#39;</span>, <span class="st">&#39;permalink&#39;</span>]});</span>
+<span id="cb37-15"><a href="8-5-embed-sagemath.html#cb37-15"></a>    });</span>
+<span id="cb37-16"><a href="8-5-embed-sagemath.html#cb37-16"></a>    <span class="op">&lt;</span><span class="er">/</span>script<span class="op">&gt;</span></span>
+<span id="cb37-17"><a href="8-5-embed-sagemath.html#cb37-17"></a><span class="st">  </span><span class="er">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb37-18"><a href="8-5-embed-sagemath.html#cb37-18"></a><span class="er">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Create a R Markdown file and Source the sageHeader.html file in a R chunk using the <strong>htmltools</strong> package. Suppose the R Markdown file and the html file are in the same folder:
 
