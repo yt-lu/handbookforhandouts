@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Handbook for Handouts</title>
+  <title>4.2 (Optional)Explanations of the Template. | Handbook for Handouts</title>
   <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Handbook for Handouts" />
+  <meta property="og:title" content="4.2 (Optional)Explanations of the Template. | Handbook for Handouts" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Handbook for Handouts" />
+  <meta name="twitter:title" content="4.2 (Optional)Explanations of the Template. | Handbook for Handouts" />
   
   <meta name="twitter:description" content="This album is a collection of examples for undergraduate math classes." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-latex-with-tikz-2d.html"/>
+<link rel="prev" href="4.1-JeopardyGameEdit.html"/>
+<link rel="next" href="5-pdf-editor.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -234,74 +234,168 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Handbook for Handouts</h1>
-<p class="author"><em>Yuanting Lu</em></p>
-<p class="date"><em>2022-02-23</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Proud of being a ten-year LaTeX user, I was humbled down to the earth again when I recently learned that the easiest way to write a matrix is:</p>
-<pre><code>\[
-\begin{pmatrix}
-a &amp; b\\ c &amp; d
-\end{pmatrix}
-\]</code></pre>
-<p>Besides <em>pmatrix</em>, there are also <em>bmatrix</em>, <em>Bmatrix</em>, <em>vmatrix</em>, and <em>Vmatrix</em> from the <strong>amsmath</strong> package in LaTex.</p>
-<p>Motivated by how little I know about LaTeX and R Markdown (my favourite two document preparation systems), I initiated this album to deposit the tips and examples related to creating nice handouts for undergraduate mathematics classes. The album has two parts:</p>
+<div id="JeopardyGameRemark" class="section level2">
+<h2><span class="header-section-number">4.2</span> (Optional)Explanations of the Template.</h2>
 <ul>
-<li>Part I: LaTex</li>
-<li>Part II: R Markdown</li>
+<li>Load packages.</li>
+<li>Define four colorboxes: SubjectBox, PrizeBox, QuestionHeadFoot, TextArea.</li>
+<li>Define four commands: <code>\newrow</code>, <code>\header</code>, <code>\footer</code>, <code>\content</code>.</li>
 </ul>
-<p>Here is a quick comparison of the two systems. Both are adequate for creating nice PDF handouts. However, R Markdown can produce dynamic handouts (in HTML format) with various interactive components, which is helpful for classroom demos (especially for online teaching in the pandemic era). I am curious to see if (and how) the dynamic handouts may change the way we teach in the years to come.</p>
-<table>
-<caption><span id="tab:unnamed-chunk-1">Table 0.1: </span>A quick comparison of LaTex and R Markdown.</caption>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">TeX Support</th>
-<th align="left">Embedded Computation</th>
-<th align="left">Document Type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">LaTex</td>
-<td align="left">Yes</td>
-<td align="left">Sage</td>
-<td align="left">PDF</td>
-</tr>
-<tr class="even">
-<td align="left">R Markdown</td>
-<td align="left">Yes</td>
-<td align="left">R, Python, Sage, etc</td>
-<td align="left">PDF, HTML, etc</td>
-</tr>
-</tbody>
-</table>
-<p>The latest developing version of the album is available at <a href="https://albums.yuanting.lu/handbookforhandouts" class="uri">https://albums.yuanting.lu/handbookforhandouts</a>.</p>
-<p>PS: Bless my heart. I had been writing matrices for ten years using:</p>
-<pre><code>\[
-\left(
-\begin{array}{cc}
-a &amp; b\\ c &amp; d
-\end{array}
-\right)
-\]</code></pre>
-<p>Macon, GA</p>
-<p>June, 2020</p>
+<div id="load-packages" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Load Packages</h3>
+<ul>
+<li>The <a href="https://ctan.org/pkg/arrayjobx?lang=en" target="_blank">arrayjobx package</a> has the <code>\newarray</code> and <code>\readarray</code> commands to conveniently store a list of strings so that each string within the list can be conveniently summoned.</li>
+<li>The <a href="https://ctan.org/pkg/tcolorbox?lang=en" target="_blank">tcolorbox package</a> offers the <code>\newcolorbox</code> command to set up the colored boxes in the jeopardy game.</li>
+<li>The <a href="http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/ocgx/ocgx-manual-en.pdf" target="_blank">ocgx package</a> (Optional Content Group) provides the <code>ocg</code> environment to control the visibility of the prize tag in the jeopardy game.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="4.2-JeopardyGameRemark.html#cb17-1"></a>\documentclass{beamer}</span>
+<span id="cb17-2"><a href="4.2-JeopardyGameRemark.html#cb17-2"></a>\setbeamertemplate{navigation symbols}{}</span>
+<span id="cb17-3"><a href="4.2-JeopardyGameRemark.html#cb17-3"></a>\setbeamersize{text margin left=0cm, text margin right=0cm} % No margin on the left and right.</span>
+<span id="cb17-4"><a href="4.2-JeopardyGameRemark.html#cb17-4"></a>\usepackage{arrayjobx}</span>
+<span id="cb17-5"><a href="4.2-JeopardyGameRemark.html#cb17-5"></a>\usepackage{tcolorbox}</span>
+<span id="cb17-6"><a href="4.2-JeopardyGameRemark.html#cb17-6"></a>\usepackage{ocgx}</span></code></pre></div>
+</div>
+<div id="colorboxes." class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Colorboxes.</h3>
+<ol style="list-style-type: decimal">
+<li>Define Colorboxes for suject title and prizes.</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="4.2-JeopardyGameRemark.html#cb18-1"></a>\newtcolorbox{SubjectBox}{</span>
+<span id="cb18-2"><a href="4.2-JeopardyGameRemark.html#cb18-2"></a>    colback=gray<span class="op">!</span><span class="dv">85</span>,       % Background color is <span class="dv">85</span> percent gray.</span>
+<span id="cb18-3"><a href="4.2-JeopardyGameRemark.html#cb18-3"></a>    colframe=white,        % The color of the box frame.</span>
+<span id="cb18-4"><a href="4.2-JeopardyGameRemark.html#cb18-4"></a>    nobeforeafter,         % Allow boxes align horizontally on the same row</span>
+<span id="cb18-5"><a href="4.2-JeopardyGameRemark.html#cb18-5"></a>    arc=0pt,               % Round the corners of the box. Zero means squared corners.</span>
+<span id="cb18-6"><a href="4.2-JeopardyGameRemark.html#cb18-6"></a>    boxrule=.4pt,          % The thickness of the box frame.</span>
+<span id="cb18-7"><a href="4.2-JeopardyGameRemark.html#cb18-7"></a>    halign=center,         % Center text horizontally.</span>
+<span id="cb18-8"><a href="4.2-JeopardyGameRemark.html#cb18-8"></a>    valign=center,         % Center text vertically.</span>
+<span id="cb18-9"><a href="4.2-JeopardyGameRemark.html#cb18-9"></a>    width=<span class="fl">0.4</span>\textwidth,   % Box width is <span class="dv">40</span> percent of the text width.</span>
+<span id="cb18-10"><a href="4.2-JeopardyGameRemark.html#cb18-10"></a>    height=<span class="fl">0.12</span>\textheight % Box height is <span class="dv">12</span> percent of the text height, i.e., <span class="dv">8</span> rows</span>
+<span id="cb18-11"><a href="4.2-JeopardyGameRemark.html#cb18-11"></a>}</span>
+<span id="cb18-12"><a href="4.2-JeopardyGameRemark.html#cb18-12"></a></span>
+<span id="cb18-13"><a href="4.2-JeopardyGameRemark.html#cb18-13"></a>\newtcolorbox{PrizeBox}{</span>
+<span id="cb18-14"><a href="4.2-JeopardyGameRemark.html#cb18-14"></a>    colupper=white,        % Text <span class="kw">color.</span> (In a colorbox, by default, there are upper and lower parts.)</span>
+<span id="cb18-15"><a href="4.2-JeopardyGameRemark.html#cb18-15"></a>    colback=orange, </span>
+<span id="cb18-16"><a href="4.2-JeopardyGameRemark.html#cb18-16"></a>    colframe=white,</span>
+<span id="cb18-17"><a href="4.2-JeopardyGameRemark.html#cb18-17"></a>    nobeforeafter, </span>
+<span id="cb18-18"><a href="4.2-JeopardyGameRemark.html#cb18-18"></a>    arc=0pt, </span>
+<span id="cb18-19"><a href="4.2-JeopardyGameRemark.html#cb18-19"></a>    boxrule=.4pt,</span>
+<span id="cb18-20"><a href="4.2-JeopardyGameRemark.html#cb18-20"></a>    halign=center, </span>
+<span id="cb18-21"><a href="4.2-JeopardyGameRemark.html#cb18-21"></a>    valign=center,</span>
+<span id="cb18-22"><a href="4.2-JeopardyGameRemark.html#cb18-22"></a>    width=.<span class="dv">2</span>\textwidth,     % <span class="dv">3</span> prize boxes plus <span class="dv">1</span> subject box occupy a full line.</span>
+<span id="cb18-23"><a href="4.2-JeopardyGameRemark.html#cb18-23"></a>    height=<span class="fl">0.12</span>\textheight  % <span class="dv">8</span> rows.</span>
+<span id="cb18-24"><a href="4.2-JeopardyGameRemark.html#cb18-24"></a>}</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Define the colorbox for header and footer.</li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="4.2-JeopardyGameRemark.html#cb19-1"></a>\newtcolorbox{QuestionHeadFoot}{</span>
+<span id="cb19-2"><a href="4.2-JeopardyGameRemark.html#cb19-2"></a>    sidebyside,             % By default, divide a colorbox into left and right region       </span>
+<span id="cb19-3"><a href="4.2-JeopardyGameRemark.html#cb19-3"></a>    colback=orange,</span>
+<span id="cb19-4"><a href="4.2-JeopardyGameRemark.html#cb19-4"></a>    before=\vskip<span class="fl">-.2</span>ex,     % Remove the top padding</span>
+<span id="cb19-5"><a href="4.2-JeopardyGameRemark.html#cb19-5"></a>    after=0ex,              % Set bottom padding to <span class="dv">0</span></span>
+<span id="cb19-6"><a href="4.2-JeopardyGameRemark.html#cb19-6"></a>    arc=0pt,</span>
+<span id="cb19-7"><a href="4.2-JeopardyGameRemark.html#cb19-7"></a>    boxrule=.4pt,</span>
+<span id="cb19-8"><a href="4.2-JeopardyGameRemark.html#cb19-8"></a>    colframe=white,</span>
+<span id="cb19-9"><a href="4.2-JeopardyGameRemark.html#cb19-9"></a>    center upper,           % Left region text <span class="kw">centerred.</span> (Because of sidebyside, upper means left.)       </span>
+<span id="cb19-10"><a href="4.2-JeopardyGameRemark.html#cb19-10"></a>    center lower,           % Right region text <span class="kw">centerred.</span> (Because of sidebyside, lower means right)  </span>
+<span id="cb19-11"><a href="4.2-JeopardyGameRemark.html#cb19-11"></a>    colupper=white,          </span>
+<span id="cb19-12"><a href="4.2-JeopardyGameRemark.html#cb19-12"></a>    collower=white,          </span>
+<span id="cb19-13"><a href="4.2-JeopardyGameRemark.html#cb19-13"></a>    valign=center,</span>
+<span id="cb19-14"><a href="4.2-JeopardyGameRemark.html#cb19-14"></a>    fontupper=\LARGE\bfseries,</span>
+<span id="cb19-15"><a href="4.2-JeopardyGameRemark.html#cb19-15"></a>    fontlower=\LARGE\bfseries,</span>
+<span id="cb19-16"><a href="4.2-JeopardyGameRemark.html#cb19-16"></a>    width=\textwidth,</span>
+<span id="cb19-17"><a href="4.2-JeopardyGameRemark.html#cb19-17"></a>    height=.<span class="dv">15</span>\paperheight</span>
+<span id="cb19-18"><a href="4.2-JeopardyGameRemark.html#cb19-18"></a>}</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Define the colorbox for question content.</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="4.2-JeopardyGameRemark.html#cb20-1"></a>\newtcolorbox{TextArea}{</span>
+<span id="cb20-2"><a href="4.2-JeopardyGameRemark.html#cb20-2"></a>    before=,</span>
+<span id="cb20-3"><a href="4.2-JeopardyGameRemark.html#cb20-3"></a>    after=\vskip<span class="fl">-.01</span>ex,</span>
+<span id="cb20-4"><a href="4.2-JeopardyGameRemark.html#cb20-4"></a>    height=<span class="fl">0.69</span>\paperheight,</span>
+<span id="cb20-5"><a href="4.2-JeopardyGameRemark.html#cb20-5"></a>    boxrule=0pt,</span>
+<span id="cb20-6"><a href="4.2-JeopardyGameRemark.html#cb20-6"></a>    halign=center,</span>
+<span id="cb20-7"><a href="4.2-JeopardyGameRemark.html#cb20-7"></a>    valign=center</span>
+<span id="cb20-8"><a href="4.2-JeopardyGameRemark.html#cb20-8"></a>}</span></code></pre></div>
+</div>
+<div id="new-commands" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> New Commands</h3>
+<ol style="list-style-type: decimal">
+<li>The <code>\newrow</code> command creates four boxes for a single row: one subject box and three prize boxes. It requires two arguments: (#1) Subject title; (#2) a sequential number for the subject. The codes</li>
+</ol>
+<ul>
+<li>create a subject box;</li>
+<li>use a for-loop to create three prize boxes. A hyperlink is displayed in each prize box, which links to the page of the specific question. The <code>ocg</code> environment takes three arguments. The second argument is the internal ID and the third is the visibility (1 for visible and 0 for invisible).</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="4.2-JeopardyGameRemark.html#cb21-1"></a>\newarray\scores                  % Create a new array \scores</span>
+<span id="cb21-2"><a href="4.2-JeopardyGameRemark.html#cb21-2"></a>\readarray{scores}{<span class="dv">100</span><span class="op">&amp;</span><span class="dv">200</span><span class="op">&amp;</span><span class="dv">400</span>}   % Load the prize values to \scores</span>
+<span id="cb21-3"><a href="4.2-JeopardyGameRemark.html#cb21-3"></a></span>
+<span id="cb21-4"><a href="4.2-JeopardyGameRemark.html#cb21-4"></a>\newcommand{\newrow}[<span class="dv">2</span>]{</span>
+<span id="cb21-5"><a href="4.2-JeopardyGameRemark.html#cb21-5"></a>    \begin{SubjectBox}</span>
+<span id="cb21-6"><a href="4.2-JeopardyGameRemark.html#cb21-6"></a>        <span class="co">#1</span></span>
+<span id="cb21-7"><a href="4.2-JeopardyGameRemark.html#cb21-7"></a>    \end{SubjectBox}% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side.</span>
+<span id="cb21-8"><a href="4.2-JeopardyGameRemark.html#cb21-8"></a>    \foreach \i <span class="cf">in</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}{% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side.</span>
+<span id="cb21-9"><a href="4.2-JeopardyGameRemark.html#cb21-9"></a>        \begin{PrizeBox}</span>
+<span id="cb21-10"><a href="4.2-JeopardyGameRemark.html#cb21-10"></a>            \begin{ocg}{s<span class="co">#2-\i}{s#2-\i}{1} %{PDF label}{internal reference label}{visibility}</span></span>
+<span id="cb21-11"><a href="4.2-JeopardyGameRemark.html#cb21-11"></a>            \hyperlink{s<span class="co">#2-\i}{\scores(\i)}</span></span>
+<span id="cb21-12"><a href="4.2-JeopardyGameRemark.html#cb21-12"></a>            \end{ocg}</span>
+<span id="cb21-13"><a href="4.2-JeopardyGameRemark.html#cb21-13"></a>        \end{PrizeBox}% &lt;-<span class="op">-</span><span class="st"> </span>NEVER REMOVE THIS PERCENT SIGN<span class="op">!</span><span class="st"> </span>It allows the color boxes sit side by side. </span>
+<span id="cb21-14"><a href="4.2-JeopardyGameRemark.html#cb21-14"></a>        }</span>
+<span id="cb21-15"><a href="4.2-JeopardyGameRemark.html#cb21-15"></a>}</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>The <code>header</code> and <code>footer</code> commands built the header and footer, respectively. <code>\tcblower</code> is the dashed segmentation line between the left and right region of the <code>QuestionHeadFoot</code> colorbox.</li>
+</ol>
+<ul>
+<li>Header uses the QuestionHeadFoot colorbox and requires two arguments: (#1) subject title; (#2) prize.
+<ul>
+<li>Subject title is displayed on the left.</li>
+<li>Prize is displayed on the right.</li>
+</ul></li>
+<li>Footer uses the QuestionHeadFoot colorbox and requires one argument: (#1) the prizebox/ocg internal ID.
+<ul>
+<li>Question and answer links are displayed on the left.</li>
+<li>Done button (remove the prize from homepage) and home button (go back to homepage) are displayed on the right.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="4.2-JeopardyGameRemark.html#cb22-1"></a>\newcommand{\header}[<span class="dv">2</span>]{</span>
+<span id="cb22-2"><a href="4.2-JeopardyGameRemark.html#cb22-2"></a>    \begin{QuestionHeadFoot}</span>
+<span id="cb22-3"><a href="4.2-JeopardyGameRemark.html#cb22-3"></a>         <span class="co">#1 \tcblower #2</span></span>
+<span id="cb22-4"><a href="4.2-JeopardyGameRemark.html#cb22-4"></a>    \end{QuestionHeadFoot}</span>
+<span id="cb22-5"><a href="4.2-JeopardyGameRemark.html#cb22-5"></a>}</span>
+<span id="cb22-6"><a href="4.2-JeopardyGameRemark.html#cb22-6"></a></span>
+<span id="cb22-7"><a href="4.2-JeopardyGameRemark.html#cb22-7"></a>\newcommand{\footer}[<span class="dv">1</span>]{</span>
+<span id="cb22-8"><a href="4.2-JeopardyGameRemark.html#cb22-8"></a>    \begin{QuestionHeadFoot}</span>
+<span id="cb22-9"><a href="4.2-JeopardyGameRemark.html#cb22-9"></a>        \hyperlink{question<span class="co">#1}{Question} \\ \hyperlink{answer#1}{Answer} \tcblower</span></span>
+<span id="cb22-10"><a href="4.2-JeopardyGameRemark.html#cb22-10"></a>        \hideocg{<span class="co">#1}{Done!} \\  \hyperlink{home}{Home}</span></span>
+<span id="cb22-11"><a href="4.2-JeopardyGameRemark.html#cb22-11"></a>    \end{QuestionHeadFoot}</span>
+<span id="cb22-12"><a href="4.2-JeopardyGameRemark.html#cb22-12"></a>}</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>The <code>\content</code> command creates a question and answer page. It takes four arguments: (#1) Prizebox/ocg internal ID; (#2) subject title; (#3) prize; (#4) question and answer.</li>
+</ol>
+<ul>
+<li><code>\hypertarget{reference tag}{}</code> creates anchors at the page.</li>
+<li><code>&lt;1&gt;</code> and <code>&lt;2&gt;</code> are beamer sequential tags for animation flow-control. They represent two sequential items on the same beamer page.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="4.2-JeopardyGameRemark.html#cb23-1"></a>\newcommand{\content}[<span class="dv">4</span>]{</span>
+<span id="cb23-2"><a href="4.2-JeopardyGameRemark.html#cb23-2"></a>\begin{frame}</span>
+<span id="cb23-3"><a href="4.2-JeopardyGameRemark.html#cb23-3"></a>    \hypertarget<span class="op">&lt;</span><span class="dv">1</span><span class="op">&gt;</span>{question<span class="co">#1}{} % Make an anchor. Land here when the Question button is clicked.</span></span>
+<span id="cb23-4"><a href="4.2-JeopardyGameRemark.html#cb23-4"></a>    \hypertarget<span class="op">&lt;</span><span class="dv">2</span><span class="op">&gt;</span>{answer<span class="co">#1}{}   % Make an anchor. Land here when the Answer button is clicked.</span></span>
+<span id="cb23-5"><a href="4.2-JeopardyGameRemark.html#cb23-5"></a>    \hypertarget{<span class="co">#1}{}            % Make an anchor. Land here when the prize is clicked on the homepage.</span></span>
+<span id="cb23-6"><a href="4.2-JeopardyGameRemark.html#cb23-6"></a>    \header{<span class="co">#2}{#3}               % Make header.</span></span>
+<span id="cb23-7"><a href="4.2-JeopardyGameRemark.html#cb23-7"></a>    <span class="co">#4                            % Add question on part &lt;1&gt; and answer on part &lt;2&gt;.</span></span>
+<span id="cb23-8"><a href="4.2-JeopardyGameRemark.html#cb23-8"></a>    \footer{<span class="co">#1}                   % Make footer.</span></span>
+<span id="cb23-9"><a href="4.2-JeopardyGameRemark.html#cb23-9"></a>\end{frame}</span>
+<span id="cb23-10"><a href="4.2-JeopardyGameRemark.html#cb23-10"></a>}</span></code></pre></div>
 
 </div>
-
-
-
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-latex-with-tikz-2d.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.1-JeopardyGameEdit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5-pdf-editor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -332,7 +426,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-Jeopardy.Rmd",
 "text": "Edit"
 },
 "history": {

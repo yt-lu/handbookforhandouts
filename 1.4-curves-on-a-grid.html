@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Handbook for Handouts</title>
+  <title>1.4 Curves on a Grid | Handbook for Handouts</title>
   <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Handbook for Handouts" />
+  <meta property="og:title" content="1.4 Curves on a Grid | Handbook for Handouts" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Handbook for Handouts" />
+  <meta name="twitter:title" content="1.4 Curves on a Grid | Handbook for Handouts" />
   
   <meta name="twitter:description" content="This album is a collection of examples for undergraduate math classes." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-latex-with-tikz-2d.html"/>
+<link rel="prev" href="1.3-shade-an-area.html"/>
+<link rel="next" href="2-latex-with-tikz-3d.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -234,74 +234,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Handbook for Handouts</h1>
-<p class="author"><em>Yuanting Lu</em></p>
-<p class="date"><em>2022-02-23</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Proud of being a ten-year LaTeX user, I was humbled down to the earth again when I recently learned that the easiest way to write a matrix is:</p>
-<pre><code>\[
-\begin{pmatrix}
-a &amp; b\\ c &amp; d
-\end{pmatrix}
-\]</code></pre>
-<p>Besides <em>pmatrix</em>, there are also <em>bmatrix</em>, <em>Bmatrix</em>, <em>vmatrix</em>, and <em>Vmatrix</em> from the <strong>amsmath</strong> package in LaTex.</p>
-<p>Motivated by how little I know about LaTeX and R Markdown (my favourite two document preparation systems), I initiated this album to deposit the tips and examples related to creating nice handouts for undergraduate mathematics classes. The album has two parts:</p>
+<div id="curves-on-a-grid" class="section level2">
+<h2><span class="header-section-number">1.4</span> Curves on a Grid</h2>
+<p>Required package: <code>\usepackage{tikz}</code>.</p>
+<p>This section illustrates how to create a grid, add curves, and use for-loop.</p>
 <ul>
-<li>Part I: LaTex</li>
-<li>Part II: R Markdown</li>
+<li>The <code>help lines</code> option in <code>\draw</code> command creates grid lines between the lower left corner and the upper right corner points.</li>
+<li>There are two ways to bend a curve between two points.
+<ul>
+<li>Use control points in between to pull the curve in a certain direction. For example, the curve between (-4, 0) and (-1, -1) is lifted up by (-2, 2) and dragged down by (-2, -3).</li>
+<li>Specify the outgoing and incoming angles. For example, the curve between (-1, 1) and (1, 0) departs at 60<sup><span class="math inline">\(\circ\)</span></sup> and arrives at 95<sup><span class="math inline">\(\circ\)</span></sup>.</li>
+</ul></li>
+<li>The <code>\foreach</code> command is the for-loop in tikz. In the index set, for example, <code>{-3, -1, ..., 3}</code>, the <code>...</code> saves the work to type all numbers in the set.</li>
 </ul>
-<p>Here is a quick comparison of the two systems. Both are adequate for creating nice PDF handouts. However, R Markdown can produce dynamic handouts (in HTML format) with various interactive components, which is helpful for classroom demos (especially for online teaching in the pandemic era). I am curious to see if (and how) the dynamic handouts may change the way we teach in the years to come.</p>
-<table>
-<caption><span id="tab:unnamed-chunk-1">Table 0.1: </span>A quick comparison of LaTex and R Markdown.</caption>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">TeX Support</th>
-<th align="left">Embedded Computation</th>
-<th align="left">Document Type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">LaTex</td>
-<td align="left">Yes</td>
-<td align="left">Sage</td>
-<td align="left">PDF</td>
-</tr>
-<tr class="even">
-<td align="left">R Markdown</td>
-<td align="left">Yes</td>
-<td align="left">R, Python, Sage, etc</td>
-<td align="left">PDF, HTML, etc</td>
-</tr>
-</tbody>
-</table>
-<p>The latest developing version of the album is available at <a href="https://albums.yuanting.lu/handbookforhandouts" class="uri">https://albums.yuanting.lu/handbookforhandouts</a>.</p>
-<p>PS: Bless my heart. I had been writing matrices for ten years using:</p>
-<pre><code>\[
-\left(
-\begin{array}{cc}
-a &amp; b\\ c &amp; d
-\end{array}
-\right)
-\]</code></pre>
-<p>Macon, GA</p>
-<p>June, 2020</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="1.4-curves-on-a-grid.html#cb9-1"></a>\begin{tikzpicture}[scale =<span class="st"> </span><span class="dv">1</span>]</span>
+<span id="cb9-2"><a href="1.4-curves-on-a-grid.html#cb9-2"></a></span>
+<span id="cb9-3"><a href="1.4-curves-on-a-grid.html#cb9-3"></a>\draw[help lines] (<span class="op">-</span><span class="dv">4</span>, <span class="dv">-4</span>) <span class="kw">grid</span> (<span class="dv">4</span>, <span class="dv">4</span>);</span>
+<span id="cb9-4"><a href="1.4-curves-on-a-grid.html#cb9-4"></a>\draw [red] (<span class="op">-</span><span class="dv">4</span>, <span class="dv">0</span>) .. <span class="kw">controls</span> (<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>) <span class="kw">and</span> (<span class="op">-</span><span class="dv">2</span>, <span class="dv">-3</span>) <span class="kw">..</span> (<span class="op">-</span><span class="dv">1</span>, <span class="dv">-1</span>);</span>
+<span id="cb9-5"><a href="1.4-curves-on-a-grid.html#cb9-5"></a>\draw [red] (<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) to [out=<span class="dv">60</span>, <span class="cf">in</span>=<span class="dv">95</span>] (<span class="dv">1</span>, <span class="dv">0</span>) <span class="kw">to</span> (<span class="dv">3</span>,<span class="dv">3</span>);</span>
+<span id="cb9-6"><a href="1.4-curves-on-a-grid.html#cb9-6"></a></span>
+<span id="cb9-7"><a href="1.4-curves-on-a-grid.html#cb9-7"></a>\draw [red, fill=red] (<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="kw">circle</span> (<span class="fl">1.2</span>pt);     % Solid dot</span>
+<span id="cb9-8"><a href="1.4-curves-on-a-grid.html#cb9-8"></a>\draw [red, fill=white] (<span class="op">-</span><span class="dv">1</span>, <span class="dv">-1</span>) <span class="kw">circle</span> (<span class="fl">1.2</span>pt);  % Open dot</span>
+<span id="cb9-9"><a href="1.4-curves-on-a-grid.html#cb9-9"></a>\draw [red, fill=white] (<span class="dv">1</span>, <span class="dv">0</span>) <span class="kw">circle</span> (<span class="fl">1.2</span>pt);    % Open dot</span>
+<span id="cb9-10"><a href="1.4-curves-on-a-grid.html#cb9-10"></a></span>
+<span id="cb9-11"><a href="1.4-curves-on-a-grid.html#cb9-11"></a>\foreach \t <span class="cf">in</span> {<span class="op">-</span><span class="dv">3</span>, <span class="dv">-1</span>, ..., <span class="dv">3</span>}{</span>
+<span id="cb9-12"><a href="1.4-curves-on-a-grid.html#cb9-12"></a>    \node [anchor=north] <span class="kw">at</span> (\t, <span class="dv">0</span>) {\tiny\t}; % x tickmarks</span>
+<span id="cb9-13"><a href="1.4-curves-on-a-grid.html#cb9-13"></a>    \node [anchor=east] <span class="kw">at</span> (<span class="dv">0</span>, \t) {\tiny\t};  % y tickmarks</span>
+<span id="cb9-14"><a href="1.4-curves-on-a-grid.html#cb9-14"></a>}</span>
+<span id="cb9-15"><a href="1.4-curves-on-a-grid.html#cb9-15"></a></span>
+<span id="cb9-16"><a href="1.4-curves-on-a-grid.html#cb9-16"></a>\<span class="kw">draw</span> (<span class="op">-</span><span class="dv">4</span>, <span class="dv">0</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">4</span>, <span class="dv">0</span>);  % x<span class="op">-</span>axis</span>
+<span id="cb9-17"><a href="1.4-curves-on-a-grid.html#cb9-17"></a>\<span class="kw">draw</span> (<span class="dv">0</span>, <span class="dv">-4</span>) <span class="op">--</span><span class="st"> </span>(<span class="dv">0</span>, <span class="dv">4</span>);  % y<span class="op">-</span>axis</span>
+<span id="cb9-18"><a href="1.4-curves-on-a-grid.html#cb9-18"></a>\end{tikzpicture}</span></code></pre></div>
+<p><img src="img/tikz-curve-grid.png" style="width:50.0%" /></p>
 
 </div>
-
-
-
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-latex-with-tikz-2d.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1.3-shade-an-area.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-latex-with-tikz-3d.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -332,7 +306,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-tikz2d.Rmd",
 "text": "Edit"
 },
 "history": {

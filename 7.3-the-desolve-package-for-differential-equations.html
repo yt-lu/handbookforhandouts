@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Handbook for Handouts</title>
+  <title>7.3 The DeSolve Package for Differential Equations | Handbook for Handouts</title>
   <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Handbook for Handouts" />
+  <meta property="og:title" content="7.3 The DeSolve Package for Differential Equations | Handbook for Handouts" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Handbook for Handouts" />
+  <meta name="twitter:title" content="7.3 The DeSolve Package for Differential Equations | Handbook for Handouts" />
   
   <meta name="twitter:description" content="This album is a collection of examples for undergraduate math classes." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-latex-with-tikz-2d.html"/>
+<link rel="prev" href="7.2-loading-latex-packages-in-r-markdown.html"/>
+<link rel="next" href="8-r-markdown-html-handouts.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -234,74 +234,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Handbook for Handouts</h1>
-<p class="author"><em>Yuanting Lu</em></p>
-<p class="date"><em>2022-02-23</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Proud of being a ten-year LaTeX user, I was humbled down to the earth again when I recently learned that the easiest way to write a matrix is:</p>
-<pre><code>\[
-\begin{pmatrix}
-a &amp; b\\ c &amp; d
-\end{pmatrix}
-\]</code></pre>
-<p>Besides <em>pmatrix</em>, there are also <em>bmatrix</em>, <em>Bmatrix</em>, <em>vmatrix</em>, and <em>Vmatrix</em> from the <strong>amsmath</strong> package in LaTex.</p>
-<p>Motivated by how little I know about LaTeX and R Markdown (my favourite two document preparation systems), I initiated this album to deposit the tips and examples related to creating nice handouts for undergraduate mathematics classes. The album has two parts:</p>
-<ul>
-<li>Part I: LaTex</li>
-<li>Part II: R Markdown</li>
-</ul>
-<p>Here is a quick comparison of the two systems. Both are adequate for creating nice PDF handouts. However, R Markdown can produce dynamic handouts (in HTML format) with various interactive components, which is helpful for classroom demos (especially for online teaching in the pandemic era). I am curious to see if (and how) the dynamic handouts may change the way we teach in the years to come.</p>
-<table>
-<caption><span id="tab:unnamed-chunk-1">Table 0.1: </span>A quick comparison of LaTex and R Markdown.</caption>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">TeX Support</th>
-<th align="left">Embedded Computation</th>
-<th align="left">Document Type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">LaTex</td>
-<td align="left">Yes</td>
-<td align="left">Sage</td>
-<td align="left">PDF</td>
-</tr>
-<tr class="even">
-<td align="left">R Markdown</td>
-<td align="left">Yes</td>
-<td align="left">R, Python, Sage, etc</td>
-<td align="left">PDF, HTML, etc</td>
-</tr>
-</tbody>
-</table>
-<p>The latest developing version of the album is available at <a href="https://albums.yuanting.lu/handbookforhandouts" class="uri">https://albums.yuanting.lu/handbookforhandouts</a>.</p>
-<p>PS: Bless my heart. I had been writing matrices for ten years using:</p>
-<pre><code>\[
-\left(
-\begin{array}{cc}
-a &amp; b\\ c &amp; d
-\end{array}
-\right)
-\]</code></pre>
-<p>Macon, GA</p>
-<p>June, 2020</p>
+<div id="the-desolve-package-for-differential-equations" class="section level2">
+<h2><span class="header-section-number">7.3</span> The DeSolve Package for Differential Equations</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-1"></a><span class="kw">library</span>(deSolve)</span>
+<span id="cb29-2"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-2"></a><span class="kw">source</span>(<span class="st">&#39;~/Dropbox/Project-R/MyToolbox/combineMAT.r&#39;</span>) <span class="co"># combine matrices w diff size</span></span>
+<span id="cb29-3"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-3"></a><span class="kw">source</span>(<span class="st">&#39;~/Dropbox/Project-R/MyToolbox/DrawAxes.r&#39;</span>) <span class="co"># Draw axes in the center </span></span>
+<span id="cb29-4"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-4"></a>EQNS &lt;-<span class="st"> </span><span class="cf">function</span>(t, status, parms){</span>
+<span id="cb29-5"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-5"></a>  <span class="kw">with</span>(<span class="kw">as.list</span>(status),{</span>
+<span id="cb29-6"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-6"></a>    dX &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">*</span>Y<span class="dv">-2</span><span class="op">*</span>X<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb29-7"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-7"></a>    dY &lt;-<span class="st"> </span><span class="dv">4</span><span class="op">*</span>X<span class="op">-</span>Y<span class="dv">-3</span><span class="op">*</span>X<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb29-8"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-8"></a>    <span class="kw">list</span>(<span class="kw">c</span>(dX,dY))</span>
+<span id="cb29-9"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-9"></a>  })</span>
+<span id="cb29-10"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-10"></a>}</span>
+<span id="cb29-11"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-11"></a></span>
+<span id="cb29-12"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-12"></a>dt &lt;-<span class="st"> </span><span class="fl">0.01</span>; <span class="co">## Step size in t</span></span>
+<span id="cb29-13"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-13"></a>n &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co">## Number of initial value sets</span></span>
+<span id="cb29-14"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-14"></a></span>
+<span id="cb29-15"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-15"></a><span class="co"># Each row is one initial value set in the form of</span></span>
+<span id="cb29-16"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-16"></a><span class="co"># X0, Y0, t_min, t_max, delta_t</span></span>
+<span id="cb29-17"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-17"></a><span class="co"># If t_min &lt; t_max, solve ode backwards</span></span>
+<span id="cb29-18"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-18"></a>ivp &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">0.001</span>, <span class="fl">-0.0001</span>, <span class="dv">0</span>, <span class="dv">5</span>, dt,</span>
+<span id="cb29-19"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-19"></a>                <span class="fl">-0.001</span>, <span class="fl">-0.001</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="op">-</span>dt,</span>
+<span id="cb29-20"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-20"></a>                <span class="fl">-0.001</span>, <span class="fl">-0.001</span>, <span class="dv">0</span>, <span class="fl">2.8</span>, dt,</span>
+<span id="cb29-21"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-21"></a>                <span class="fl">0.001</span>, <span class="fl">-0.001</span>, <span class="fl">2.37</span>, <span class="dv">0</span>, <span class="op">-</span>dt,</span>
+<span id="cb29-22"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-22"></a>                <span class="dv">-1</span>, <span class="fl">3.7</span>, <span class="dv">0</span>, <span class="dv">5</span>, dt),</span>
+<span id="cb29-23"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-23"></a>              <span class="dt">nrow =</span> n, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb29-24"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-24"></a></span>
+<span id="cb29-25"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-25"></a><span class="co"># Numeric solution</span></span>
+<span id="cb29-26"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-26"></a>userdata &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>) </span>
+<span id="cb29-27"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-27"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n){</span>
+<span id="cb29-28"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-28"></a>  status &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">X =</span> ivp[i,<span class="dv">1</span>],<span class="dt">Y =</span> ivp[i,<span class="dv">2</span>])</span>
+<span id="cb29-29"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-29"></a>  t &lt;-<span class="st"> </span><span class="kw">seq</span>(ivp[i,<span class="dv">3</span>],ivp[i,<span class="dv">4</span>],ivp[i,<span class="dv">5</span>])</span>
+<span id="cb29-30"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-30"></a>  out &lt;-<span class="st"> </span><span class="kw">ode</span>(<span class="dt">y =</span> status, <span class="dt">times =</span> t, <span class="dt">func =</span> EQNS, <span class="dt">parms =</span> <span class="ot">NULL</span>)</span>
+<span id="cb29-31"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-31"></a>  </span>
+<span id="cb29-32"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-32"></a>  <span class="co"># &quot;out&quot; has three columns: t, x, y</span></span>
+<span id="cb29-33"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-33"></a>  <span class="co"># Using out[, -1] excludes the first column, which is t.</span></span>
+<span id="cb29-34"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-34"></a>  <span class="co"># First column of userdata are sequential numbers 1, 2, 3, ...</span></span>
+<span id="cb29-35"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-35"></a>  <span class="co"># Rest odd columns of userdata is y</span></span>
+<span id="cb29-36"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-36"></a>  <span class="co"># Even columns of userdata is x</span></span>
+<span id="cb29-37"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-37"></a>  <span class="co"># Did not use cbind because all the &#39;out&#39; from ode are different in row dimension</span></span>
+<span id="cb29-38"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-38"></a>  <span class="co"># Did not use rbind for the convenience of graphing</span></span>
+<span id="cb29-39"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-39"></a>  userdata &lt;-<span class="st"> </span><span class="kw">combineMAT</span>(userdata,out[,<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb29-40"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-40"></a>}</span>
+<span id="cb29-41"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-41"></a></span>
+<span id="cb29-42"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-42"></a><span class="co"># Setting the range</span></span>
+<span id="cb29-43"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-43"></a><span class="co"># Find the max of the absolute value of x and y separately</span></span>
+<span id="cb29-44"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-44"></a><span class="co"># The factor 0.7 is from trial-and-error to make the plot look nice</span></span>
+<span id="cb29-45"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-45"></a>xabs &lt;-<span class="st"> </span><span class="fl">0.7</span> <span class="op">*</span><span class="st"> </span><span class="kw">max</span>(<span class="kw">abs</span>(userdata[,<span class="kw">seq</span>(<span class="dv">2</span>,<span class="dv">2</span><span class="op">*</span>n,<span class="dv">2</span>)])) </span>
+<span id="cb29-46"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-46"></a>yabs &lt;-<span class="st"> </span><span class="kw">max</span>(<span class="kw">abs</span>(userdata[,<span class="kw">seq</span>(<span class="dv">3</span>,<span class="dv">2</span><span class="op">*</span>n<span class="op">+</span><span class="dv">1</span>,<span class="dv">2</span>)])) </span>
+<span id="cb29-47"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-47"></a></span>
+<span id="cb29-48"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-48"></a><span class="co"># Blank plot with axes labels</span></span>
+<span id="cb29-49"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-49"></a><span class="kw">DrawAxes</span>(<span class="op">-</span>xabs, xabs, <span class="op">-</span>yabs, yabs, <span class="st">&#39;x&#39;</span>,<span class="st">&#39;y&#39;</span>, <span class="dv">0</span>)</span>
+<span id="cb29-50"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-50"></a><span class="kw">axis</span>(<span class="dv">1</span>,<span class="dt">at =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">hadj =</span> <span class="fl">0.5</span>, <span class="dt">padj =</span> <span class="dv">-1</span>,</span>
+<span id="cb29-51"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-51"></a>      <span class="dt">lwd.ticks =</span> <span class="dv">2</span>, <span class="dt">tick =</span> <span class="ot">TRUE</span>, <span class="dt">tck =</span> <span class="fl">0.015</span>, <span class="dt">pos =</span> <span class="dv">0</span>)</span>
+<span id="cb29-52"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-52"></a><span class="kw">axis</span>(<span class="dv">4</span>, <span class="dt">at=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">padj =</span> <span class="fl">0.5</span>,</span>
+<span id="cb29-53"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-53"></a>      <span class="dt">tick =</span> <span class="ot">TRUE</span>, <span class="dt">labels =</span> <span class="ot">TRUE</span>, <span class="dt">las =</span> <span class="dv">2</span>, <span class="dt">tck =</span> <span class="fl">-0.01</span>, <span class="dt">pos =</span> <span class="dv">0</span>)</span>
+<span id="cb29-54"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-54"></a></span>
+<span id="cb29-55"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-55"></a><span class="co"># Draw solution curves</span></span>
+<span id="cb29-56"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-56"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n){</span>
+<span id="cb29-57"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-57"></a>  <span class="kw">par</span>(<span class="dt">new=</span><span class="ot">TRUE</span>) <span class="co"># Add to existing plot</span></span>
+<span id="cb29-58"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-58"></a>  <span class="kw">plot</span>(userdata[,<span class="dv">2</span><span class="op">*</span>i], userdata[,<span class="dv">2</span><span class="op">*</span>i<span class="op">+</span><span class="dv">1</span>], <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>,</span>
+<span id="cb29-59"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-59"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span>xabs, xabs), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span>yabs, yabs),</span>
+<span id="cb29-60"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-60"></a>     <span class="dt">xlab =</span> <span class="st">&#39;&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;&#39;</span>,<span class="dt">axes =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb29-61"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-61"></a>}</span>
+<span id="cb29-62"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-62"></a></span>
+<span id="cb29-63"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-63"></a><span class="co"># Draw points of random initial conditions</span></span>
+<span id="cb29-64"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-64"></a><span class="kw">par</span>(<span class="dt">new=</span><span class="ot">TRUE</span>) <span class="co"># Add to existing plot</span></span>
+<span id="cb29-65"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-65"></a><span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">-1</span>, <span class="dv">-3</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="dt">type =</span> <span class="st">&#39;p&#39;</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span><span class="fl">0.7</span>, </span>
+<span id="cb29-66"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-66"></a>     <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span>xabs,xabs), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span>yabs,yabs),</span>
+<span id="cb29-67"><a href="7.3-the-desolve-package-for-differential-equations.html#cb29-67"></a>     <span class="dt">xlab =</span> <span class="st">&#39;&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;&#39;</span>,<span class="dt">axes =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 
 </div>
-
-
-
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-latex-with-tikz-2d.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="7.2-loading-latex-packages-in-r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="8-r-markdown-html-handouts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -332,7 +344,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-rmdpdf.Rmd",
 "text": "Edit"
 },
 "history": {

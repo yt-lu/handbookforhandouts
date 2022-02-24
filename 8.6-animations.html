@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Handbook for Handouts</title>
+  <title>8.6 Animations | Handbook for Handouts</title>
   <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Handbook for Handouts" />
+  <meta property="og:title" content="8.6 Animations | Handbook for Handouts" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Handbook for Handouts" />
+  <meta name="twitter:title" content="8.6 Animations | Handbook for Handouts" />
   
   <meta name="twitter:description" content="This album is a collection of examples for undergraduate math classes." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-latex-with-tikz-2d.html"/>
+<link rel="prev" href="8.5-embed-sagemath.html"/>
+<link rel="next" href="8.7-use-tabs.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -234,74 +234,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Handbook for Handouts</h1>
-<p class="author"><em>Yuanting Lu</em></p>
-<p class="date"><em>2022-02-23</em></p>
+<div id="animations" class="section level2">
+<h2><span class="header-section-number">8.6</span> Animations</h2>
+<p>The <strong>gifski</strong> package can assemble a set of sequential plots into a GIF image, and thus an animation.</p>
+<ol style="list-style-type: decimal">
+<li>Install the <strong>gifski</strong> package.</li>
+<li>Insert a R chunk. Add <em>animation.hook=gifski</em> in the chunk option.</li>
+<li>Set the time interval between frames, e.g., <em>interval=0.25</em>.</li>
+<li>Set <em>cache=TRUE</em> to speed up the processing time.</li>
+</ol>
+<pre><code>```{r, animation.hook=&quot;gifski&quot;, interval=0.25, cache=TRUE} 
+```</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Add a set of sequential plots into the R chunk through a for-loop.</li>
+</ol>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="8.6-animations.html#cb42-1"></a><span class="co"># Define the function f(x)=sin(x)/x</span></span>
+<span id="cb42-2"><a href="8.6-animations.html#cb42-2"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb42-3"><a href="8.6-animations.html#cb42-3"></a>  <span class="kw">return</span>(<span class="kw">sin</span>(x) <span class="op">/</span><span class="st"> </span>x)</span>
+<span id="cb42-4"><a href="8.6-animations.html#cb42-4"></a>}</span>
+<span id="cb42-5"><a href="8.6-animations.html#cb42-5"></a></span>
+<span id="cb42-6"><a href="8.6-animations.html#cb42-6"></a><span class="co"># Animation created from a for-loop</span></span>
+<span id="cb42-7"><a href="8.6-animations.html#cb42-7"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>) {</span>
+<span id="cb42-8"><a href="8.6-animations.html#cb42-8"></a>  <span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="kw">f</span>(<span class="dv">1</span><span class="op">:</span>n), </span>
+<span id="cb42-9"><a href="8.6-animations.html#cb42-9"></a>       <span class="dt">pch=</span><span class="dv">16</span>,            <span class="co"># Use a filled dot for each point</span></span>
+<span id="cb42-10"><a href="8.6-animations.html#cb42-10"></a>       <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">21</span>),    <span class="co"># The range of the x-axis</span></span>
+<span id="cb42-11"><a href="8.6-animations.html#cb42-11"></a>       <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>),   <span class="co"># The range of the y-axis</span></span>
+<span id="cb42-12"><a href="8.6-animations.html#cb42-12"></a>       <span class="dt">main =</span> <span class="st">&#39;Sequence&#39;</span>, <span class="co"># Title</span></span>
+<span id="cb42-13"><a href="8.6-animations.html#cb42-13"></a>       <span class="dt">xlab =</span> <span class="st">&#39;x&#39;</span>,        <span class="co"># x label</span></span>
+<span id="cb42-14"><a href="8.6-animations.html#cb42-14"></a>       <span class="dt">ylab =</span> <span class="st">&#39;sin(x)/x&#39;</span>  <span class="co"># y label</span></span>
+<span id="cb42-15"><a href="8.6-animations.html#cb42-15"></a>  )</span>
+<span id="cb42-16"><a href="8.6-animations.html#cb42-16"></a>}</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-26-.gif" width="672" /></p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Proud of being a ten-year LaTeX user, I was humbled down to the earth again when I recently learned that the easiest way to write a matrix is:</p>
-<pre><code>\[
-\begin{pmatrix}
-a &amp; b\\ c &amp; d
-\end{pmatrix}
-\]</code></pre>
-<p>Besides <em>pmatrix</em>, there are also <em>bmatrix</em>, <em>Bmatrix</em>, <em>vmatrix</em>, and <em>Vmatrix</em> from the <strong>amsmath</strong> package in LaTex.</p>
-<p>Motivated by how little I know about LaTeX and R Markdown (my favourite two document preparation systems), I initiated this album to deposit the tips and examples related to creating nice handouts for undergraduate mathematics classes. The album has two parts:</p>
-<ul>
-<li>Part I: LaTex</li>
-<li>Part II: R Markdown</li>
-</ul>
-<p>Here is a quick comparison of the two systems. Both are adequate for creating nice PDF handouts. However, R Markdown can produce dynamic handouts (in HTML format) with various interactive components, which is helpful for classroom demos (especially for online teaching in the pandemic era). I am curious to see if (and how) the dynamic handouts may change the way we teach in the years to come.</p>
-<table>
-<caption><span id="tab:unnamed-chunk-1">Table 0.1: </span>A quick comparison of LaTex and R Markdown.</caption>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">TeX Support</th>
-<th align="left">Embedded Computation</th>
-<th align="left">Document Type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">LaTex</td>
-<td align="left">Yes</td>
-<td align="left">Sage</td>
-<td align="left">PDF</td>
-</tr>
-<tr class="even">
-<td align="left">R Markdown</td>
-<td align="left">Yes</td>
-<td align="left">R, Python, Sage, etc</td>
-<td align="left">PDF, HTML, etc</td>
-</tr>
-</tbody>
-</table>
-<p>The latest developing version of the album is available at <a href="https://albums.yuanting.lu/handbookforhandouts" class="uri">https://albums.yuanting.lu/handbookforhandouts</a>.</p>
-<p>PS: Bless my heart. I had been writing matrices for ten years using:</p>
-<pre><code>\[
-\left(
-\begin{array}{cc}
-a &amp; b\\ c &amp; d
-\end{array}
-\right)
-\]</code></pre>
-<p>Macon, GA</p>
-<p>June, 2020</p>
-
-</div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-latex-with-tikz-2d.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="8.5-embed-sagemath.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="8.7-use-tabs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -332,7 +303,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-rmdhtml.Rmd",
 "text": "Edit"
 },
 "history": {

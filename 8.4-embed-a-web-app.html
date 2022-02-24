@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.4 Embed a Web App | Handbook for Handouts</title>
   <meta name="description" content="This album is a collection of examples for undergraduate math classes." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.4 Embed a Web App | Handbook for Handouts" />
   <meta property="og:type" content="book" />
@@ -24,16 +24,17 @@
 <meta name="author" content="Yuanting Lu" />
 
 
-<meta name="date" content="2021-03-14" />
+<meta name="date" content="2022-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="8-3-embed-web-page.html"/>
-<link rel="next" href="8-5-embed-sagemath.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="8.3-embed-web-page.html"/>
+<link rel="next" href="8.5-embed-sagemath.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,9 @@
 
 
 
-
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -118,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -137,78 +140,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I LaTeX</b></span></li>
 <li class="chapter" data-level="1" data-path="1-latex-with-tikz-2d.html"><a href="1-latex-with-tikz-2d.html"><i class="fa fa-check"></i><b>1</b> LaTeX with Tikz (2D)</a><ul>
-<li class="chapter" data-level="1.1" data-path="1-1-syntax.html"><a href="1-1-syntax.html"><i class="fa fa-check"></i><b>1.1</b> Syntax</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="1-1-syntax.html"><a href="1-1-syntax.html#the-environment"><i class="fa fa-check"></i><b>1.1.1</b> The environment</a></li>
-<li class="chapter" data-level="1.1.2" data-path="1-1-syntax.html"><a href="1-1-syntax.html#functions-and-constants"><i class="fa fa-check"></i><b>1.1.2</b> Functions and constants</a></li>
+<li class="chapter" data-level="1.1" data-path="1.1-syntax.html"><a href="1.1-syntax.html"><i class="fa fa-check"></i><b>1.1</b> Syntax</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="1.1-syntax.html"><a href="1.1-syntax.html#the-environment"><i class="fa fa-check"></i><b>1.1.1</b> The environment</a></li>
+<li class="chapter" data-level="1.1.2" data-path="1.1-syntax.html"><a href="1.1-syntax.html#functions-and-constants"><i class="fa fa-check"></i><b>1.1.2</b> Functions and constants</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="1-2-parametric-plots-draw-and-node.html"><a href="1-2-parametric-plots-draw-and-node.html"><i class="fa fa-check"></i><b>1.2</b> Parametric Plots (\draw and \node)</a></li>
-<li class="chapter" data-level="1.3" data-path="1-3-shade-an-area.html"><a href="1-3-shade-an-area.html"><i class="fa fa-check"></i><b>1.3</b> Shade an Area</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="1-3-shade-an-area.html"><a href="1-3-shade-an-area.html#the-fill-option-in-draw"><i class="fa fa-check"></i><b>1.3.1</b> The “fill” option in \draw</a></li>
-<li class="chapter" data-level="1.3.2" data-path="1-3-shade-an-area.html"><a href="1-3-shade-an-area.html#fill-by-tikzfillbetween"><i class="fa fa-check"></i><b>1.3.2</b> Fill by \tikzfillbetween</a></li>
-<li class="chapter" data-level="1.3.3" data-path="1-3-shade-an-area.html"><a href="1-3-shade-an-area.html#fill-by-intersection-segments"><i class="fa fa-check"></i><b>1.3.3</b> Fill by Intersection Segments</a></li>
+<li class="chapter" data-level="1.2" data-path="1.2-parametric-plots-draw-and-node.html"><a href="1.2-parametric-plots-draw-and-node.html"><i class="fa fa-check"></i><b>1.2</b> Parametric Plots (\draw and \node)</a></li>
+<li class="chapter" data-level="1.3" data-path="1.3-shade-an-area.html"><a href="1.3-shade-an-area.html"><i class="fa fa-check"></i><b>1.3</b> Shade an Area</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1.3-shade-an-area.html"><a href="1.3-shade-an-area.html#the-fill-option-in-draw"><i class="fa fa-check"></i><b>1.3.1</b> The “fill” option in \draw</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1.3-shade-an-area.html"><a href="1.3-shade-an-area.html#fill-by-tikzfillbetween"><i class="fa fa-check"></i><b>1.3.2</b> Fill by \tikzfillbetween</a></li>
+<li class="chapter" data-level="1.3.3" data-path="1.3-shade-an-area.html"><a href="1.3-shade-an-area.html#fill-by-intersection-segments"><i class="fa fa-check"></i><b>1.3.3</b> Fill by Intersection Segments</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="1-4-curves-on-a-grid.html"><a href="1-4-curves-on-a-grid.html"><i class="fa fa-check"></i><b>1.4</b> Curves on a Grid</a></li>
+<li class="chapter" data-level="1.4" data-path="1.4-curves-on-a-grid.html"><a href="1.4-curves-on-a-grid.html"><i class="fa fa-check"></i><b>1.4</b> Curves on a Grid</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-latex-with-tikz-3d.html"><a href="2-latex-with-tikz-3d.html"><i class="fa fa-check"></i><b>2</b> LaTex with Tikz (3D)</a></li>
 <li class="chapter" data-level="3" data-path="3-latex-with-sagemath.html"><a href="3-latex-with-sagemath.html"><i class="fa fa-check"></i><b>3</b> LaTeX with SageMath</a><ul>
-<li class="chapter" data-level="3.1" data-path="3-1-installation-on-mac-os.html"><a href="3-1-installation-on-mac-os.html"><i class="fa fa-check"></i><b>3.1</b> Installation on Mac OS</a></li>
-<li class="chapter" data-level="3.2" data-path="3-2-basic-examples.html"><a href="3-2-basic-examples.html"><i class="fa fa-check"></i><b>3.2</b> Basic Examples</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="3-2-basic-examples.html"><a href="3-2-basic-examples.html#inline-commands"><i class="fa fa-check"></i><b>3.2.1</b> Inline Commands</a></li>
-<li class="chapter" data-level="3.2.2" data-path="3-2-basic-examples.html"><a href="3-2-basic-examples.html#blocks"><i class="fa fa-check"></i><b>3.2.2</b> Blocks</a></li>
-<li class="chapter" data-level="3.2.3" data-path="3-2-basic-examples.html"><a href="3-2-basic-examples.html#graphics"><i class="fa fa-check"></i><b>3.2.3</b> Graphics</a></li>
+<li class="chapter" data-level="3.1" data-path="3.1-installation-on-mac-os.html"><a href="3.1-installation-on-mac-os.html"><i class="fa fa-check"></i><b>3.1</b> Installation on Mac OS</a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-basic-examples.html"><a href="3.2-basic-examples.html"><i class="fa fa-check"></i><b>3.2</b> Basic Examples</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3.2-basic-examples.html"><a href="3.2-basic-examples.html#inline-commands"><i class="fa fa-check"></i><b>3.2.1</b> Inline Commands</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3.2-basic-examples.html"><a href="3.2-basic-examples.html#blocks"><i class="fa fa-check"></i><b>3.2.2</b> Blocks</a></li>
+<li class="chapter" data-level="3.2.3" data-path="3.2-basic-examples.html"><a href="3.2-basic-examples.html#graphics"><i class="fa fa-check"></i><b>3.2.3</b> Graphics</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-jeopardy-game.html"><a href="4-jeopardy-game.html"><i class="fa fa-check"></i><b>4</b> Jeopardy Game</a><ul>
-<li class="chapter" data-level="4.1" data-path="4-1-JeopardyGameEdit.html"><a href="4-1-JeopardyGameEdit.html"><i class="fa fa-check"></i><b>4.1</b> Download and Edit Template</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="4-1-JeopardyGameEdit.html"><a href="4-1-JeopardyGameEdit.html#design-the-homepage-in-the-macros"><i class="fa fa-check"></i><b>4.1.1</b> Design the Homepage (In the Macros)</a></li>
-<li class="chapter" data-level="4.1.2" data-path="4-1-JeopardyGameEdit.html"><a href="4-1-JeopardyGameEdit.html#edit-the-homepage-in-the-document"><i class="fa fa-check"></i><b>4.1.2</b> Edit the homepage (In the Document)</a></li>
-<li class="chapter" data-level="4.1.3" data-path="4-1-JeopardyGameEdit.html"><a href="4-1-JeopardyGameEdit.html#design-the-questionanswer-pages-in-the-macros"><i class="fa fa-check"></i><b>4.1.3</b> Design the Question/Answer Pages (In the Macros)</a></li>
-<li class="chapter" data-level="4.1.4" data-path="4-1-JeopardyGameEdit.html"><a href="4-1-JeopardyGameEdit.html#edit-the-questionanswer-pages-in-the-document"><i class="fa fa-check"></i><b>4.1.4</b> Edit the Question/Answer Pages (In the Document)</a></li>
+<li class="chapter" data-level="4.1" data-path="4.1-JeopardyGameEdit.html"><a href="4.1-JeopardyGameEdit.html"><i class="fa fa-check"></i><b>4.1</b> Download and Edit Template</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="4.1-JeopardyGameEdit.html"><a href="4.1-JeopardyGameEdit.html#design-the-homepage-in-the-macros"><i class="fa fa-check"></i><b>4.1.1</b> Design the Homepage (In the Macros)</a></li>
+<li class="chapter" data-level="4.1.2" data-path="4.1-JeopardyGameEdit.html"><a href="4.1-JeopardyGameEdit.html#edit-the-homepage-in-the-document"><i class="fa fa-check"></i><b>4.1.2</b> Edit the homepage (In the Document)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="4.1-JeopardyGameEdit.html"><a href="4.1-JeopardyGameEdit.html#design-the-questionanswer-pages-in-the-macros"><i class="fa fa-check"></i><b>4.1.3</b> Design the Question/Answer Pages (In the Macros)</a></li>
+<li class="chapter" data-level="4.1.4" data-path="4.1-JeopardyGameEdit.html"><a href="4.1-JeopardyGameEdit.html#edit-the-questionanswer-pages-in-the-document"><i class="fa fa-check"></i><b>4.1.4</b> Edit the Question/Answer Pages (In the Document)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="4-2-JeopardyGameRemark.html"><a href="4-2-JeopardyGameRemark.html"><i class="fa fa-check"></i><b>4.2</b> (Optional)Explanations of the Template.</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="4-2-JeopardyGameRemark.html"><a href="4-2-JeopardyGameRemark.html#load-packages"><i class="fa fa-check"></i><b>4.2.1</b> Load Packages</a></li>
-<li class="chapter" data-level="4.2.2" data-path="4-2-JeopardyGameRemark.html"><a href="4-2-JeopardyGameRemark.html#colorboxes."><i class="fa fa-check"></i><b>4.2.2</b> Colorboxes.</a></li>
-<li class="chapter" data-level="4.2.3" data-path="4-2-JeopardyGameRemark.html"><a href="4-2-JeopardyGameRemark.html#new-commands"><i class="fa fa-check"></i><b>4.2.3</b> New Commands</a></li>
+<li class="chapter" data-level="4.2" data-path="4.2-JeopardyGameRemark.html"><a href="4.2-JeopardyGameRemark.html"><i class="fa fa-check"></i><b>4.2</b> (Optional)Explanations of the Template.</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="4.2-JeopardyGameRemark.html"><a href="4.2-JeopardyGameRemark.html#load-packages"><i class="fa fa-check"></i><b>4.2.1</b> Load Packages</a></li>
+<li class="chapter" data-level="4.2.2" data-path="4.2-JeopardyGameRemark.html"><a href="4.2-JeopardyGameRemark.html#colorboxes."><i class="fa fa-check"></i><b>4.2.2</b> Colorboxes.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="4.2-JeopardyGameRemark.html"><a href="4.2-JeopardyGameRemark.html#new-commands"><i class="fa fa-check"></i><b>4.2.3</b> New Commands</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-pdf-editor.html"><a href="5-pdf-editor.html"><i class="fa fa-check"></i><b>5</b> PDF Editor</a></li>
 <li class="part"><span><b>II R Markdown</b></span></li>
 <li class="chapter" data-level="6" data-path="6-intro-to-r-markdown.html"><a href="6-intro-to-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Intro to R Markdown</a><ul>
-<li class="chapter" data-level="6.1" data-path="6-1-what-is-r-markdown.html"><a href="6-1-what-is-r-markdown.html"><i class="fa fa-check"></i><b>6.1</b> What is R Markdown?</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-r-markdown-installation.html"><a href="6-2-r-markdown-installation.html"><i class="fa fa-check"></i><b>6.2</b> R Markdown Installation</a></li>
-<li class="chapter" data-level="6.3" data-path="6-3-r-markdown-tutorials.html"><a href="6-3-r-markdown-tutorials.html"><i class="fa fa-check"></i><b>6.3</b> R Markdown Tutorials</a></li>
+<li class="chapter" data-level="6.1" data-path="6.1-what-is-r-markdown.html"><a href="6.1-what-is-r-markdown.html"><i class="fa fa-check"></i><b>6.1</b> What is R Markdown?</a></li>
+<li class="chapter" data-level="6.2" data-path="6.2-r-markdown-installation.html"><a href="6.2-r-markdown-installation.html"><i class="fa fa-check"></i><b>6.2</b> R Markdown Installation</a></li>
+<li class="chapter" data-level="6.3" data-path="6.3-r-markdown-tutorials.html"><a href="6.3-r-markdown-tutorials.html"><i class="fa fa-check"></i><b>6.3</b> R Markdown Tutorials</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-r-markdown-pdf-handouts.html"><a href="7-r-markdown-pdf-handouts.html"><i class="fa fa-check"></i><b>7</b> R Markdown PDF Handouts</a><ul>
-<li class="chapter" data-level="7.1" data-path="7-1-syntax-comparison-with-latex.html"><a href="7-1-syntax-comparison-with-latex.html"><i class="fa fa-check"></i><b>7.1</b> Syntax Comparison with LaTeX</a></li>
-<li class="chapter" data-level="7.2" data-path="7-2-loading-latex-packages-in-r-markdown.html"><a href="7-2-loading-latex-packages-in-r-markdown.html"><i class="fa fa-check"></i><b>7.2</b> Loading LaTeX Packages in R Markdown</a></li>
-<li class="chapter" data-level="7.3" data-path="7-3-the-desolve-package-for-differential-equations.html"><a href="7-3-the-desolve-package-for-differential-equations.html"><i class="fa fa-check"></i><b>7.3</b> The DeSolve Package for Differential Equations</a></li>
+<li class="chapter" data-level="7.1" data-path="7.1-syntax-comparison-with-latex.html"><a href="7.1-syntax-comparison-with-latex.html"><i class="fa fa-check"></i><b>7.1</b> Syntax Comparison with LaTeX</a></li>
+<li class="chapter" data-level="7.2" data-path="7.2-loading-latex-packages-in-r-markdown.html"><a href="7.2-loading-latex-packages-in-r-markdown.html"><i class="fa fa-check"></i><b>7.2</b> Loading LaTeX Packages in R Markdown</a></li>
+<li class="chapter" data-level="7.3" data-path="7.3-the-desolve-package-for-differential-equations.html"><a href="7.3-the-desolve-package-for-differential-equations.html"><i class="fa fa-check"></i><b>7.3</b> The DeSolve Package for Differential Equations</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="8-r-markdown-html-handouts.html"><a href="8-r-markdown-html-handouts.html"><i class="fa fa-check"></i><b>8</b> R Markdown HTML Handouts</a><ul>
-<li class="chapter" data-level="8.1" data-path="8-1-embed-a-static-file.html"><a href="8-1-embed-a-static-file.html"><i class="fa fa-check"></i><b>8.1</b> Embed a Static File</a></li>
-<li class="chapter" data-level="8.2" data-path="8-2-embed-a-video.html"><a href="8-2-embed-a-video.html"><i class="fa fa-check"></i><b>8.2</b> Embed a Video</a></li>
-<li class="chapter" data-level="8.3" data-path="8-3-embed-web-page.html"><a href="8-3-embed-web-page.html"><i class="fa fa-check"></i><b>8.3</b> Embed a Web Page</a></li>
-<li class="chapter" data-level="8.4" data-path="8-4-embed-a-web-app.html"><a href="8-4-embed-a-web-app.html"><i class="fa fa-check"></i><b>8.4</b> Embed a Web App</a></li>
-<li class="chapter" data-level="8.5" data-path="8-5-embed-sagemath.html"><a href="8-5-embed-sagemath.html"><i class="fa fa-check"></i><b>8.5</b> Embed SageMath</a></li>
-<li class="chapter" data-level="8.6" data-path="8-6-animations.html"><a href="8-6-animations.html"><i class="fa fa-check"></i><b>8.6</b> Animations</a></li>
-<li class="chapter" data-level="8.7" data-path="8-7-use-tabs.html"><a href="8-7-use-tabs.html"><i class="fa fa-check"></i><b>8.7</b> Use Tabs</a></li>
+<li class="chapter" data-level="8.1" data-path="8.1-embed-a-static-file.html"><a href="8.1-embed-a-static-file.html"><i class="fa fa-check"></i><b>8.1</b> Embed a Static File</a></li>
+<li class="chapter" data-level="8.2" data-path="8.2-embed-a-video.html"><a href="8.2-embed-a-video.html"><i class="fa fa-check"></i><b>8.2</b> Embed a Video</a></li>
+<li class="chapter" data-level="8.3" data-path="8.3-embed-web-page.html"><a href="8.3-embed-web-page.html"><i class="fa fa-check"></i><b>8.3</b> Embed a Web Page</a></li>
+<li class="chapter" data-level="8.4" data-path="8.4-embed-a-web-app.html"><a href="8.4-embed-a-web-app.html"><i class="fa fa-check"></i><b>8.4</b> Embed a Web App</a></li>
+<li class="chapter" data-level="8.5" data-path="8.5-embed-sagemath.html"><a href="8.5-embed-sagemath.html"><i class="fa fa-check"></i><b>8.5</b> Embed SageMath</a></li>
+<li class="chapter" data-level="8.6" data-path="8.6-animations.html"><a href="8.6-animations.html"><i class="fa fa-check"></i><b>8.6</b> Animations</a></li>
+<li class="chapter" data-level="8.7" data-path="8.7-use-tabs.html"><a href="8.7-use-tabs.html"><i class="fa fa-check"></i><b>8.7</b> Use Tabs</a></li>
 </ul></li>
 <li class="part"><span><b>III SageMath</b></span></li>
 <li class="chapter" data-level="9" data-path="9-sagemath.html"><a href="9-sagemath.html"><i class="fa fa-check"></i><b>9</b> SageMath</a><ul>
-<li class="chapter" data-level="9.1" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html"><i class="fa fa-check"></i><b>9.1</b> Plots (2D)</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html#basic-plots"><i class="fa fa-check"></i><b>9.1.1</b> Basic Plots</a></li>
-<li class="chapter" data-level="9.1.2" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html#popular-objects"><i class="fa fa-check"></i><b>9.1.2</b> Popular Objects</a></li>
-<li class="chapter" data-level="9.1.3" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html#text"><i class="fa fa-check"></i><b>9.1.3</b> Text</a></li>
-<li class="chapter" data-level="9.1.4" data-path="9-1-plots-2d.html"><a href="9-1-plots-2d.html#fill-a-region"><i class="fa fa-check"></i><b>9.1.4</b> Fill a Region</a></li>
+<li class="chapter" data-level="9.1" data-path="9.1-plots-2d.html"><a href="9.1-plots-2d.html"><i class="fa fa-check"></i><b>9.1</b> Plots (2D)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="9.1-plots-2d.html"><a href="9.1-plots-2d.html#basic-plots"><i class="fa fa-check"></i><b>9.1.1</b> Basic Plots</a></li>
+<li class="chapter" data-level="9.1.2" data-path="9.1-plots-2d.html"><a href="9.1-plots-2d.html#popular-objects"><i class="fa fa-check"></i><b>9.1.2</b> Popular Objects</a></li>
+<li class="chapter" data-level="9.1.3" data-path="9.1-plots-2d.html"><a href="9.1-plots-2d.html#text"><i class="fa fa-check"></i><b>9.1.3</b> Text</a></li>
+<li class="chapter" data-level="9.1.4" data-path="9.1-plots-2d.html"><a href="9.1-plots-2d.html#fill-a-region"><i class="fa fa-check"></i><b>9.1.4</b> Fill a Region</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="9-2-plots-3d.html"><a href="9-2-plots-3d.html"><i class="fa fa-check"></i><b>9.2</b> Plots (3D)</a></li>
-<li class="chapter" data-level="9.3" data-path="9-3-widgets.html"><a href="9-3-widgets.html"><i class="fa fa-check"></i><b>9.3</b> Widgets</a></li>
+<li class="chapter" data-level="9.2" data-path="9.2-plots-3d.html"><a href="9.2-plots-3d.html"><i class="fa fa-check"></i><b>9.2</b> Plots (3D)</a></li>
+<li class="chapter" data-level="9.3" data-path="9.3-widgets.html"><a href="9.3-widgets.html"><i class="fa fa-check"></i><b>9.3</b> Widgets</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-latex-additional-examples.html"><a href="A-latex-additional-examples.html"><i class="fa fa-check"></i><b>A</b> LaTeX: Additional Examples</a><ul>
-<li class="chapter" data-level="A.1" data-path="A-1-JeopardyGameDownload.html"><a href="A-1-JeopardyGameDownload.html"><i class="fa fa-check"></i><b>A.1</b> Jeopardy Template</a></li>
+<li class="chapter" data-level="A.1" data-path="A.1-JeopardyGameDownload.html"><a href="A.1-JeopardyGameDownload.html"><i class="fa fa-check"></i><b>A.1</b> Jeopardy Template</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="B-r-markdown-additional-examples.html"><a href="B-r-markdown-additional-examples.html"><i class="fa fa-check"></i><b>B</b> R Markdown: Additional Examples</a><ul>
-<li class="chapter" data-level="B.1" data-path="B-1-embed-web-page-rescale.html"><a href="B-1-embed-web-page-rescale.html"><i class="fa fa-check"></i><b>B.1</b> Embed a Web Page: Rescale the Contents</a></li>
+<li class="chapter" data-level="B.1" data-path="B.1-embed-web-page-rescale.html"><a href="B.1-embed-web-page-rescale.html"><i class="fa fa-check"></i><b>B.1</b> Embed a Web Page: Rescale the Contents</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -252,19 +255,18 @@ knitr::include_app(&#39;https://3.19.223.22:3838/sta126-test/&#39;, height=&#39;
 <li><em>height=‘600px’</em> means the height of the web page is 600 pixels.</li>
 </ul>
 <p>Here is an example of a R Shiny app. Once the last four digits of a student’s Mercer University ID is typed in, the app generates randomized datasets for each student on an introductory statistics test. Students can use the tabs to preview the datasets for the two questions and use the download buttons to save the datasets as csv files. It is also coded in a way that half the students do confidence intervals on Question 7 and hypothesis tests on Question 8, while the other half do hypothesis tests on Question 7 and confidence intervals on Question 8. The codes for the app are explained in the appendix.
-<iframe src="http://3.19.223.22:3838/sta126-test/?showcase=0" width="100%" height="600px"></iframe></p>
+<iframe src="http://3.19.223.22:3838/sta126-test/?showcase=0" width="100%" height="600px" data-external="1"></iframe></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="8-3-embed-web-page.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="8-5-embed-sagemath.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="8.3-embed-web-page.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="8.5-embed-sagemath.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -283,6 +285,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -303,10 +306,13 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
-},
-"search": true
+}
 });
 });
 </script>
